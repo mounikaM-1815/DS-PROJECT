@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 4: Statistical Thinking | Data Science Lab | Mohan Babu University (MBU)</title>
+  <meta name="description" content="Module 4 – Statistical Thinking: Detailed study notes covering distributions, summary statistics, variance, PMFs, CDFs, class size paradox, percentiles, and modeling distributions.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/mbu-logo.png">
+  <style>
+    /* Clean document styling when rendered inside modal viewer */
+    body.in-iframe {
+      background: #f8fafc;
+    }
+    body.in-iframe .site-header,
+    body.in-iframe .site-footer,
+    body.in-iframe .doc-top-bar {
+      display: none !important;
+    }
+    body.in-iframe .module-doc-page {
+      padding: 1.25rem 1rem !important;
+    }
+    body.in-iframe .module-doc-card {
+      box-shadow: none !important;
+      border: 1px solid var(--border-subtle) !important;
+    }
+  </style>
+  <script>
+    if (window.self !== window.top) {
+      document.documentElement.classList.add('in-iframe');
+      window.addEventListener('DOMContentLoaded', () => {
+        document.body.classList.add('in-iframe');
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ==========================================
+       1. HEADER
+       ========================================== -->
+  <header class="site-header" id="mainHeader">
+    <div class="header-container">
+      <div class="header-brand">
+        <a href="index.html" class="brand-link" title="Mohan Babu University">
+          <img src="assets/mbu-logo.png" alt="Mohan Babu University Logo" class="header-logo" id="headerMbuLogo">
+        </a>
+      </div>
+
+      <!-- CENTER: Header Title -->
+      <div class="header-center" id="headerCenter">
+        <span class="header-center-title">DATA SCIENCE</span>
+      </div>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-item">
+            <a href="index.html#heroSection" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="modules.html" class="nav-link active">Modules</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#experimentsSection" class="nav-link">Experiments</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#toolsSection" class="nav-link">Tools</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#resourcesSection" class="nav-link">Resources</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button type="button" class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       MODULE DOCUMENT CONTENT
+       ========================================== -->
+  <main class="module-doc-page">
+    
+    <!-- Top Action Bar -->
+    <div class="doc-top-bar">
+      <a href="modules.html" class="btn-doc-back">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Modules</span>
+      </a>
+
+      <button type="button" class="btn-doc-print" onclick="window.print()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        <span>Print / Save as PDF</span>
+      </button>
+    </div>
+
+    <!-- Main Academic Document Card -->
+    <article class="module-doc-card">
+      
+      <!-- Document Banner -->
+      <div class="doc-banner-header">
+        <span class="doc-badge-pill">CURRICULUM SYLLABUS • MODULE 4</span>
+        <h1 class="doc-main-heading">MODULE 4</h1>
+        <h2 class="doc-sub-heading">STATISTICAL THINKING</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.45rem;">
+          Detailed Study Notes • Distributions • Probability • CDFs • Statistical Models
+        </p>
+        <div class="doc-tag-cloud">
+          <span class="doc-pill-tag accent">Distributions</span>
+          <span class="doc-pill-tag accent">PMFs & CDFs</span>
+          <span class="doc-pill-tag accent">IQR & Outliers</span>
+          <span class="doc-pill-tag">Variance & Bessel's Correction</span>
+          <span class="doc-pill-tag">Class Size Paradox</span>
+          <span class="doc-pill-tag">Normal & Lognormal</span>
+          <span class="doc-pill-tag">Exponential</span>
+        </div>
+      </div>
+
+      <!-- Syllabus Overview Box -->
+      <div class="doc-callout-card info">
+        <div class="doc-callout-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          Syllabus Covered
+        </div>
+        <ul class="doc-list" style="margin-top: 0.35rem; margin-bottom: 0;">
+          <li>Distributions, histograms, outliers, summaries, variance, and reporting results</li>
+          <li>Probability mass functions (PMFs), visualizations, class size paradox, and DataFrame indexing</li>
+          <li>Cumulative distribution functions (CDFs), percentiles, random numbers, and percentile ranks</li>
+          <li>Modeling distributions: exponential, normal, and lognormal distributions</li>
+        </ul>
+        <p style="font-size: 0.9rem; color: var(--text-body); margin-top: 0.65rem; margin-bottom: 0;">
+          <em>Beginner-friendly concepts, formulas, worked examples, Python code, revision tables, and practice questions.</em>
+        </p>
+      </div>
+
+      <!-- How to use these notes & Setup -->
+      <section>
+        <h3 class="doc-section-title">How to use these notes</h3>
+        <p class="doc-paragraph">
+          This module connects descriptive statistics with probability models. Read each definition, follow the small numerical examples, and run the Python snippets to see how the ideas work.
+        </p>
+
+        <h4 class="doc-subsection-title">Install and import</h4>
+        <pre class="doc-code-block"><code>python3 -m pip install numpy pandas matplotlib scipy
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt</code></pre>
+        <p class="doc-paragraph">
+          If you are using a notebook, plots often appear under the cell. In a regular Python script, use <code>plt.show()</code> to display them.
+        </p>
+
+        <div class="doc-callout-card">
+          <div class="doc-callout-title">Learning outcomes</div>
+          <ul class="doc-list" style="margin-bottom: 0;">
+            <li>Describe a dataset with center, spread, shape, and unusual values.</li>
+            <li>Explain PMFs, CDFs, percentiles, and random sampling.</li>
+            <li>Use Pandas indexing to select rows and columns correctly.</li>
+            <li>Recognize exponential, normal, and lognormal distributions.</li>
+            <li>Summarize and report statistical results clearly.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section 1: What is statistical thinking? -->
+      <section>
+        <h3 class="doc-section-title">1. What is statistical thinking?</h3>
+        <p class="doc-paragraph">
+          <strong>Statistical thinking</strong> means using data to understand variation, uncertainty, patterns, and differences. Instead of focusing on one observation, we ask what the whole dataset shows and how reliable that conclusion may be.
+        </p>
+
+        <h4 class="doc-subsection-title">Population, sample, and variable</h4>
+        <ul class="doc-list">
+          <li><strong>Population:</strong> The entire group we want to understand, such as all students in a university.</li>
+          <li><strong>Sample:</strong> The subset actually observed or measured, such as 100 randomly selected students.</li>
+          <li><strong>Variable:</strong> A characteristic recorded for each unit, such as height, marks, or commute travel time.</li>
+          <li><strong>Variation:</strong> The fundamental fact that observations differ from one another across units and conditions.</li>
+        </ul>
+
+        <div class="doc-callout-card success">
+          <div class="doc-callout-title">Example</div>
+          <p class="doc-paragraph" style="margin-bottom: 0;">
+            If we want to understand the average time students take to reach college, we survey a sample. The sample average estimates the population average, but it may differ because of sampling variation.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 2: Distributions -->
+      <section>
+        <h3 class="doc-section-title">2. Distributions</h3>
+        <p class="doc-paragraph">
+          A distribution describes the values a variable takes and how often or how likely those values are. A distribution can be described by its center, spread, shape, and unusual observations.
+        </p>
+
+        <h4 class="doc-subsection-title">2.1 Center</h4>
+        <ul class="doc-list">
+          <li><strong>Mean:</strong> Sum of values divided by the number of values. It uses every value and is sensitive to extreme observations.</li>
+          <li><strong>Median:</strong> The middle value after sorting; for an even number of values, average the two middle values. Highly robust to outliers.</li>
+          <li><strong>Mode:</strong> The most frequent value or category.</li>
+        </ul>
+        <pre class="doc-code-block"><code>data = [2, 3, 3, 4, 18]
+print(np.mean(data))   # Output: 6.0
+print(np.median(data)) # Output: 3.0</code></pre>
+        <p class="doc-paragraph">
+          The single extreme value 18 pulls the mean upward to 6.0, while the median stays near the central observations at 3.0.
+        </p>
+
+        <h4 class="doc-subsection-title">2.2 Spread</h4>
+        <ul class="doc-list">
+          <li><strong>Range:</strong> Maximum minus minimum.</li>
+          <li><strong>Interquartile range (IQR):</strong> Third quartile Q3 minus first quartile Q1; describes the spread of the middle 50% of data.</li>
+          <li><strong>Variance:</strong> Average squared distance from the mean, using a population or sample formula depending on the context.</li>
+          <li><strong>Standard deviation:</strong> Square root of variance; expressed in the exact same physical units as the original data.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">2.3 Shape</h4>
+        <ul class="doc-list">
+          <li><strong>Symmetric:</strong> The left and right sides look roughly similar around the center.</li>
+          <li><strong>Right-skewed:</strong> A long tail extends toward larger positive values; mean is typically greater than median.</li>
+          <li><strong>Left-skewed:</strong> A long tail extends toward smaller negative values; mean is typically less than median.</li>
+          <li><strong>Unimodal / Bimodal:</strong> One prominent peak / two prominent peaks.</li>
+          <li><strong>Uniform-like:</strong> Values occur at roughly similar rates across an entire interval.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">2.4 Plotting a histogram</h4>
+        <p class="doc-paragraph">
+          A histogram groups numerical values into bins and shows the count or density in each interval. It is useful for seeing shape, clusters, gaps, skewness, and possible outliers.
+        </p>
+        <pre class="doc-code-block"><code>marks = [45, 50, 52, 55, 58, 60, 61, 65, 70, 72, 80, 92]
+
+plt.hist(marks, bins=5, edgecolor="black")
+plt.xlabel("Marks")
+plt.ylabel("Frequency")
+plt.title("Distribution of marks")
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          Bin choice matters: too few bins can hide patterns; too many can make random variation look important. Try a few sensible bin counts.
+        </p>
+
+        <h4 class="doc-subsection-title">2.5 Other distribution visualizations</h4>
+        <ul class="doc-list">
+          <li><strong>Box plot:</strong> Shows median, quartiles (Q1, Q3), spread, and potential outliers.</li>
+          <li><strong>Density plot / KDE:</strong> Smooth continuous estimate of a distribution's shape.</li>
+          <li><strong>ECDF:</strong> Shows the empirical fraction of observations less than or equal to each value.</li>
+          <li><strong>Dot plot:</strong> Shows individual values directly and is especially useful for small datasets.</li>
+        </ul>
+      </section>
+
+      <!-- Section 3: Outliers -->
+      <section>
+        <h3 class="doc-section-title">3. Outliers</h3>
+        <p class="doc-paragraph">
+          An outlier is an observation unusually far from the rest of the data. It may be a recording error, a rare but valid event, or evidence of a different subgroup. <em>Do not delete it automatically.</em>
+        </p>
+
+        <h4 class="doc-subsection-title">3.1 IQR rule</h4>
+        <p class="doc-paragraph">
+          Calculate Q1 (25th percentile), Q3 (75th percentile), and IQR = Q3 − Q1. A common flagging rule is:
+        </p>
+        <div class="doc-formula-box">
+          <p style="font-family: monospace; font-size: 1.05rem; font-weight: 700;">
+            Lower fence = Q1 − 1.5 &times; IQR<br>
+            Upper fence = Q3 + 1.5 &times; IQR
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+            Values falling outside the fences are flagged as potential outliers. This is a diagnostic rule, not proof that a value is wrong.
+          </p>
+        </div>
+
+        <pre class="doc-code-block"><code>data = np.array([10, 11, 12, 12, 13, 14, 15, 60])
+
+q1, q3 = np.percentile(data, [25, 75])
+iqr = q3 - q1
+low = q1 - 1.5 * iqr
+high = q3 + 1.5 * iqr
+outliers = data[(data < low) | (data > high)]
+
+print("Q1:", q1, "Q3:", q3, "IQR:", iqr, "Fences:", (low, high))
+print("Potential outliers:", outliers)</code></pre>
+
+        <h4 class="doc-subsection-title">3.2 What to do with an outlier</h4>
+        <ul class="doc-list">
+          <li>Check units, data entry errors, duplicate records, and sensor or measurement problems.</li>
+          <li>Compare the value with primary source records when possible.</li>
+          <li>Ask whether it is plausible in the real context.</li>
+          <li>Report how it affects the mean, median, spread, or model.</li>
+          <li>Keep valid extreme values unless there is a clear, documented reason to exclude them; always explain exclusions.</li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Summarizing distributions -->
+      <section>
+        <h3 class="doc-section-title">4. Summarizing distributions</h3>
+        <p class="doc-paragraph">
+          A good summary usually describes center, spread, shape, and unusual observations. Choose statistics that match the shape of the data.
+        </p>
+
+        <h4 class="doc-subsection-title">4.1 Common summary statistics</h4>
+        <div class="doc-table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Statistic</th>
+                <th>Meaning / formula</th>
+                <th>Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Mean</strong></td>
+                <td>Sum of values &divide; n</td>
+                <td>Roughly symmetric data without extreme outliers</td>
+              </tr>
+              <tr>
+                <td><strong>Median</strong></td>
+                <td>Middle sorted value</td>
+                <td>Skewed data or data containing outliers</td>
+              </tr>
+              <tr>
+                <td><strong>Range</strong></td>
+                <td>Maximum &minus; minimum</td>
+                <td>Very simple overall spread</td>
+              </tr>
+              <tr>
+                <td><strong>Q1 / Q3</strong></td>
+                <td>25th / 75th percentiles</td>
+                <td>Position and quartile spread</td>
+              </tr>
+              <tr>
+                <td><strong>IQR</strong></td>
+                <td>Q3 &minus; Q1</td>
+                <td>Robust spread of the middle 50%</td>
+              </tr>
+              <tr>
+                <td><strong>Variance</strong></td>
+                <td>Mean squared deviation from mean</td>
+                <td>Spread in squared units</td>
+              </tr>
+              <tr>
+                <td><strong>Standard deviation</strong></td>
+                <td>Square root of variance</td>
+                <td>Spread in original measurement units</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="doc-subsection-title">4.2 Example summary in Python</h4>
+        <pre class="doc-code-block"><code>data = pd.Series([10, 11, 12, 12, 13, 14, 15, 60])
+
+print(data.describe())
+print("Variance:", data.var()) # sample variance (ddof=1)
+print("Std dev:", data.std())   # sample standard deviation</code></pre>
+        <p class="doc-paragraph">
+          Pandas <code>var()</code> and <code>std()</code> use sample formulas by default (degrees of freedom = 1). NumPy's <code>np.var()</code> and <code>np.std()</code> default to population-style division by <em>n</em>. Always select the convention that matches the scientific question.
+        </p>
+
+        <h4 class="doc-subsection-title">4.3 Reporting results</h4>
+        <p class="doc-paragraph">
+          A statistical report should state the sample size, units, useful summary statistics, and the pattern shown by the plot. Avoid claiming more than the data supports.
+        </p>
+        <div class="doc-callout-card success">
+          <div class="doc-callout-title">Sample Report Statement</div>
+          <p class="doc-paragraph" style="margin-bottom: 0;">
+            <em>&ldquo;For the 8 recorded values, the median was 12.5 and the distribution included one unusually large value, 60. Because the data are right-skewed, the median and IQR may describe the typical value and spread more robustly than the mean and standard deviation.&rdquo;</em>
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 5: Variance -->
+      <section>
+        <h3 class="doc-section-title">5. Variance</h3>
+        <p class="doc-paragraph">
+          Variance measures how far values spread around their mean. It averages squared deviations, so larger deviations contribute disproportionately and the result is in squared units.
+        </p>
+
+        <h4 class="doc-subsection-title">5.1 Population and sample variance</h4>
+        <div class="doc-formula-box">
+          <p style="font-family: monospace; font-size: 1.05rem; font-weight: 700;">
+            Population variance: &sigma;&sup2; = &Sigma;(x<sub>i</sub> &minus; &mu;)&sup2; / N<br>
+            Sample variance (unbiased): s&sup2; = &Sigma;(x<sub>i</sub> &minus; x&#772;)&sup2; / (n &minus; 1)
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+            The sample formula divides by <strong>n &minus; 1</strong> (Bessel's correction) because the sample mean is estimated from the same data. This correction removes systematic downward bias under standard sampling assumptions.
+          </p>
+        </div>
+
+        <pre class="doc-code-block"><code>values = [2, 4, 6]
+print(np.var(values))           # population variance = 2.666...
+print(np.var(values, ddof=1))   # sample variance = 4.0</code></pre>
+
+        <h4 class="doc-subsection-title">5.2 Hand calculation</h4>
+        <p class="doc-paragraph">
+          For values 2, 4, 6:
+        </p>
+        <ul class="doc-list">
+          <li>Mean &mu; = (2 + 4 + 6) / 3 = 4.</li>
+          <li>Deviations from mean: (2 &minus; 4) = &minus;2, (4 &minus; 4) = 0, (6 &minus; 4) = 2.</li>
+          <li>Squared deviations: (&minus;2)&sup2; = 4, 0&sup2; = 0, 2&sup2; = 4.</li>
+          <li>Sum of squared deviations: 4 + 0 + 4 = 8.</li>
+          <li><strong>Population variance:</strong> 8 / 3 &approx; 2.67.</li>
+          <li><strong>Sample variance:</strong> 8 / (3 &minus; 1) = 8 / 2 = 4.0.</li>
+        </ul>
+        <p class="doc-paragraph">
+          <strong>Interpretation:</strong> Variance is non-negative; zero variance means every observation is identical. Standard deviation is often preferred because it returns to the original physical units.
+        </p>
+      </section>
+
+      <!-- Section 6: Probability mass functions (PMFs) -->
+      <section>
+        <h3 class="doc-section-title">6. Probability mass functions (PMFs)</h3>
+        <p class="doc-paragraph">
+          A <strong>probability mass function</strong> gives the probability of each possible value of a discrete random variable. For a variable X:
+        </p>
+        <div class="doc-formula-box">
+          <p style="font-family: monospace; font-size: 1.15rem; font-weight: 700;">p(x) = P(X = x)</p>
+        </div>
+
+        <h4 class="doc-subsection-title">6.1 PMF rules</h4>
+        <ul class="doc-list">
+          <li>Each individual probability is between 0 and 1: <code>0 &le; p(x) &le; 1</code>.</li>
+          <li>The probabilities over all possible discrete values sum to 1: <code>&Sigma; p(x) = 1</code>.</li>
+          <li>A PMF applies to discrete outcomes such as number of heads, arrivals, or die rolls.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">6.2 Example: fair die</h4>
+        <p class="doc-paragraph">
+          For a fair six-sided die, <code>P(X = x) = 1/6</code> for x &isin; {1, 2, 3, 4, 5, 6}.
+        </p>
+        <pre class="doc-code-block"><code>x = np.arange(1, 7)
+pmf = np.ones(6) / 6
+
+plt.bar(x, pmf, width=0.8, edgecolor="black")
+plt.xticks(x)
+plt.xlabel("Die result")
+plt.ylabel("Probability")
+plt.title("PMF of a fair die")
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">6.3 Plotting a PMF from observed data</h4>
+        <pre class="doc-code-block"><code>outcomes = pd.Series([1, 2, 1, 3, 2, 1, 4, 2, 3, 1])
+pmf = outcomes.value_counts(normalize=True).sort_index()
+
+pmf.plot(kind="bar")
+plt.xlabel("Outcome")
+plt.ylabel("Estimated probability")
+plt.title("Empirical PMF")
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          The empirical PMF estimates probabilities from relative frequencies. A sample estimate may differ from the true probability, especially for small samples.
+        </p>
+
+        <h4 class="doc-subsection-title">6.4 Limits of PMFs</h4>
+        <p class="doc-paragraph">
+          A PMF is strictly for discrete variables. A continuous variable such as height or waiting time does not assign positive probability to each exact point; instead, probabilities are described over intervals using a <strong>probability density function (PDF)</strong>: <code>P(a &le; X &le; b) = &int; f(x) dx</code> (the area under the density curve from a to b).
+        </p>
+
+        <h4 class="doc-subsection-title">6.5 Other visualizations</h4>
+        <ul class="doc-list">
+          <li><strong>PMF bar chart:</strong> for discrete probabilities.</li>
+          <li><strong>Histogram:</strong> for sample observations of continuous/discrete numeric values.</li>
+          <li><strong>PDF / density curve:</strong> for continuous theoretical models.</li>
+          <li><strong>CDF or empirical CDF:</strong> for cumulative probabilities.</li>
+          <li><strong>Box plot:</strong> for compact summaries of center, spread, and potential outliers.</li>
+        </ul>
+      </section>
+
+      <!-- Section 7: The class size paradox -->
+      <section>
+        <h3 class="doc-section-title">7. The class size paradox</h3>
+        <p class="doc-paragraph">
+          The <strong>class size paradox</strong> is a sampling/averaging effect: a student selected at random is more likely to be in a large class than a small class. When asking about the class attended by a randomly selected student, large classes contribute more students and therefore receive more weight.
+        </p>
+
+        <h4 class="doc-subsection-title">7.1 Simple example</h4>
+        <p class="doc-paragraph">
+          Suppose one class has 10 students and another has 30 students (total 40 students).
+        </p>
+        <ul class="doc-list">
+          <li>If you choose a <strong>class</strong> uniformly at random, each class has a 50% chance, and the average class size is: <code>(10 + 30) / 2 = 20</code>.</li>
+          <li>If you choose a <strong>student</strong> uniformly at random, the chance of coming from the larger class is <code>30 / 40 = 75%</code>.</li>
+          <li>The expected class size experienced by a randomly chosen student is:
+            <div class="doc-formula-box" style="margin: 0.5rem 0;">
+              <strong>(10 &times; 10 + 30 &times; 30) / (10 + 30) = (100 + 900) / 40 = 25</strong>
+            </div>
+            which is noticeably larger than the administrator's average of 20!
+          </li>
+        </ul>
+
+        <h4 class="doc-subsection-title">7.2 Why it matters</h4>
+        <ul class="doc-list">
+          <li>Different sampling methods answer fundamentally different questions.</li>
+          <li>An average across groups is not always the same as the average experienced by individuals.</li>
+          <li>Similar weighting distortions occur in hospitals (patient wait times vs physician averages), public transit, and online platforms.</li>
+        </ul>
+      </section>
+
+      <!-- Section 8: DataFrame indexing -->
+      <section>
+        <h3 class="doc-section-title">8. DataFrame indexing</h3>
+        <p class="doc-paragraph">
+          Pandas indexing selects rows and columns. The two most important indexers are <code>loc</code> (label-based) and <code>iloc</code> (integer-position-based).
+        </p>
+        <pre class="doc-code-block"><code>df = pd.DataFrame({
+    "name": ["Asha", "Bala", "Charan"],
+    "marks": [82, 75, 91],
+    "city": ["Ongole", "Tirupati", "Nellore"]
+}, index=["s1", "s2", "s3"])
+
+print(df["marks"])             # one column (Series)
+print(df.loc["s1"])            # row with label s1
+print(df.loc["s1", "marks"])   # value at label s1, column marks
+print(df.iloc[0])              # first row by position
+print(df.iloc[0, 1])           # first row, second column
+print(df.loc["s1":"s2"])       # label slice includes s2
+print(df.iloc[0:2])            # positional slice excludes position 2</code></pre>
+
+        <h4 class="doc-subsection-title">8.1 Boolean indexing</h4>
+        <pre class="doc-code-block"><code>high_marks = df[df["marks"] >= 80]
+print(high_marks)
+
+selected = df.loc[df["marks"] >= 80, ["name", "marks"]]
+print(selected)</code></pre>
+
+        <h4 class="doc-subsection-title">8.2 Common indexing rules</h4>
+        <ul class="doc-list">
+          <li><code>df['column']</code> selects one column.</li>
+          <li><code>df.loc[row_label, column_label]</code> uses labels.</li>
+          <li><code>df.iloc[row_position, column_position]</code> uses integer positions.</li>
+          <li><code>df.loc[condition, columns]</code> filters rows and chooses columns simultaneously.</li>
+          <li>Use <code>.copy()</code> if you need an independent DataFrame to modify without warnings.</li>
+          <li>Label slices with <code>loc</code> include the ending label; positional slices with <code>iloc</code> exclude the stop position.</li>
+        </ul>
+      </section>
+
+      <!-- Section 9: Cumulative distribution functions (CDFs) -->
+      <section>
+        <h3 class="doc-section-title">9. Cumulative distribution functions (CDFs)</h3>
+        <p class="doc-paragraph">
+          A cumulative distribution function gives the probability that a random variable is less than or equal to a value:
+        </p>
+        <div class="doc-formula-box">
+          <p style="font-family: monospace; font-size: 1.15rem; font-weight: 700;">F(x) = P(X &le; x)</p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem;">It accumulates probability from the smallest values upward.</p>
+        </div>
+
+        <h4 class="doc-subsection-title">9.1 CDF properties</h4>
+        <ul class="doc-list">
+          <li><code>F(x)</code> is always between 0 and 1: <code>0 &le; F(x) &le; 1</code>.</li>
+          <li><code>F(x)</code> never decreases as x increases (monotonically non-decreasing).</li>
+          <li>For sufficiently small x, <code>F(x) &rarr; 0</code>; for sufficiently large x, <code>F(x) &rarr; 1</code>.</li>
+          <li>For a discrete variable, the CDF rises in distinct steps; for a continuous variable, it is smooth.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">9.2 Example: die CDF</h4>
+        <pre class="doc-code-block"><code>x = np.arange(1, 7)
+cdf = np.cumsum(np.ones(6) / 6)
+
+plt.step(x, cdf, where="post")
+plt.scatter(x, cdf)
+plt.ylim(0, 1.05)
+plt.xlabel("Die result x")
+plt.ylabel("P(X <= x)")
+plt.title("CDF of a fair die")
+plt.show()
+
+# For a fair die, F(3) = P(X <= 3) = 3/6 = 0.5</code></pre>
+
+        <h4 class="doc-subsection-title">9.3 Empirical CDF</h4>
+        <p class="doc-paragraph">
+          For observed values x<sub>1</sub>, &hellip;, x<sub>n</sub>, the empirical CDF at x is the fraction of observations less than or equal to x.
+        </p>
+        <pre class="doc-code-block"><code>data = np.array([2, 3, 3, 5, 8])
+sorted_data = np.sort(data)
+y = np.arange(1, len(data) + 1) / len(data)
+
+plt.step(sorted_data, y, where="post")
+plt.xlabel("Value")
+plt.ylabel("Fraction <= x")
+plt.title("Empirical CDF")
+plt.ylim(0, 1.05)
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">9.4 CDF versus PMF</h4>
+        <div class="doc-table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>PMF</th>
+                <th>CDF</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Probability at each exact discrete value: <code>P(X = x)</code></td>
+                <td>Cumulative probability up to x: <code>P(X &le; x)</code></td>
+              </tr>
+              <tr>
+                <td>Values sum to 1 across all discrete outcomes: <code>&Sigma; p(x) = 1</code></td>
+                <td>Values rise from 0 toward 1 and never decrease</td>
+              </tr>
+              <tr>
+                <td>Often shown with vertical bars or stems</td>
+                <td>Often shown as a step function (discrete) or smooth curve (continuous)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 10: Percentile-based statistics -->
+      <section>
+        <h3 class="doc-section-title">10. Percentile-based statistics</h3>
+        <p class="doc-paragraph">
+          The <em>p</em>-th percentile is a value at or below which approximately <em>p</em>% of observations fall. The 50th percentile is the median; the 25th and 75th percentiles are Q1 and Q3.
+        </p>
+        <pre class="doc-code-block"><code>data = [12, 15, 18, 20, 22, 25, 30, 35]
+print(np.percentile(data, 25))  # Q1
+print(np.percentile(data, 50))  # Median
+print(np.percentile(data, 75))  # Q3</code></pre>
+
+        <h4 class="doc-subsection-title">10.1 Percentile rank</h4>
+        <p class="doc-paragraph">
+          A <strong>percentile rank</strong> describes the percentage of observations at or below a given score. If a score is at the 90th percentile rank, it is higher than or equal to roughly 90% of the reference observations.
+        </p>
+
+        <h4 class="doc-subsection-title">10.2 Comparing percentile ranks</h4>
+        <p class="doc-paragraph">
+          Raw scores may not be comparable when groups have different distributions. A percentile rank gives a relative position within a chosen reference group, but it does not say how large the absolute numerical difference is.
+        </p>
+        <div class="doc-callout-card info">
+          <div class="doc-callout-title">Example</div>
+          <p class="doc-paragraph" style="margin-bottom: 0;">
+            A score of 80 could be at the 90th percentile in an easy exam, but at the 70th percentile in a different, higher-scoring cohort. Percentiles depend strictly on the comparison population.
+          </p>
+        </div>
+
+        <h4 class="doc-subsection-title">10.3 Percentiles in Python</h4>
+        <pre class="doc-code-block"><code>scores = np.array([55, 60, 62, 70, 75, 80, 90])
+
+p90 = np.percentile(scores, 90)
+print("90th percentile:", p90)
+
+# Approximate fraction at or below a chosen score
+score = 75
+percentile_rank = 100 * np.mean(scores <= score)
+print("Percentile rank:", percentile_rank)</code></pre>
+      </section>
+
+      <!-- Section 11: Random numbers and simulation -->
+      <section>
+        <h3 class="doc-section-title">11. Random numbers and simulation</h3>
+        <p class="doc-paragraph">
+          Random numbers help model uncertainty, test algorithms, and simulate outcomes. A <strong>pseudo-random number generator (PRNG)</strong> produces a sequence that behaves like random data but can be reproduced deterministically using a fixed seed.
+        </p>
+        <pre class="doc-code-block"><code>rng = np.random.default_rng(42)
+
+uniform_values = rng.random(5)            # values in [0, 1)
+die_rolls = rng.integers(1, 7, size=10)   # integers from 1 to 6
+normal_values = rng.normal(loc=0, scale=1, size=1000)
+
+print(uniform_values)
+print(die_rolls)</code></pre>
+
+        <h4 class="doc-subsection-title">11.1 Common random generators</h4>
+        <ul class="doc-list">
+          <li><code>rng.random(n)</code>: <em>n</em> values uniformly sampled from [0, 1).</li>
+          <li><code>rng.integers(low, high, size=n)</code>: random integers in [low, high) (high excluded).</li>
+          <li><code>rng.normal(loc, scale, size)</code>: normal samples with mean <code>loc</code> and std dev <code>scale</code>.</li>
+          <li><code>rng.exponential(scale, size)</code>: exponential samples where <code>scale</code> is the mean (1/rate).</li>
+          <li><code>rng.lognormal(mean, sigma, size)</code>: samples whose natural logarithms are normally distributed.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">11.2 Reproducibility</h4>
+        <p class="doc-paragraph">
+          Set a seed when you want the exact same random sequence to appear again, for example while teaching, debugging, or verifying an experiment. A seed does not make the data truly random; it makes the pseudo-random sequence repeatable.
+        </p>
+      </section>
+
+      <!-- Section 12: Modeling distributions -->
+      <section>
+        <h3 class="doc-section-title">12. Modeling distributions</h3>
+        <p class="doc-paragraph">
+          A distribution model is a mathematical description of how values occur. A model can help estimate probabilities, simulate data, and compare observed patterns with an expected theoretical pattern.
+        </p>
+
+        <h4 class="doc-subsection-title">12.1 Normal distribution</h4>
+        <p class="doc-paragraph">
+          The normal distribution is a symmetric, bell-shaped continuous distribution defined by mean &mu; and standard deviation &sigma;. The mean, median, and mode are equal for an ideal normal distribution.
+        </p>
+        <div class="doc-formula-box">
+          <p style="font-weight: 700;">The 68–95–99.7 Empirical Rule:</p>
+          <ul class="doc-list" style="margin-bottom: 0;">
+            <li>About <strong>68%</strong> of values lie within 1&sigma; of the mean (&mu; &plusmn; 1&sigma;)</li>
+            <li>About <strong>95%</strong> of values lie within 2&sigma; of the mean (&mu; &plusmn; 2&sigma;)</li>
+            <li>About <strong>99.7%</strong> of values lie within 3&sigma; of the mean (&mu; &plusmn; 3&sigma;)</li>
+          </ul>
+        </div>
+        <pre class="doc-code-block"><code>rng = np.random.default_rng(1)
+x = rng.normal(loc=50, scale=10, size=2000)
+
+plt.hist(x, bins=30, density=True, alpha=0.6, edgecolor="white")
+plt.title("Simulated normal distribution")
+plt.xlabel("Value")
+plt.ylabel("Density")
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">12.2 Z-score</h4>
+        <p class="doc-paragraph">
+          A z-score expresses how many standard deviations a value is from the mean:
+        </p>
+        <div class="doc-formula-box">
+          <p style="font-family: monospace; font-size: 1.15rem; font-weight: 700;">z = (x &minus; &mu;) / &sigma;</p>
+        </div>
+        <pre class="doc-code-block"><code>x, mu, sigma = 70, 60, 5
+z = (x - mu) / sigma
+print(z) # 2.0 standard deviations above the mean</code></pre>
+
+        <h4 class="doc-subsection-title">12.3 Exponential distribution</h4>
+        <p class="doc-paragraph">
+          The exponential distribution models non-negative waiting times between events in a constant-rate Poisson process. It is right-skewed and has its highest density near zero.
+        </p>
+        <p class="doc-paragraph">
+          With rate &lambda; &gt; 0, the density is <code>f(x) = &lambda;e<sup>&minus;&lambda;x</sup></code> for x &ge; 0, and the mean is <code>1 / &lambda;</code>. In NumPy, the <code>scale</code> parameter is <code>1 / &lambda;</code>, which equals the mean.
+        </p>
+        <pre class="doc-code-block"><code>rng = np.random.default_rng(2)
+waiting = rng.exponential(scale=5, size=2000) # mean 5
+
+plt.hist(waiting, bins=30, density=True, alpha=0.6)
+plt.title("Simulated exponential waiting times")
+plt.xlabel("Waiting time")
+plt.ylabel("Density")
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">12.4 Lognormal distribution</h4>
+        <p class="doc-paragraph">
+          A lognormal distribution is a positive-valued distribution where the natural logarithm of the variable follows a normal distribution. It is often strongly right-skewed and models quantities formed by multiplicative growth, such as income, asset size, or duration data.
+        </p>
+        <p class="doc-paragraph">
+          If <code>ln(X)</code> is normal with parameters &mu; and &sigma;, then X is lognormal. In NumPy, <code>rng.lognormal(mean=&mu;, sigma=&sigma;)</code> uses &mu; and &sigma; for the underlying normal logarithm, not the arithmetic mean of X.
+        </p>
+        <pre class="doc-code-block"><code>rng = np.random.default_rng(3)
+sizes = rng.lognormal(mean=2, sigma=0.5, size=2000)
+
+plt.hist(sizes, bins=30, density=True, alpha=0.6)
+plt.title("Simulated lognormal values")
+plt.xlabel("Value")
+plt.ylabel("Density")
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">12.5 Compare the three distributions</h4>
+        <div class="doc-table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Distribution</th>
+                <th>Shape / support</th>
+                <th>Example use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Normal</strong></td>
+                <td>Symmetric; any real value (&minus;&infin; to +&infin;)</td>
+                <td>Measurement variation, errors, physical dimensions</td>
+              </tr>
+              <tr>
+                <td><strong>Exponential</strong></td>
+                <td>Right-skewed; x &ge; 0</td>
+                <td>Waiting time between events at a constant rate</td>
+              </tr>
+              <tr>
+                <td><strong>Lognormal</strong></td>
+                <td>Right-skewed; x &gt; 0</td>
+                <td>Positive quantities with multiplicative variation (incomes, city sizes)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="doc-subsection-title">12.6 How to assess a model</h4>
+        <ul class="doc-list">
+          <li>Plot the observed data using a histogram, density plot, or empirical CDF.</li>
+          <li>Compare the observed shape with the model's expected shape.</li>
+          <li>Check whether the model allows impossible values for the problem (e.g. negative waiting times).</li>
+          <li>Use domain knowledge; a visually similar curve does not prove the model is correct.</li>
+          <li>Where appropriate, use diagnostic plots (Q-Q plots) or formal goodness-of-fit tests.</li>
+        </ul>
+      </section>
+
+      <!-- Section 13: Common mistakes -->
+      <section>
+        <h3 class="doc-section-title">13. Common mistakes</h3>
+        <ul class="doc-list">
+          <li><strong>Using mean alone:</strong> Misleading when data are highly skewed or contain extreme values. Use median and IQR alongside mean and std.</li>
+          <li><strong>Calling every IQR-flagged point an error:</strong> Flagged points are candidates for investigation, not automatic deletions.</li>
+          <li><strong>Confusing variance with standard deviation:</strong> Variance is in squared units; standard deviation is in original units.</li>
+          <li><strong>Mixing sample and population variance formulas:</strong> Use <em>N</em> for full populations, <em>n &minus; 1</em> for sample estimates.</li>
+          <li><strong>Treating a histogram as a PMF:</strong> Histogram bins cover continuous intervals; a PMF assigns probabilities to discrete values.</li>
+          <li><strong>Assuming a continuous variable has positive probability at one exact point:</strong> For continuous variables, <code>P(X = x) = 0</code>; probability exists only across intervals.</li>
+          <li><strong>Thinking a CDF can decrease:</strong> A CDF is monotonically non-decreasing.</li>
+          <li><strong>Confusing percentile value with percentile rank:</strong> A percentile is a cutoff value on the measurement scale; percentile rank is a relative percentage position (0–100%).</li>
+          <li><strong>Assuming a random seed alters randomness:</strong> A seed simply makes a pseudo-random sequence deterministic and reproducible.</li>
+          <li><strong>Choosing a distribution based on a tiny histogram:</strong> Small samples exhibit random fluctuations; evaluate larger datasets or domain theory.</li>
+        </ul>
+      </section>
+
+      <!-- Section 14: Quick revision sheet -->
+      <section>
+        <h3 class="doc-section-title">14. Quick revision sheet</h3>
+        <div class="doc-table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Term</th>
+                <th>One-line meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Distribution</strong></td>
+                <td>Values a variable takes and how frequently/likely they occur.</td>
+              </tr>
+              <tr>
+                <td><strong>Outlier</strong></td>
+                <td>Unusual observation far from the main cloud that needs investigation.</td>
+              </tr>
+              <tr>
+                <td><strong>IQR</strong></td>
+                <td>Q3 &minus; Q1; spread of the middle half of data.</td>
+              </tr>
+              <tr>
+                <td><strong>Variance</strong></td>
+                <td>Average squared deviation from the mean, with population (N) or sample (n-1) convention.</td>
+              </tr>
+              <tr>
+                <td><strong>PMF</strong></td>
+                <td>Probability of each exact discrete value: P(X = x).</td>
+              </tr>
+              <tr>
+                <td><strong>CDF</strong></td>
+                <td>Probability that X is less than or equal to x: P(X &le; x).</td>
+              </tr>
+              <tr>
+                <td><strong>Percentile</strong></td>
+                <td>Value below which approximately a given percentage of observations fall.</td>
+              </tr>
+              <tr>
+                <td><strong>Percentile rank</strong></td>
+                <td>Relative position of a value in a reference distribution (0 to 100%).</td>
+              </tr>
+              <tr>
+                <td><strong>Class size paradox</strong></td>
+                <td>A randomly chosen student is more likely to attend a larger class than a small one.</td>
+              </tr>
+              <tr>
+                <td><strong>Normal</strong></td>
+                <td>Symmetric bell-shaped distribution governed by &mu; and &sigma;.</td>
+              </tr>
+              <tr>
+                <td><strong>Exponential</strong></td>
+                <td>Right-skewed non-negative waiting-time model with constant event rate.</td>
+              </tr>
+              <tr>
+                <td><strong>Lognormal</strong></td>
+                <td>Positive values whose natural logarithms are normally distributed.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 15: Exam practice questions -->
+      <section>
+        <h3 class="doc-section-title">15. Exam practice questions</h3>
+        
+        <div class="doc-qa-list">
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q1.</span> Define a distribution and list four ways to describe it.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> A distribution describes the values a variable takes and their frequencies or probabilities. Four ways to describe it are: 1) Center, 2) Spread, 3) Shape, and 4) Unusual values / outliers.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q2.</span> Explain how a histogram represents a distribution.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> A histogram divides the numeric variable range into equal bins and plots vertical bars whose heights represent frequency counts or density in each interval.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q3.</span> What is an outlier? Explain the IQR rule.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> An outlier is an observation unusually distant from other data points. The IQR rule flags any point less than <code>Q1 - 1.5 &times; IQR</code> or greater than <code>Q3 + 1.5 &times; IQR</code>.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q4.</span> Differentiate mean and median when a dataset is right-skewed.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> In right-skewed data, extreme values in the right tail pull the mean upward, making <strong>Mean &gt; Median</strong>. The median remains robust and resistant to extreme observations.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q5.</span> Define variance. Differentiate population variance and sample variance.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Variance is the average squared deviation of values from their mean. Population variance divides by <em>N</em>, while sample variance divides by <em>n &minus; 1</em> to provide an unbiased estimate of the population variance.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q6.</span> What is a PMF? State its properties and give a die example.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> A PMF gives the probability of each discrete outcome: <code>p(x) = P(X = x)</code>. Properties: <code>0 &le; p(x) &le; 1</code> and <code>&Sigma; p(x) = 1</code>. For a fair six-sided die, <code>p(x) = 1/6</code> for x &isin; {1, 2, 3, 4, 5, 6}.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q7.</span> Explain the class size paradox with a numerical example.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> If Class A has 10 students and Class B has 30 students, the dean's average class size is (10+30)/2 = 20. But sampling a student at random gives expected class size: <code>(10&times;10 + 30&times;30)/40 = 25</code>, because 75% of students sit in the larger class.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q8.</span> Differentiate Pandas loc and iloc.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> <code>loc</code> selects rows and columns using index and column labels (inclusive endpoint). <code>iloc</code> selects using integer positions (0-indexed, exclusive endpoint).</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q9.</span> Define the CDF and list its important properties.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> <code>F(x) = P(X &le; x)</code>. Properties: 1) Monotonically non-decreasing; 2) Bound between 0 and 1; 3) <code>F(x) &rarr; 0</code> as <code>x &rarr; -&infin;</code> and <code>F(x) &rarr; 1</code> as <code>x &rarr; +&infin;</code>.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q10.</span> Differentiate PMF and CDF.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> PMF gives the probability of an exact individual discrete outcome <code>P(X = x)</code>. CDF gives the cumulative probability up to that threshold <code>P(X &le; x)</code>.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q11.</span> What is a percentile? What is a percentile rank?</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> A percentile is a data cutoff value below which a given percentage of data falls. Percentile rank is the percentage of values in a distribution that are less than or equal to a given value.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q12.</span> Why is a fixed random seed useful?</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> It makes pseudo-random experiments, model training, and simulations 100% reproducible across different runs and systems.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q13.</span> Explain the normal distribution and the 68–95–99.7 rule.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> A symmetric bell curve defined by &mu; and &sigma;. Approximately 68% of data falls within &mu;&plusmn;1&sigma;, 95% within &mu;&plusmn;2&sigma;, and 99.7% within &mu;&plusmn;3&sigma;.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q14.</span> Describe the exponential distribution and its mean.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Models waiting times between events in a memoryless Poisson process with rate &lambda;. Its support is <code>x &ge; 0</code>, right-skewed, and its mean is <code>1 / &lambda;</code>.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q15.</span> What is a lognormal distribution? How is it related to the normal distribution?</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> A distribution of positive values whose natural logarithm <code>ln(X)</code> follows a normal distribution. Arises from multiplicative random growth.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q16.</span> Name two plots that help compare observed data with a proposed distribution model.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> 1) Histogram overlaid with model density curve (or KDE); 2) Empirical CDF compared against theoretical CDF (or Q-Q plot).</div>
+          </div>
+        </div>
+
+        <div class="doc-callout-card info" style="margin-top: 1.75rem;">
+          <div class="doc-callout-title">Module 4 Summary & Exam Advice</div>
+          <p class="doc-paragraph" style="margin-bottom: 0;">
+            End of Module 4 notes. Revise definitions, formulas for variance and IQR fences, then practice explaining what each plot tells you and why a particular distribution fits a dataset.
+          </p>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col-left">
+        <div class="footer-logo-row">
+          <img src="assets/mbu-logo.png" alt="MBU Logo" class="footer-logo">
+          <span class="footer-brand-title">Mohan Babu University</span>
+        </div>
+        <p class="footer-motto">DREAM. BELIEVE. ACHIEVE.</p>
+        <p class="footer-sub">Department of Computer Science & Engineering — B.Tech Data Science</p>
+      </div>
+      
+      <div class="footer-col-right">
+        <p class="footer-copy">© 2026–2027 Mohan Babu University. All rights reserved.</p>
+        <p class="footer-credit">Developed for Academic Coursework: Mounika • Subject Code: 22DS102006</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

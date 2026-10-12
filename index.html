@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Science Lab | Mohan Babu University (MBU)</title>
+  <meta name="description"
+    content="Official Data Science Laboratory portal for B.Tech CSE – Data Science at Mohan Babu University (MBU), featuring academic experiments, student project analytics, and coursework documentation.">
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/mbu-logo.png">
+</head>
+
+<body>
+
+  <!-- =======================================
+       1. HEADER
+       ========================================== -->
+  <header class="site-header" id="mainHeader">
+    <div class="header-container">
+      <!-- LEFT: Official MBU Logo Only -->
+      <div class="header-brand">
+        <a href="index.html" class="brand-link" title="Mohan Babu University">
+          <img src="assets/mbu-logo.png" alt="Mohan Babu University Logo" class="header-logo" id="headerMbuLogo">
+        </a>
+      </div>
+
+      <!-- RIGHT: Clean Top Navigation -->
+      <nav class="site-nav" id="siteNav" aria-label="Main Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-item">
+            <a href="#heroSection" class="nav-link active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#modulesSection" class="nav-link">Modules</a>
+          </li>
+          <li class="nav-item">
+            <a href="#experimentsSection" class="nav-link">Experiments</a>
+          </li>
+          <li class="nav-item">
+            <a href="#toolsSection" class="nav-link">Tools</a>
+          </li>
+          <li class="nav-item">
+            <a href="#resourcesSection" class="nav-link">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Hamburger Toggle Button -->
+      <button type="button" class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle navigation menu"
+        aria-expanded="false" aria-controls="navLinks">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="page-wrapper">
+
+    <!-- ==========================================
+         2 & 3. MAIN HERO SECTION (COURSE CARD & COLLEGE ID)
+         ========================================== -->
+    <section class="hero-section" id="heroSection">
+      <div class="hero-grid">
+
+        <!-- LEFT SIDE: Professional Data Science Course Card -->
+        <div class="course-card" id="courseCard">
+          <div class="card-accent-bar"></div>
+
+          <div class="course-card-body">
+            <div class="course-title-group">
+              <h1 class="course-main-title">DIGITAL LAB MANUAL</h1>
+              <p class="course-description">Digital Lab Manual – Data Science Lab is an interactive web-based platform
+                designed to provide students with an easy and organized way to access their Data Science laboratory
+                manual. The project contains modules, experiments, experiment descriptions, source code, and interactive
+                code editors in a clean digital format.</p>
+            </div>
+
+            <!-- Academic Metadata Grid -->
+            <div class="course-meta-grid">
+              <div class="meta-item">
+                <span class="meta-label">Student</span>
+                <span class="meta-value student-highlight">Mounika</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">Subject Code</span>
+                <span class="meta-value code-highlight">22DS102006</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE: Digital College ID Card -->
+        <div class="college-id-wrapper" id="collegeIdSection">
+          <div class="id-card" id="digitalIdCard">
+            <!-- ID Card Top Banner with Official MBU Logo -->
+            <div class="id-header">
+              <div class="id-logo-box">
+                <img src="assets/mbu-logo.png" alt="MBU Logo" class="id-mbu-logo">
+              </div>
+              <div class="id-org-text">
+                <span class="id-mbu-title">MOHAN BABU UNIVERSITY</span>
+              </div>
+            </div>
+
+            <!-- ID Card Center: Student Photo & Details -->
+            <div class="id-body">
+              <div class="id-photo-container">
+                <div class="id-photo-frame">
+                  <img src="assets/student-passport-photo.jpg" alt="Student Mounika" class="id-student-photo"
+                    id="studentPhotoImg">
+                </div>
+              </div>
+
+              <div class="id-details">
+                <h3 class="id-student-name">MOUNIKA</h3>
+                <p class="id-student-prog">B.Tech CSE – Data Science</p>
+                <p class="id-student-dept">Mohan Babu University</p>
+
+                <div class="id-meta-list">
+                  <div class="id-meta-row">
+                    <span class="id-label">Student ID:</span>
+                    <span class="id-val highlight-id">24102A030092</span>
+                  </div>
+                  <div class="id-meta-row">
+                    <span class="id-label">Branch:</span>
+                    <span class="id-val">DATA SCIENCE</span>
+                  </div>
+                  <div class="id-meta-row">
+                    <span class="id-label">Section:</span>
+                    <span class="id-val">2</span>
+                  </div>
+                  <div class="id-meta-row">
+                    <span class="id-label">Faculty Name:</span>
+                    <span class="id-val">S. Bosubabu</span>
+                  </div>
+                  <div class="id-meta-row">
+                    <span class="id-label">Designation:</span>
+                    <span class="id-val">Assistant Professor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ID Card Footer: Social Links & View More -->
+            <div class="id-footer">
+              <div class="id-social-links">
+                <a href="https://www.linkedin.com/in/mounika-pasam-5387a8336/" target="_blank" rel="noopener noreferrer"
+                  class="id-social-icon linkedin-link" aria-label="LinkedIn" title="LinkedIn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.62 1.62 0 0 0-1.63 1.62c0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.62-1.63-1.62Z" />
+                  </svg>
+                </a>
+                <a href="https://github.com/mounikaM-1815" target="_blank" rel="noopener noreferrer"
+                  class="id-social-icon github-link" aria-label="GitHub" title="GitHub">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                  </svg>
+                </a>
+              </div>
+              <a href="about.html" class="btn-view-id" id="viewMoreIdBtn" title="View Full Profile &amp; About Me">View
+                More →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. SEARCH BAR SECTION
+         ========================================== -->
+    <section class="search-section" id="searchSection">
+      <div class="search-container">
+        <div class="search-bar-relative">
+          <div class="search-input-wrapper">
+            <svg class="search-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="experimentSearchInput" class="search-input" placeholder="Search experiments..."
+              autocomplete="off" aria-label="Search experiments by number, title, description, or keyword">
+            <button type="button" class="search-clear-btn" id="searchClearBtn" aria-label="Clear search query"
+              style="display: none;">
+              &times;
+            </button>
+          </div>
+          <!-- Search Suggestions Dropdown -->
+          <div class="search-suggestions-dropdown" id="searchSuggestionsDropdown" role="listbox" style="display: none;">
+          </div>
+        </div>
+        <!-- Small feedback message for invalid search -->
+        <div class="search-feedback-msg" id="searchFeedbackMsg" style="display: none;" role="status">No module or
+          experiment found.</div>
+        <div class="search-helper-meta" id="searchCountIndicator">
+          Showing all 10 experiments
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         6. OVERVIEW SECTION
+         ========================================== -->
+    <section class="overview-section" id="overviewSection" style="margin-bottom: 0;">
+      <div class="overview-inner">
+        <div class="section-header-block text-center">
+          <span class="section-tag">CURRICULUM ARCHITECTURE</span>
+          <h2 class="section-title">OVERVIEW</h2>
+          <div class="section-divider center"></div>
+        </div>
+
+        <p class="overview-lead-text">
+          This Data Science Laboratory provides a practical environment for learning and implementing important concepts
+          in data analysis, statistics, visualization, machine learning and time-series analysis. Each experiment is
+          organized to provide hands-on learning through theory, procedure, implementation, output and results.
+        </p>
+
+        <!-- 4 Small Statistic Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon-wrapper">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <div class="stat-number">10</div>
+            <div class="stat-label">Experiments</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon-wrapper">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <div class="stat-number">Python</div>
+            <div class="stat-label">Based</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon-wrapper">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                </path>
+              </svg>
+            </div>
+            <div class="stat-number">Practical</div>
+            <div class="stat-label">Learning</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon-wrapper">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <div class="stat-number">Data</div>
+            <div class="stat-label">Analysis</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         7. MODULES SECTION (SCROLLABLE HOMEPAGE)
+         ========================================== -->
+    <section class="home-scroll-section js-reveal" id="modulesSection">
+      <div class="section-header-block text-center">
+        <span class="section-tag">CURRICULUM SYLLABUS</span>
+        <h2 class="section-title">MODULES</h2>
+        <div class="section-divider center"></div>
+      </div>
+
+      <div class="modules-grid-home">
+        <!-- Module 1 -->
+        <div class="module-card-home" id="homeModule1">
+          <div class="module-card-top">
+            <span class="module-badge badge-active">MODULE 01</span>
+          </div>
+          <h3 class="module-card-title">Introduction</h3>
+          <p class="module-card-desc">Fundamental concepts of Data Science, Python programming environments, essential
+            libraries, and digital laboratory protocols.</p>
+          <div class="module-card-footer">
+            <a href="module1.html" class="btn-module-open" aria-label="Open Module 1 Introduction">
+              <span>Open Module →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="module-card-home" id="homeModule2">
+          <div class="module-card-top">
+            <span class="module-badge badge-active">MODULE 02</span>
+          </div>
+          <h3 class="module-card-title">Data Extraction</h3>
+          <p class="module-card-desc">Techniques for extracting structured and unstructured data from REST APIs, SQL
+            databases, web scraping, and diverse data formats.</p>
+          <div class="module-card-footer">
+            <a href="module2.html" class="btn-module-open" aria-label="Open Module 2 Data Extraction">
+              <span>Open Module →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="module-card-home" id="homeModule3">
+          <div class="module-card-top">
+            <span class="module-badge badge-active">MODULE 03</span>
+          </div>
+          <h3 class="module-card-title">Data Visualization</h3>
+          <p class="module-card-desc">Matplotlib API primer, Pandas and Seaborn plotting, line &amp; bar plots,
+            histograms &amp; KDE, scatter plots, facet grids, and modern Python visualization tools.</p>
+          <div class="module-card-footer">
+            <a href="module3.html" class="btn-module-open" aria-label="Open Module 3 Data Visualization">
+              <span>Open Module →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Module 4 -->
+        <div class="module-card-home" id="homeModule4">
+          <div class="module-card-top">
+            <span class="module-badge badge-active">MODULE 04</span>
+          </div>
+          <h3 class="module-card-title">Statistical Thinking</h3>
+          <p class="module-card-desc">Distributions, summary statistics, variance, PMFs, CDFs, percentile ranks, class
+            size paradox, DataFrame indexing, and modeling normal, exponential, &amp; lognormal distributions.</p>
+          <div class="module-card-footer">
+            <a href="module4.html" class="btn-module-open" aria-label="Open Module 4 Statistical Thinking">
+              <span>Open Module →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Module 5 -->
+        <div class="module-card-home" id="homeModule5">
+          <div class="module-card-top">
+            <span class="module-badge badge-active">MODULE 05</span>
+          </div>
+          <h3 class="module-card-title">Time Series &amp; Predictive Modeling</h3>
+          <p class="module-card-desc">Time series importing, moving averages, autocorrelation, predictive modeling
+            workflows, train/test splitting, error metrics, and sentiment analysis with TF-IDF.</p>
+          <div class="module-card-footer">
+            <a href="module5.html" class="btn-module-open" aria-label="Open Module 5 Time Series & Predictive Modeling">
+              <span>Open Module →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         8. EXPERIMENTS SECTION (SCROLLABLE HOMEPAGE)
+         ========================================== -->
+    <section class="home-scroll-section js-reveal" id="experimentsSection">
+      <div class="section-header-block text-center">
+        <span class="section-tag">PRACTICAL LABWORK</span>
+        <h2 class="section-title">EXPERIMENTS</h2>
+        <div class="section-divider center"></div>
+      </div>
+
+      <div class="experiments-grid-10">
+        <a href="experiment1.html" class="exp-color-btn exp-btn-1"
+          aria-label="Open Experiment 1: Reading and Writing CSV, JSON, and Excel Data using Pandas">
+          <span class="exp-btn-num">Experiment 1</span>
+          <span class="exp-btn-title">CSV, JSON &amp; Excel I/O</span>
+        </a>
+        <a href="experiment2.html" class="exp-color-btn exp-btn-2"
+          aria-label="Open Experiment 2: Interacting with Web APIs and Databases">
+          <span class="exp-btn-num">Experiment 2</span>
+          <span class="exp-btn-title">Web APIs &amp; Databases</span>
+        </a>
+        <a href="experiment3.html" class="exp-color-btn exp-btn-3"
+          aria-label="Open Experiment 3: Data Cleaning and Preparation">
+          <span class="exp-btn-num">Experiment 3</span>
+          <span class="exp-btn-title">Data Cleaning &amp; Prep</span>
+        </a>
+        <a href="experiment4.html" class="exp-color-btn exp-btn-4" aria-label="Open Experiment 4: Data Visualization">
+          <span class="exp-btn-num">Experiment 4</span>
+          <span class="exp-btn-title">Data Visualization</span>
+        </a>
+        <a href="experiment5.html" class="exp-color-btn exp-btn-5" aria-label="Open Experiment 5: Hypothesis Testing">
+          <span class="exp-btn-num">Experiment 5</span>
+          <span class="exp-btn-title">Hypothesis Testing</span>
+        </a>
+        <a href="experiment6.html" class="exp-color-btn exp-btn-6"
+          aria-label="Open Experiment 6: Linear Regression Analysis">
+          <span class="exp-btn-num">Experiment 6</span>
+          <span class="exp-btn-title">Linear Regression</span>
+        </a>
+        <a href="experiment7.html" class="exp-color-btn exp-btn-7"
+          aria-label="Open Experiment 7: Classification Algorithms">
+          <span class="exp-btn-num">Experiment 7</span>
+          <span class="exp-btn-title">Classification</span>
+        </a>
+        <a href="experiment8.html" class="exp-color-btn exp-btn-8"
+          aria-label="Open Experiment 8: Clustering Techniques">
+          <span class="exp-btn-num">Experiment 8</span>
+          <span class="exp-btn-title">Clustering Techniques</span>
+        </a>
+        <a href="experiment9.html" class="exp-color-btn exp-btn-9" aria-label="Open Experiment 9: Correlation Analysis">
+          <span class="exp-btn-num">Experiment 9</span>
+          <span class="exp-btn-title">Correlation Analysis</span>
+        </a>
+        <a href="experiment10.html" class="exp-color-btn exp-btn-10" aria-label="Open Experiment 10: Model Evaluation">
+          <span class="exp-btn-num">Experiment 10</span>
+          <span class="exp-btn-title">Model Evaluation</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         9. TOOLS SECTION (SCROLLABLE HOMEPAGE)
+         ========================================== -->
+    <section class="home-scroll-section js-reveal" id="toolsSection">
+      <div class="section-header-block text-center">
+        <span class="section-tag">LABORATORY UTILITIES</span>
+        <h2 class="section-title">TOOLS</h2>
+        <div class="section-divider center"></div>
+      </div>
+
+      <div class="tools-grid-home">
+        <!-- Tool 1: Interactive Python Editor -->
+        <div class="tool-card-home">
+          <div class="tool-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h3 class="tool-card-title">Interactive Python Runner</h3>
+          <p class="tool-card-desc">In-browser live Python code execution playground powered by Pyodide with instant
+            output and terminal error inspection.</p>
+          <a href="experiment5.html#codePlaygroundSection" class="btn-tool-open">Open Tool →</a>
+        </div>
+
+        <!-- Tool 2: Search Engine -->
+        <div class="tool-card-home">
+          <div class="tool-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <h3 class="tool-card-title">Curriculum Search</h3>
+          <p class="tool-card-desc">Real-time autocomplete engine for quickly locating experiments, syllabus topics,
+            code examples, and theory notes.</p>
+          <a href="#searchSection" class="btn-tool-open">Open Tool →</a>
+        </div>
+
+        <!-- Tool 3: Visualizer -->
+        <div class="tool-card-home">
+          <div class="tool-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+          </div>
+          <h3 class="tool-card-title">Data Visualizer</h3>
+          <p class="tool-card-desc">Interactive charting utilities supporting Matplotlib and Seaborn line graphs,
+            histograms, and regression plots.</p>
+          <a href="experiment4.html" class="btn-tool-open">Open Tool →</a>
+        </div>
+
+        <!-- Tool 4: Document Viewer -->
+        <div class="tool-card-home">
+          <div class="tool-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <h3 class="tool-card-title">Digital Manual Viewer</h3>
+          <p class="tool-card-desc">Structured reader interface for viewing official university lab manuals, experiment
+            procedures, and guidelines.</p>
+          <a href="module1.html" class="btn-tool-open">Open Tool →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         10. RESOURCES SECTION (SCROLLABLE HOMEPAGE)
+         ========================================== -->
+    <section class="home-scroll-section js-reveal" id="resourcesSection">
+      <div class="section-header-block text-center">
+        <span class="section-tag">LEARNING MATERIALS</span>
+        <h2 class="section-title">RESOURCES</h2>
+        <div class="section-divider center"></div>
+      </div>
+
+      <div class="resources-grid-home">
+        <!-- Resource 1: Python -->
+        <div class="resource-card-home">
+          <div class="resource-header">
+            <span class="resource-icon-emoji">📚</span>
+            <h3 class="resource-name">Python Documentation</h3>
+          </div>
+          <p class="resource-desc">Learn Python fundamentals and syntax, standard libraries, and comprehensive language
+            documentation.</p>
+          <div class="module-card-footer" style="padding-top: 0.75rem; border-top: 1px solid #f1f5f9;">
+            <a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer" class="btn-resource-visit"
+              aria-label="Visit Python Documentation">
+              <span>Visit Resource →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Resource 2: Pandas -->
+        <div class="resource-card-home">
+          <div class="resource-header">
+            <span class="resource-icon-emoji">🐼</span>
+            <h3 class="resource-name">Pandas</h3>
+          </div>
+          <p class="resource-desc">Data manipulation and analysis resources, DataFrame operations, data cleaning, and
+            indexing guides.</p>
+          <div class="module-card-footer" style="padding-top: 0.75rem; border-top: 1px solid #f1f5f9;">
+            <a href="https://pandas.pydata.org/docs/" target="_blank" rel="noopener noreferrer"
+              class="btn-resource-visit" aria-label="Visit Pandas Documentation">
+              <span>Visit Resource →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Resource 3: NumPy -->
+        <div class="resource-card-home">
+          <div class="resource-header">
+            <span class="resource-icon-emoji">🔢</span>
+            <h3 class="resource-name">NumPy</h3>
+          </div>
+          <p class="resource-desc">Numerical computing resources, N-dimensional arrays, vectorization, and mathematical
+            functions.</p>
+          <div class="module-card-footer" style="padding-top: 0.75rem; border-top: 1px solid #f1f5f9;">
+            <a href="https://numpy.org/doc/stable/" target="_blank" rel="noopener noreferrer" class="btn-resource-visit"
+              aria-label="Visit NumPy Documentation">
+              <span>Visit Resource →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Resource 4: Matplotlib -->
+        <div class="resource-card-home">
+          <div class="resource-header">
+            <span class="resource-icon-emoji">📊</span>
+            <h3 class="resource-name">Matplotlib</h3>
+          </div>
+          <p class="resource-desc">Data visualization resources, publication-quality plots, custom figures, and
+            visualization galleries.</p>
+          <div class="module-card-footer" style="padding-top: 0.75rem; border-top: 1px solid #f1f5f9;">
+            <a href="https://matplotlib.org/stable/contents.html" target="_blank" rel="noopener noreferrer"
+              class="btn-resource-visit" aria-label="Visit Matplotlib Documentation">
+              <span>Visit Resource →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Resource 5: Scikit-learn -->
+        <div class="resource-card-home">
+          <div class="resource-header">
+            <span class="resource-icon-emoji">🤖</span>
+            <h3 class="resource-name">Scikit-learn</h3>
+          </div>
+          <p class="resource-desc">Machine learning documentation, statistical modeling, classification, regression, and
+            clustering tutorials.</p>
+          <div class="module-card-footer" style="padding-top: 0.75rem; border-top: 1px solid #f1f5f9;">
+            <a href="https://scikit-learn.org/stable/" target="_blank" rel="noopener noreferrer"
+              class="btn-resource-visit" aria-label="Visit Scikit-learn Documentation">
+              <span>Visit Resource →</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Resource 6: GitHub -->
+        <div class="resource-card-home">
+          <div class="resource-header">
+            <span class="resource-icon-emoji">💻</span>
+            <h3 class="resource-name">GitHub</h3>
+          </div>
+          <p class="resource-desc">Explore and manage programming projects, git version control workflows, repositories,
+            and documentation.</p>
+          <div class="module-card-footer" style="padding-top: 0.75rem; border-top: 1px solid #f1f5f9;">
+            <a href="https://docs.github.com/" target="_blank" rel="noopener noreferrer" class="btn-resource-visit"
+              aria-label="Visit GitHub Documentation">
+              <span>Visit Resource →</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Clean Academic Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col-left">
+        <div class="footer-logo-row">
+          <img src="assets/mbu-logo.png" alt="MBU Logo" class="footer-logo">
+          <span class="footer-brand-title">Mohan Babu University</span>
+        </div>
+        <p class="footer-motto">DREAM. BELIEVE. ACHIEVE.</p>
+        <p class="footer-sub">Department of Computer Science & Engineering — B.Tech Data Science</p>
+      </div>
+
+      <div class="footer-col-right">
+        <p class="footer-copy">© 2026–2027 Mohan Babu University. All rights reserved.</p>
+        <p class="footer-credit">Developed for Academic Coursework: Mounika • Subject Code: 22DS102006</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript Logic -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>

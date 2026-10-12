@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Mounika Pasam | Data Science Lab | Mohan Babu University (MBU)</title>
+  <meta name="description" content="About Mounika Pasam – Third-year B.Tech Student in Computer Science and Engineering (Data Science) at Mohan Babu University, Tirupati. Education, Technical Skills, Interests, and Career Goals.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/mbu-logo.png">
+</head>
+<body>
+
+  <!-- ==========================================
+       1. HEADER
+       ========================================== -->
+  <header class="site-header" id="mainHeader">
+    <div class="header-container">
+      <div class="header-brand">
+        <a href="index.html" class="brand-link" title="Mohan Babu University">
+          <img src="assets/mbu-logo.png" alt="Mohan Babu University Logo" class="header-logo" id="headerMbuLogo">
+        </a>
+      </div>
+
+      <!-- CENTER: Header Title -->
+      <div class="header-center" id="headerCenter">
+        <span class="header-center-title">DATA SCIENCE</span>
+      </div>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-item">
+            <a href="index.html#heroSection" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="modules.html" class="nav-link">Modules</a>
+          </li>
+          <li class="nav-item">
+            <a href="experiments.html" class="nav-link">Experiments</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#toolsSection" class="nav-link">Tools</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#resourcesSection" class="nav-link">Resources</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link active">About</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button type="button" class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       MAIN ABOUT ME CONTENT
+       ========================================== -->
+  <main class="about-page-main">
+
+    <!-- Top Action Bar -->
+    <div class="about-top-bar">
+      <a href="index.html" class="btn-back-home" id="btnBackHomeTop">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Home</span>
+      </a>
+
+      <div class="about-top-badge">
+        PORTFOLIO &amp; PROFILE • 22DS102006
+      </div>
+    </div>
+
+    <!-- Profile Hero Card -->
+    <section class="about-hero-card" aria-label="Developer Profile Summary">
+      <div class="about-profile-header">
+        
+        <!-- Circular Profile Photo Container (Easily replaceable placeholder) -->
+        <div class="about-avatar-container">
+          <div class="about-avatar-ring">
+            <div class="about-avatar-frame">
+              <!-- Profile Photo: Replace src="assets/student-passport-photo.jpg" with your custom photo at any time -->
+              <img 
+                src="assets/student-passport-photo.jpg" 
+                alt="Mounika Pasam - Profile Photo" 
+                class="about-avatar-img" 
+                id="aboutProfileImg"
+                onerror="this.onerror=null; this.src='assets/student-photo.jpg';"
+              >
+            </div>
+          </div>
+          <div class="about-avatar-badge" title="Verified Student Profile">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Student Information & Social Links -->
+        <div class="about-profile-info">
+          <h1 class="about-name">Mounika Pasam</h1>
+          <h2 class="about-role">Third-Year B.Tech Student • CSE (Data Science)</h2>
+          
+          <p class="about-institution">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--mbu-primary); flex-shrink: 0;">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+            <span>Mohan Babu University, Tirupati, Andhra Pradesh</span>
+          </p>
+
+          <div class="about-badges-row">
+            <span class="about-pill accent">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              Student ID: 24102A030092
+            </span>
+            <span class="about-pill">Section: 2</span>
+            <span class="about-pill">Branch: Data Science</span>
+            <span class="about-pill">Subject Code: 22DS102006</span>
+          </div>
+
+          <!-- Social Buttons: LinkedIn & GitHub -->
+          <div class="about-social-group">
+            <a 
+              href="https://www.linkedin.com/in/mounika-pasam-5387a8336" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn-social-action btn-social-linkedin" 
+              aria-label="Visit Mounika's LinkedIn Profile"
+              title="Connect on LinkedIn"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.62 1.62 0 0 0-1.63 1.62c0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.62-1.63-1.62Z"/>
+              </svg>
+              <span>Connect on LinkedIn</span>
+            </a>
+
+            <a 
+              href="https://github.com/mounikaM-1815" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn-social-action btn-social-github" 
+              aria-label="Visit Mounika's GitHub Profile"
+              title="View Projects on GitHub"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              <span>Follow on GitHub</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Sections Container -->
+    <div class="about-sections-container">
+
+      <!-- Section: Personal Introduction -->
+      <section class="about-content-card" id="personalIntroSection">
+        <h3 class="about-card-title">
+          <span class="about-card-title-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </span>
+          <span>About Me</span>
+        </h3>
+        <p class="about-bio-text">
+          My name is <strong>Mounika Pasam</strong>. I am a third-year B.Tech student specializing in Computer Science and Engineering (Data Science) at Mohan Babu University, Tirupati. I am passionate about programming, problem-solving, web development, and learning new technologies. I am continuously improving my technical skills through practical projects and DSA practice.
+        </p>
+      </section>
+
+      <!-- Section: Education -->
+      <section class="about-content-card" id="educationSection">
+        <h3 class="about-card-title">
+          <span class="about-card-title-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </span>
+          <span>Education</span>
+        </h3>
+
+        <div class="education-timeline-card">
+          <div class="education-logo-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
+          <div>
+            <h4 class="education-degree">Bachelor of Technology (B.Tech)</h4>
+            <div class="education-univ">Computer Science and Engineering (Data Science)</div>
+            <p class="education-meta">
+              <strong>Mohan Babu University</strong> • Tirupati, Andhra Pradesh<br>
+              Status: 3rd Year Undergraduate • Academic Coursework: Data Science Lab (22DS102006)
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Technical Skills -->
+      <section class="about-content-card" id="skillsSection">
+        <h3 class="about-card-title">
+          <span class="about-card-title-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </span>
+          <span>Technical Skills</span>
+        </h3>
+
+        <div class="skills-categories-grid">
+
+          <!-- 1. Programming Languages -->
+          <div class="skill-category-box">
+            <div class="skill-category-header">
+              <span class="skill-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </span>
+              <span class="skill-cat-title">Programming Languages</span>
+            </div>
+            <div class="skill-tags-cloud">
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>Python</span>
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>Java</span>
+            </div>
+          </div>
+
+          <!-- 2. Database -->
+          <div class="skill-category-box">
+            <div class="skill-category-header">
+              <span class="skill-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+              </span>
+              <span class="skill-cat-title">Database</span>
+            </div>
+            <div class="skill-tags-cloud">
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>SQL</span>
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>MySQL</span>
+            </div>
+          </div>
+
+          <!-- 3. Framework -->
+          <div class="skill-category-box">
+            <div class="skill-category-header">
+              <span class="skill-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              </span>
+              <span class="skill-cat-title">Framework</span>
+            </div>
+            <div class="skill-tags-cloud">
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>FastAPI</span>
+            </div>
+          </div>
+
+          <!-- 4. Data Science Libraries -->
+          <div class="skill-category-box">
+            <div class="skill-category-header">
+              <span class="skill-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+              </span>
+              <span class="skill-cat-title">Data Science Libraries</span>
+            </div>
+            <div class="skill-tags-cloud">
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>NumPy</span>
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>Pandas</span>
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>Matplotlib</span>
+            </div>
+          </div>
+
+          <!-- 5. Core Skills -->
+          <div class="skill-category-box">
+            <div class="skill-category-header">
+              <span class="skill-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
+              </span>
+              <span class="skill-cat-title">Core Skills</span>
+            </div>
+            <div class="skill-tags-cloud">
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>Data Structures and Algorithms (DSA) using Python</span>
+            </div>
+          </div>
+
+          <!-- 6. Web Development -->
+          <div class="skill-category-box">
+            <div class="skill-category-header">
+              <span class="skill-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              </span>
+              <span class="skill-cat-title">Web Development</span>
+            </div>
+            <div class="skill-tags-cloud">
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>HTML</span>
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>CSS</span>
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>JavaScript Basics</span>
+            </div>
+          </div>
+
+          <!-- 7. Tools -->
+          <div class="skill-category-box">
+            <div class="skill-category-header">
+              <span class="skill-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+              </span>
+              <span class="skill-cat-title">Tools &amp; Platforms</span>
+            </div>
+            <div class="skill-tags-cloud">
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>Git</span>
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>GitHub</span>
+              <span class="skill-item-tag"><span class="skill-indicator-dot"></span>VS Code</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Section: Interests -->
+      <section class="about-content-card" id="interestsSection">
+        <h3 class="about-card-title">
+          <span class="about-card-title-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </span>
+          <span>Interests</span>
+        </h3>
+
+        <div class="interests-flex-grid">
+          <div class="interest-item-card">
+            <div class="interest-icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <div class="interest-title">Data Science and data visualization</div>
+          </div>
+
+          <div class="interest-item-card">
+            <div class="interest-icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div class="interest-title">Problem-solving and DSA</div>
+          </div>
+
+          <div class="interest-item-card">
+            <div class="interest-icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <div class="interest-title">Web application development</div>
+          </div>
+
+          <div class="interest-item-card">
+            <div class="interest-icon-circle">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+            </div>
+            <div class="interest-title">Building practical projects and exploring new technologies</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section: Career Goal -->
+      <section class="career-goal-card" id="careerGoalSection">
+        <div class="career-goal-header">
+          <span class="career-goal-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+          </span>
+          <h3 class="career-goal-title">Career Goal</h3>
+        </div>
+        <p class="career-goal-statement">
+          &ldquo;My goal is to gain practical industry experience through internships, strengthen my programming and development skills, and grow into a skilled software professional.&rdquo;
+        </p>
+      </section>
+
+      <!-- Bottom Actions Bar -->
+      <div class="about-bottom-actions">
+        <a href="index.html" class="btn-back-home" id="btnBackHomeBottom">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back to Home</span>
+        </a>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="modules.html" class="btn-doc-back">
+            <span>Explore Modules</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="experiments.html" class="btn-doc-back">
+            <span>View Experiments</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col-left">
+        <div class="footer-logo-row">
+          <img src="assets/mbu-logo.png" alt="MBU Logo" class="footer-logo">
+          <span class="footer-brand-title">Mohan Babu University</span>
+        </div>
+        <p class="footer-motto">DREAM. BELIEVE. ACHIEVE.</p>
+        <p class="footer-sub">Department of Computer Science & Engineering — B.Tech Data Science</p>
+      </div>
+      
+      <div class="footer-col-right">
+        <p class="footer-copy">© 2026–2027 Mohan Babu University. All rights reserved.</p>
+        <p class="footer-credit">Developed for Academic Coursework: Mounika • Subject Code: 22DS102006</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

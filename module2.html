@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 2: Data Extraction | Data Science Lab | Mohan Babu University (MBU)</title>
+  <meta name="description" content="Module 2 – Data Extraction: Complete curriculum syllabus notes for Data Science Laboratory at Mohan Babu University.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/mbu-logo.png">
+  <style>
+    /* Clean document styling when rendered inside modal viewer */
+    body.in-iframe {
+      background: #f8fafc;
+    }
+    body.in-iframe .site-header,
+    body.in-iframe .site-footer,
+    body.in-iframe .doc-top-bar {
+      display: none !important;
+    }
+    body.in-iframe .module-doc-page {
+      padding: 1.25rem 1rem !important;
+    }
+    body.in-iframe .module-doc-card {
+      box-shadow: none !important;
+      border: 1px solid var(--border-subtle) !important;
+    }
+  </style>
+  <script>
+    if (window.self !== window.top) {
+      document.documentElement.classList.add('in-iframe');
+      window.addEventListener('DOMContentLoaded', () => {
+        document.body.classList.add('in-iframe');
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ==========================================
+       1. HEADER
+       ========================================== -->
+  <header class="site-header" id="mainHeader">
+    <div class="header-container">
+      <div class="header-brand">
+        <a href="index.html" class="brand-link" title="Mohan Babu University">
+          <img src="assets/mbu-logo.png" alt="Mohan Babu University Logo" class="header-logo" id="headerMbuLogo">
+        </a>
+      </div>
+
+      <!-- CENTER: Header Title -->
+      <div class=header-center id=headerCenter>
+        <span class=header-center-title>DATA SCIENCE</span>
+      </div>
+
+
+      <nav class="site-nav" id="siteNav" aria-label="Main Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-item">
+            <a href="index.html#heroSection" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#modulesSection" class="nav-link active">Modules</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#experimentsSection" class="nav-link">Experiments</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#toolsSection" class="nav-link">Tools</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#resourcesSection" class="nav-link">Resources</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button type="button" class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       MODULE DOCUMENT CONTENT
+       ========================================== -->
+  <main class="module-doc-page">
+    
+    <!-- Top Action Bar -->
+    <div class="doc-top-bar">
+      <a href="modules.html" class="btn-doc-back">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Modules</span>
+      </a>
+
+      <button type="button" class="btn-doc-print" onclick="window.print()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        <span>Print / Save as PDF</span>
+      </button>
+    </div>
+
+    <!-- Main Academic Document Card -->
+    <article class="module-doc-card">
+      
+      <!-- Document Banner -->
+      <div class="doc-banner-header">
+        <span class="doc-badge-pill">CURRICULUM SYLLABUS • MODULE 2</span>
+        <h1 class="doc-main-heading">MODULE 2</h1>
+        <h2 class="doc-sub-heading">DATA EXTRACTION</h2>
+      </div>
+
+      <!-- Section: Extracting Meaning from Data -->
+      <section>
+        <h3 class="doc-section-title">Extracting meaning from data</h3>
+        <p class="doc-paragraph">
+          Companies extract meaning from the data from two people with very different approaches namely, William Cukierski from <a href="http://www.kaggle.com/" target="_blank" rel="noopener noreferrer">Kaggle</a> and David Huffaker from Google.
+        </p>
+
+        <h4 class="doc-subsection-title">William Cukierski - Kaggle</h4>
+        <p class="doc-paragraph">
+          William Cukierski underscores the critical role of both feature extraction and feature selection in the field of data science. He presents the following key ideas:
+        </p>
+        <ul class="doc-list">
+          <li><strong>Feature Extraction:</strong> This process involves converting raw data into a well-structured and clean format, thereby preventing the common issue of unreliable outputs caused by poor input data. The goal is to ensure the dataset used in modeling is both relevant and refined.</li>
+          <li><strong>Feature Selection:</strong> After extraction, the next step is to isolate a subset of data attributes—or combinations of them—that are most useful for modeling. This step is essential for reducing redundancy and enhancing model performance by concentrating only on significant variables.</li>
+          <li><strong>Kaggle Challenges:</strong> Kaggle offers a platform for global data science competitions. Participants receive training and test datasets to build predictive models. These events foster continuous innovation, where participants build upon each other’s progress in a cycle of improvement.</li>
+          <li><strong>Crowdsourced Problem Solving:</strong> By tapping into a worldwide network of data scientists, organizations can access a wide range of ideas and expertise. This collective approach often leads to more creative and effective solutions to complex analytical problems.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Kaggle Competition Framework:</h4>
+        <p class="doc-paragraph">
+          Kaggle is a popular online platform that transforms data science challenges into competitive events. Organizations collaborate with Kaggle to host data-driven contests, inviting data scientists from around the globe to develop solutions. Participants receive both training and testing datasets; however, the test set contains concealed target values. Competitors build models to predict these hidden values and submit their outputs to Kaggle, which ranks them on a dynamic leaderboard.
+        </p>
+        <p class="doc-paragraph">
+          These competitions encourage ongoing refinement of models, as frequent submissions often lead to successive improvements. This iterative process creates a phenomenon where participants continuously outperform each other, commonly known as the "leapfrogging" effect. Nevertheless, extended competitions may lead to unnecessarily complex model architectures, as observed during the Netflix Prize contest.
+        </p>
+
+        <h4 class="doc-subsection-title">Understanding Leapfrogging:</h4>
+        <p class="doc-paragraph">
+          The concept of leapfrogging refers to bypassing intermediate stages of progress or development in favor of more advanced approaches. This can be categorized into several contexts:
+        </p>
+        <ul class="doc-list">
+          <li><strong>Economic Leapfrogging:</strong> Emerging nations often avoid legacy technologies and transition directly to modern systems. For instance, instead of investing in landline infrastructure, many countries adopted mobile phone networks, resulting in faster and more cost-effective connectivity.</li>
+          <li><strong>Technological Leapfrogging:</strong> Within the corporate sector, some firms skip gradual technological upgrades and instead implement cutting-edge innovations, gaining a significant market advantage by accelerating their capabilities.</li>
+          <li><strong>Innovation Leapfrogging:</strong> This involves pursuing breakthrough developments that surpass predictable, step-by-step improvements, enabling organizations to achieve advanced outcomes much more rapidly.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Kaggle's Corporate Collaborations:</h4>
+        <p class="doc-paragraph">
+          Organizations often turn to Kaggle to connect their analytical challenges with a global pool of skilled data scientists. A common obstacle many companies face is their hesitance to share proprietary datasets. Kaggle addresses this by creating a secure, competitive environment that encourages firms to release anonymized data, enabling thousands of data scientists to collaboratively tackle real-world problems.
+        </p>
+        <p class="doc-paragraph">
+          This crowdsourced model has led to notable successes. For instance, Allstate achieved a 271% improvement in one of its actuarial models. In another case, a competition with a modest $1,000 prize generated solutions valued at over $100,000.
+        </p>
+        <p class="doc-paragraph">
+          Some companies also use Kaggle as a recruitment tool. Facebook, for example, once organized a competition where the reward was not money, but a job interview. The event drew 422 participants, highlighting the platform’s potential for talent scouting. However, some critics, like Cathy O’Neil, argue that such initiatives might distract data scientists from considering deeper questions regarding corporate data ethics and policies.
+        </p>
+
+        <h4 class="doc-subsection-title">Ethical Considerations:</h4>
+        <p class="doc-paragraph">Despite the benefits, several ethical concerns emerge:</p>
+        <ul class="doc-list">
+          <li>Internal employees may be at risk if external competitors develop more effective solutions than in-house teams.</li>
+          <li>Contributors might feel exploited, especially when their efforts—driven by relatively small incentives—are used to benefit large corporations.</li>
+          <li>While Kaggle charges companies to host competitions and offers monetary prizes, participation is optional for data scientists.</li>
+        </ul>
+        <p class="doc-paragraph">
+          This model continues to work in favor of companies, particularly while many data scientists are eager to gain experience or exposure. However, if contributors begin to recognize the full value of their work, or demand greater transparency and ethical accountability, engagement may decline—unless the challenges align with their personal or professional values.
+        </p>
+
+        <h4 class="doc-subsection-title">David Huffaker’s Perspective (Google)</h4>
+        <p class="doc-paragraph">
+          David Huffaker from Google advocates for a mixed-methods strategy in social research, integrating both qualitative and quantitative approaches to produce deeper insights. His major contributions include:
+        </p>
+        <ul class="doc-list">
+          <li><strong>From Description to Prediction:</strong> Transitioning from summarizing existing data to using it for forecasting future patterns and behaviors. This involves developing predictive models grounded in historical information.</li>
+          <li><strong>Merging Research Approaches:</strong> Huffaker promotes the combination of methods like user interviews and ethnographic observation with large-scale data analytics. This blended methodology offers a richer, more nuanced picture of user habits and societal trends.</li>
+          <li><strong>Retention Modeling:</strong> Creating predictive systems that estimate whether users will remain active based on their behavior and engagement. Such models assist in designing better strategies to improve user satisfaction and loyalty.</li>
+          <li><strong>Ethics and Data Privacy:</strong> Huffaker places strong emphasis on responsible data usage. He highlights the need for transparency, informed consent, and giving users control over their data to build trust and uphold ethical standards.</li>
+        </ul>
+      </section>
+
+      <!-- Section: Feature Selection -->
+      <section>
+        <h3 class="doc-section-title">Feature selection</h3>
+        
+        <h4 class="doc-subsection-title">Features:</h4>
+        <p class="doc-paragraph">
+          In the realm of data science and machine learning, features refer to the individual measurable attributes or variables that describe an observed phenomenon. These features act as input data for algorithms and are critical in enabling models to detect patterns, make classifications, or forecast outcomes. In essence, features are the foundation upon which predictive models are built.
+        </p>
+
+        <h4 class="doc-subsection-title">Feature Selection:</h4>
+        <p class="doc-paragraph">
+          Feature selection is the technique of identifying the most important variables from a dataset that contribute meaningfully to a model’s performance. It plays a crucial role in refining models by removing irrelevant or redundant information. This not only enhances performance but also improves the model’s generalizability and interpretability.
+        </p>
+
+        <h4 class="doc-subsection-title">Why Is Feature Selection Important?</h4>
+        <ul class="doc-list">
+          <li><strong>Minimizing Overfitting:</strong> Removing unimportant features helps reduce the model’s complexity, allowing it to generalize better to unseen data.</li>
+          <li><strong>Boosting Computational Efficiency:</strong> A leaner set of features means faster training and prediction times, using fewer resources.</li>
+          <li><strong>Improving Interpretability:</strong> With fewer variables, models become more transparent and easier to explain to stakeholders or end users.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Approaches to Feature Selection</h4>
+        <p class="doc-paragraph">There are four major strategies for selecting relevant features:</p>
+        <ul class="doc-list">
+          <li><strong>Filter Methods:</strong> These rely on statistical techniques to rank features independently of any specific machine learning algorithm. Metrics such as correlation coefficients, chi-square tests, and mutual information are commonly used.</li>
+          <li><strong>Wrapper Methods:</strong> These evaluate different combinations of features using a predictive model. Recursive Feature Elimination (RFE) is a well-known example that recursively removes less important variables.</li>
+          <li><strong>Embedded Methods:</strong> In these techniques, feature selection is part of the model training process. Algorithms like Lasso (L1 regularization) automatically shrink less important coefficients to zero during training.</li>
+          <li><strong>Hybrid Methods:</strong> These combine filter and wrapper techniques to leverage the strengths of both—balancing computational efficiency with predictive power.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Example of Feature Selection in Practice</h4>
+        <p class="doc-paragraph">
+          Take the case of a mobile gaming app like <em>Chasing Dragons</em>. To predict whether a user will return in the following month, the model might consider features such as:
+        </p>
+        <ul class="doc-list">
+          <li>Frequency of activity during the first month</li>
+          <li>Duration between the first and second sessions</li>
+          <li>Daily accumulated points</li>
+          <li>Demographic data and device usage</li>
+        </ul>
+        <p class="doc-paragraph">
+          Carefully selecting from these features can enhance the model's ability to make accurate predictions.
+        </p>
+
+        <h4 class="doc-subsection-title">Choosing Features with Stepwise Regression</h4>
+        <p class="doc-paragraph">
+          Stepwise regression is a popular method to systematically select features based on their contribution to model performance. It operates in three primary modes:
+        </p>
+        <ul class="doc-list">
+          <li><strong>Forward Selection:</strong> Starts with no features and adds them one at a time—choosing the feature that most improves model performance at each step—until no further improvements can be made.</li>
+          <li><strong>Backward Elimination:</strong> Begins with all features and removes them one by one—each time eliminating the least impactful feature—until performance no longer improves.</li>
+          <li><strong>Bidirectional (Stepwise) Selection:</strong> A hybrid approach that involves both adding and removing features. It balances the inclusion of relevant features while eliminating redundancy.</li>
+        </ul>
+        <p class="doc-paragraph">
+          Initially, a model may use all available features, but through this iterative selection process, only the most predictive ones are retained, enhancing both efficiency and accuracy.
+        </p>
+
+        <h4 class="doc-subsection-title">Criteria for Selecting the Best Model</h4>
+        <p class="doc-paragraph">
+          To assess which model performs best, data scientists use several well-established evaluation criteria. These not only guide feature selection but also help compare model variants:
+        </p>
+        <ul class="doc-list">
+          <li><strong>R-squared (Coefficient of Determination):</strong> Indicates how much of the variation in the dependent variable is explained by the model. Higher values suggest better explanatory power.</li>
+          <li><strong>P-values:</strong> Especially useful in regression, p-values assess the statistical significance of each feature’s coefficient. Features with low p-values are likely to have a meaningful impact on the model.</li>
+          <li><strong>Akaike Information Criterion (AIC):</strong> Balances model fit and complexity. It penalizes models with more parameters. Lower AIC scores imply a better trade-off between accuracy and simplicity.</li>
+          <li><strong>Bayesian Information Criterion (BIC):</strong> Similar to AIC but with a stricter penalty for model complexity, especially as the sample size increases. Lower BIC values suggest a more optimal model.</li>
+          <li><strong>Entropy (Information Gain):</strong> Commonly used in classification tasks (e.g., decision trees), entropy measures disorder in the dataset. Features that reduce entropy the most are preferred, as they contribute to clearer distinctions between classes.</li>
+          <li><strong>Adjusted R-squared (enhancement):</strong> An improved version of R-squared that accounts for the number of features in the model. It helps prevent overfitting by penalizing the addition of non-informative predictors.</li>
+          <li><strong>Cross-Validation Scores (enhancement):</strong> Evaluating model performance on different subsets of the data helps ensure the selected features generalize well and are not tailored to a specific sample.</li>
+        </ul>
+        <p class="doc-paragraph">
+          By carefully selecting features and using robust evaluation metrics, data scientists can build efficient, interpretable, and high-performing models suited to a variety of tasks and domains.
+        </p>
+      </section>
+
+      <!-- Section: User Retention -->
+      <section>
+        <h3 class="doc-section-title">User retention</h3>
+        <p class="doc-paragraph">
+          Predictive models help determine which user behaviors lead to higher retention. For example, excessive ad exposure in the first five minutes might reduce retention. A/B testing is used to validate such insights.
+        </p>
+        <p class="doc-paragraph">
+          <strong>User Retention Models:</strong> Developing models that predict user retention based on various factors, such as user activity and engagement patterns. These models help in strategizing to improve user retention and satisfaction.
+        </p>
+
+        <h4 class="doc-subsection-title">User Retention: Interpretability Versus Predictive Power</h4>
+        <p class="doc-paragraph">
+          The balance between interpretability and predictive power is important in user retention using decision trees. The key points are discussed below:
+        </p>
+        <ul class="doc-list">
+          <li><strong>1. Interpretability vs. Predictive Power:</strong> Decision trees can predict user behavior effectively, but interpreting them for actionable insights can be challenging. For example, a straightforward insight like "more user engagement leads to higher retention" may not offer actionable strategies.</li>
+          <li><strong>2. Insightful Interpretation:</strong> A more insightful interpretation could reveal specific actions that affect user behavior, such as avoiding showing ads in the initial minutes of app usage. This kind of insight can guide strategies to enhance user retention.</li>
+          <li><strong>3. Causal vs. Correlation Understanding:</strong> There's a distinction between user behavior (e.g., frequency of app usage) and platform actions (e.g., displaying ads). Understanding causation versus correlation is crucial; for instance, high user engagement correlates with higher retention but doesn't necessarily cause it.</li>
+          <li><strong>4. Feature Selection and Testing:</strong> Initial modeling and feature selection help prioritize A/B testing efforts. It's essential to test hypotheses derived from the model to validate actionable insights and refine strategies.</li>
+          <li><strong>5. Practical Implementation:</strong> Focus on features that are actionable (e.g., optimizing ad display timings) rather than those influenced by confounding factors like user interest. This approach ensures that strategies are grounded in actionable insights derived from the data.</li>
+        </ul>
+      </section>
+
+      <!-- Section: Wrappers & Entropy -->
+      <section>
+        <h3 class="doc-section-title">Wrappers</h3>
+        
+        <h4 class="doc-subsection-title">Entropy</h4>
+        <p class="doc-paragraph">
+          Entropy, originally a concept from information theory, is used to measure the level of uncertainty or randomness in a system. In machine learning—particularly in algorithms like decision trees—entropy is a key metric for determining how mixed or impure a dataset is.
+        </p>
+        
+        <div class="doc-formula-box">
+          <p>For a binary random variable <em>X</em> that can take on two outcomes (e.g., 0 and 1), entropy <strong>H(X)</strong> is calculated using the formula:</p>
+          <p style="font-family: monospace; font-size: 1.05rem; margin-top: 0.5rem; font-weight: 600;">
+            H(X) = - [ p(X=1) log₂(p(X=1)) + p(X=0) log₂(p(X=0)) ]
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+            Where:<br>
+            • <em>p(X=1)</em> is the probability that X equals 1<br>
+            • <em>p(X=0)</em> is the probability that X equals 0
+          </p>
+        </div>
+
+        <h4 class="doc-subsection-title">Key Characteristics of Entropy</h4>
+        <ul class="doc-list">
+          <li><strong>Zero Entropy (No Uncertainty):</strong> When the outcome is completely predictable—meaning one class has a probability of 1—the entropy is 0. For example, if every instance belongs to the same class, there’s no uncertainty to measure.</li>
+          <li><strong>Maximum Entropy (Complete Uncertainty):</strong> When all outcomes are equally probable (e.g., <em>p(X=1) = 0.5</em> and <em>p(X=0) = 0.5</em>), the entropy reaches its peak value of 1 bit. This indicates the highest possible level of unpredictability.</li>
+        </ul>
+        <p class="doc-paragraph">The given below figure.1 shows the sample entropy.</p>
+        <p class="doc-paragraph"><em>Figure: Entropy</em></p>
+
+        <h4 class="doc-subsection-title">Intuitive Examples</h4>
+        <p class="doc-paragraph">Entropy can be thought of as a way to gauge how "mixed" a dataset is:</p>
+        <ul class="doc-list">
+          <li><strong>High Entropy Example:</strong> If the likelihood of a newborn being male or female is about equal, the uncertainty is high—meaning the entropy is also high.</li>
+          <li><strong>Low Entropy Example:</strong> In an arid desert where rain is extremely rare, the probability of rainfall is very low. This high predictability results in low entropy.</li>
+        </ul>
+      </section>
+
+      <!-- Section: Decision Tree Algorithm -->
+      <section>
+        <h3 class="doc-section-title">Decision tree algorithm</h3>
+        <p class="doc-paragraph">
+          Decision trees are intuitive models that simplify complex decision-making by breaking it into a sequence of logical conditions or questions. Widely used in both practical scenarios and machine learning tasks, they serve as powerful tools for classification and regression problems.
+        </p>
+        <p class="doc-paragraph">
+          In predictive modeling, decision trees classify instances (e.g., users) into specific categories (e.g., return or no return) based on multiple attributes such as age, activity levels, or demographics. The tree structure visually maps out these decisions from root to leaf, providing clear paths from input features to final predictions.
+        </p>
+
+        <h4 class="doc-subsection-title">Core Components of a Decision Tree</h4>
+        <ul class="doc-list">
+          <li><strong>Root Node</strong> – The initial split based on the most informative feature.</li>
+          <li><strong>Internal Nodes</strong> – Represent decisions based on attributes.</li>
+          <li><strong>Branches</strong> – Indicate outcomes of those decisions.</li>
+          <li><strong>Leaf Nodes</strong> – Final outcomes or predicted classes.</li>
+        </ul>
+        <p class="doc-paragraph">
+          <strong>Example:</strong> A college student deciding how to spend time might have a decision tree that starts with “Is there a party?” and follows with checks like deadlines or urgency, ending with outcomes like “Study,” “Party,” or “Watch TV.”
+        </p>
+
+        <h4 class="doc-subsection-title">How Decision Trees Are Built?</h4>
+        <p class="doc-paragraph">A general procedure for constructing a decision tree:</p>
+        <ul class="doc-list">
+          <li>Start with the full dataset.</li>
+          <li>Calculate entropy for the target variable.</li>
+          <li>Measure information gain for each feature.</li>
+          <li>Select the feature with the highest information gain for splitting.</li>
+          <li>Split the dataset accordingly.</li>
+          <li>Repeat recursively for resulting subsets.</li>
+          <li>Stop when all instances belong to the same class or no more features remain.</li>
+          <li>Optionally, prune the tree to remove branches that don't improve accuracy, reducing overfitting.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Handling Continuous Variables</h4>
+        <p class="doc-paragraph">
+          When dealing with continuous data, the goal is to convert numerical ranges into decision boundaries the tree can use. This can be handled in two ways:
+        </p>
+        
+        <h4 class="doc-subsection-title">Using Built-In Libraries (e.g., scikit-learn)</h4>
+        <p class="doc-paragraph">
+          Most ML libraries automatically manage continuous features by finding optimal thresholds for splitting. Users can pass raw continuous values, and the algorithm internally determines where splits should occur.
+        </p>
+
+        <h4 class="doc-subsection-title">Manual Implementation of Threshold Splitting</h4>
+        <p class="doc-paragraph">If building a tree from scratch, handling continuous data requires:</p>
+        <ul class="doc-list">
+          <li><strong>Finding Optimal Thresholds:</strong> Try various split points and compute metrics like information gain or Gini impurity to identify the threshold with the best performance.</li>
+          <li><strong>Binary Partitioning:</strong> Once a threshold is chosen, split data into two groups—values below and above or equal to the threshold—effectively converting it into a binary feature.</li>
+          <li><strong>Information Gain Calculation:</strong> Evaluate how much uncertainty is reduced after the split. The best threshold minimizes entropy or impurity.</li>
+          <li><strong>Threshold Selection as a Subproblem:</strong> Treat threshold optimization as a subroutine within the overall tree-building process.</li>
+          <li><strong>Optional Binning:</strong> Instead of binary splits, you can convert continuous features into discrete intervals or bins. While this simplifies the tree, it may reduce the model's granularity.</li>
+        </ul>
+        <p class="doc-paragraph">
+          <strong>Example:</strong> If a feature records the number of dragons a user has slain, thresholds like &lt;10 or &ge;10 can be tested. The split that yields the highest information gain would be selected.
+        </p>
+
+        <h4 class="doc-subsection-title">Best Practices and Considerations</h4>
+        <ul class="doc-list">
+          <li>The method used to handle continuous data significantly affects model accuracy.</li>
+          <li>Optimal thresholds depend on the dataset and problem context.</li>
+          <li>While continuous features add flexibility, careful partitioning is essential for effective model performance.</li>
+        </ul>
+      </section>
+
+      <!-- Section: Random Forests -->
+      <section>
+        <h3 class="doc-section-title">Random forests</h3>
+        <p class="doc-paragraph">
+          Random Forest is a powerful extension of decision trees that enhances prediction accuracy and robustness by using a technique known as bagging (bootstrap aggregating). While it improves performance, it can reduce model interpretability compared to individual decision trees.
+        </p>
+
+        <h4 class="doc-subsection-title">Key Concepts in Random Forests:</h4>
+        <p class="doc-paragraph">
+          <strong>Bagging (Bootstrap Aggregating):</strong> Bagging involves creating multiple data subsets through sampling with replacement. Each of these subsets is used to train a separate decision tree. This approach:
+        </p>
+        <ul class="doc-list">
+          <li>Reduces model variance,</li>
+          <li>Prevents overfitting,</li>
+          <li>Increases generalization capability.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Hyperparameters:</h4>
+        <p class="doc-paragraph">Random Forests are relatively easy to configure, with a few essential parameters:</p>
+        <ul class="doc-list">
+          <li><strong>Number of Trees (N):</strong> Defines how many decision trees to grow in the forest.</li>
+          <li><strong>Number of Features (F):</strong> Specifies how many features to randomly consider at each split within a tree.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Bootstrapping Explained:</h4>
+        <p class="doc-paragraph">
+          In bootstrapping, data is randomly sampled with replacement, usually selecting about 80% of the total dataset per sample. Although the sample size becomes an implicit third hyperparameter, it is typically kept fixed during model training.
+        </p>
+
+        <h4 class="doc-subsection-title">Steps in the Random Forest Algorithm:</h4>
+        <ul class="doc-list">
+          <li><strong>Bootstrap Sampling:</strong> For each tree, generate a random sample of the training data (with replacement).</li>
+          <li><strong>Random Feature Selection at Each Node:</strong> At each decision point, randomly choose F features from the full feature set.</li>
+          <li><strong>Node Splitting:</strong> Among the selected features, determine the best split using metrics such as information gain or entropy.</li>
+          <li><strong>Tree Construction:</strong> Grow each tree to its full depth. Unlike traditional decision trees, Random Forest trees are usually not pruned, allowing them to capture detailed data patterns, even if some noise is included.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Tree Depth and Complexity:</h4>
+        <p class="doc-paragraph">
+          While it's possible to control tree depth or apply pruning to simplify trees, Random Forests typically leave trees unpruned to allow them to learn subtle patterns. This depth helps increase predictive power by capturing complex relationships in the data.
+        </p>
+
+        <h4 class="doc-subsection-title">Random Forests in Action: Code Example (R)</h4>
+        <p class="doc-paragraph">Below is a detailed implementation of various models, including Random Forests, using R and the diamonds dataset:</p>
+
+        <pre class="doc-code-block"><code># Load the diamonds dataset
+require(ggplot2)
+data(diamonds)
+head(diamonds)
+
+# Plot histogram of diamond prices with a reference line at $12,000
+ggplot(diamonds) + geom_histogram(aes(x=price)) +
+geom_vline(xintercept=12000)
+
+# Create a binary label: 'Expensive' diamonds if price >= $12,000
+diamonds$Expensive &lt;- ifelse(diamonds$price &gt;= 12000, 1, 0)
+head(diamonds)
+
+# Remove the original 'price' column
+diamonds$price &lt;- NULL
+
+# Logistic Regression using glmnet:
+require(glmnet)
+x &lt;- model.matrix(~., diamonds[, -ncol(diamonds)])
+y &lt;- as.matrix(diamonds$Expensive)
+system.time(modGlmnet &lt;- glmnet(x = x, y = y, family = "binomial"))
+plot(modGlmnet, label = TRUE)
+
+# Decision Tree Model
+require(rpart)
+modTree &lt;- rpart(Expensive ~ ., data = diamonds)
+plot(modTree)
+text(modTree)
+
+# Bagging (Bootstrap Aggregation):
+require(boot)
+mean(diamonds$carat)
+sd(diamonds$carat)
+boot.mean &lt;- function(x, i) { mean(x[i]) }
+boot(data = diamonds$carat, statistic = boot.mean, R = 120)
+
+# Boosting with mboost:
+require(mboost)
+system.time(modglmBoost &lt;- glmboost(as.factor(Expensive) ~ .,
+data = diamonds, family = Binomial(link = "logit")))
+summary(modglmBoost)
+
+# Random Forest with iris Dataset:
+require(randomForest)
+system.time(modForest &lt;- randomForest(Species ~ ., data = iris,
+importance = TRUE, proximity = TRUE))</code></pre>
+
+        <h4 class="doc-subsection-title">Pros of Random Forest:</h4>
+        <ul class="doc-list">
+          <li><strong>Higher Accuracy:</strong> Combining multiple decision trees typically leads to better predictive performance than a single tree.</li>
+          <li><strong>Overfitting Resistance:</strong> The averaging of multiple trees helps prevent the model from fitting noise in the data.</li>
+          <li><strong>Flexibility:</strong> Works well for both classification and regression problems.</li>
+          <li><strong>Feature Importance Estimation:</strong> Can rank features based on their contribution to the model, offering interpretability in feature selection.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Cons of Random Forest:</h4>
+        <ul class="doc-list">
+          <li><strong>Complexity:</strong> Unlike individual decision trees, the final model becomes difficult to interpret due to the ensemble nature.</li>
+          <li><strong>Computational Demands:</strong> Training many trees and calculating predictions across them can be time- and resource-intensive, especially on large datasets.</li>
+        </ul>
+      </section>
+
+      <!-- Section: Singular Value Decomposition (SVD) -->
+      <section>
+        <h3 class="doc-section-title">Singular Value Decomposition (SVD)</h3>
+        
+        <h4 class="doc-subsection-title">Concept and Mathematical Foundation</h4>
+        <p class="doc-paragraph">
+          Singular Value Decomposition (SVD) is a method to decompose any <em>m &times; n</em> matrix <em>X</em> of rank <em>k</em> into three specific matrices:
+        </p>
+
+        <div class="doc-formula-box">
+          <p style="font-family: monospace; font-size: 1.15rem; font-weight: 700;">
+            X = U &middot; S &middot; V<sup>T</sup>
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+            Where:<br>
+            • <em>U</em> is an <em>m &times; k</em> matrix whose columns are mutually orthogonal,<br>
+            • <em>S</em> is a diagonal matrix of size <em>k &times; k</em>,<br>
+            • <em>V</em> is a <em>k &times; n</em> matrix, also with orthogonal columns.
+          </p>
+        </div>
+
+        <h4 class="doc-subsection-title">Standard SVD</h4>
+        <p class="doc-paragraph">
+          In the standard version of SVD, both U and V are typically square and unitary matrices (i.e., orthonormal and invertible). The matrix S, although diagonal, may be rectangular depending on the dimensions of X.
+        </p>
+
+        <h4 class="doc-subsection-title">Application in Data Analysis</h4>
+        <p class="doc-paragraph">
+          The matrix X often represents a dataset — for instance, a user-item matrix where rows correspond to users and columns to rated items. The rank <em>k</em> represents the number of significant underlying patterns or relationships in the data. A parameter <em>d</em>, which functions similarly to the <em>k</em> in <em>k</em>-nearest neighbors, is selected to control the number of latent features to retain in the reduced representation.
+        </p>
+
+        <h4 class="doc-subsection-title">Key Properties of SVD</h4>
+        <ul class="doc-list">
+          <li><strong>Orthogonality and Ranking:</strong> The columns of both U and V are orthogonal vectors. These columns can be ordered based on their associated singular values in S, allowing for a ranking from most to least impactful features.</li>
+          <li><strong>Low-Rank Approximation:</strong> Truncation for Approximation: A low-rank approximation of X can be obtained by keeping only the top <em>d</em> singular values in S, along with the corresponding columns in U and V. Data Compression: This reduces the size and complexity of the data while retaining the most relevant information.</li>
+          <li><strong>Dimensionality Reduction via Latent Variables:</strong> By choosing a value <em>d</em> smaller than <em>k</em>, the data is transformed into a reduced latent space, simplifying its structure without significant information loss.</li>
+          <li><strong>Latent Feature Interpretation:</strong> The decomposed matrices U and V uncover latent patterns or features in the dataset. For example, a leading latent feature might correspond to demographic factors such as gender or preferences, distinguishing between different user groups.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Challenges and Limitations</h4>
+        <ul class="doc-list">
+          <li><strong>Handling Incomplete Data:</strong> SVD alone does not account for missing values within the dataset and often requires preprocessing or imputation.</li>
+          <li><strong>Computational Demand:</strong> Performing SVD on large-scale datasets is resource-intensive, both in terms of memory and processing time, making it less practical for massive real-time applications.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">SVD Algorithm: Step-by-Step Guide</h4>
+        <p class="doc-paragraph">.</p>
+      </section>
+
+      <!-- Section: Principal Component Analysis (PCA) -->
+      <section>
+        <h3 class="doc-section-title">Principal Component Analysis (PCA)</h3>
+        <p class="doc-paragraph">
+          Principal Component Analysis (PCA) is a dimensionality reduction technique often used to predict user preferences by approximating a given data matrix X with the product of two lower-dimensional matrices U and V<sup>T</sup>, such that:
+        </p>
+
+        <div class="doc-formula-box">
+          <p style="font-family: monospace; font-size: 1.15rem; font-weight: 700;">
+            X &approx; U &middot; V<sup>T</sup>
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+            The goal is to minimize the difference between the original data X and the approximation U &middot; V<sup>T</sup>, typically measured by the sum of squared errors.
+          </p>
+        </div>
+
+        <h4 class="doc-subsection-title">Prediction Interpretation:</h4>
+        <ul class="doc-list">
+          <li>Each row <em>u<sub>i</sub></em> in matrix U represents a specific user’s latent preferences.</li>
+          <li>Each row <em>v<sub>j</sub></em> in matrix V corresponds to a particular item's latent attributes.</li>
+          <li>The predicted value of user <em>i</em>'s preference for item <em>j</em> is given by the dot product <em>u<sub>i</sub> &middot; v<sub>j</sub></em>.</li>
+          <li>The optimization aims to align this predicted value as closely as possible with the actual entry <em>x<sub>i,j</sub></em> in the data matrix.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Formulating the Optimization Problem:</h4>
+        <p class="doc-paragraph">
+          The objective is to find matrices U and V that minimize the overall squared difference between the known values in matrix X and the predicted values derived from U &middot; V<sup>T</sup>. This process closely mirrors the approach used in linear regression to minimize the mean squared error.
+        </p>
+
+        <h4 class="doc-subsection-title">Latent Dimensions and Feature Space:</h4>
+        <ul class="doc-list">
+          <li>One critical hyperparameter in PCA is the number of latent dimensions <em>d</em>, which defines the number of features retained in the decomposition.</li>
+          <li>The matrices U and V are of size <em>m &times; d</em> and <em>n &times; d</em>, respectively.</li>
+          <li>In practical applications, a value of <em>d</em> around 100 is often used to balance between preserving meaningful structure and ensuring computational efficiency.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Uniqueness and the Impact of Missing Data:</h4>
+        <p class="doc-paragraph">
+          Although PCA aims to find a low-dimensional representation of the data, the decomposition is not unique, especially in datasets with missing entries. Despite this non-uniqueness, obtaining any valid decomposition that closely reconstructs the observed entries is typically sufficient for downstream applications.
+        </p>
+
+        <h4 class="doc-subsection-title">Uncorrelated Components:</h4>
+        <p class="doc-paragraph">
+          One of the key advantages of PCA is that the latent features (or principal components) are uncorrelated. This decorrelation reduces redundancy, making the resulting model more compact and efficient.
+        </p>
+
+        <h4 class="doc-subsection-title">Core Properties of PCA:</h4>
+        <ul class="doc-list">
+          <li><strong>Matrix Approximation:</strong> If matrices U and V are identified such that U &middot; V<sup>T</sup> &approx; X with minimum error, they serve as effective representations of the original data.</li>
+          <li><strong>Transformation Invariance:</strong> If G is any invertible <em>d &times; d</em> matrix, then replacing U with UG and V with VG<sup>-T</sup> will still approximate X accurately, i.e., (UG) &middot; (VG<sup>-T</sup>)<sup>T</sup> = U &middot; V<sup>T</sup>.</li>
+          <li><strong>Orthogonality through Minimization:</strong> By seeking to minimize the surface area of the <em>d</em>-dimensional parallelepiped formed by the columns of U, while preserving its volume, the columns become mutually orthogonal—ensuring that latent components are uncorrelated.</li>
+          <li><strong>Orthogonality in V:</strong> When U’s columns are orthogonal, the structure of PCA guarantees that the rows of V are orthogonal as well, reinforcing the uncorrelated nature of the latent features.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Additional Theoretical Insights:</h4>
+        <ul class="doc-list">
+          <li><strong>Determinant and Scaling Considerations:</strong> When transforming the factor matrices U and V using scaling matrices with non-unit determinants, the optimal scaling factor (in terms of minimizing the sum of squared entries across U and V) is the geometric mean of the scales.</li>
+          <li><strong>Relationship to SVD:</strong> PCA shares foundational concepts with Singular Value Decomposition (SVD). While they are not identical, PCA is often implemented using SVD algorithms due to their mathematical similarities and efficiency.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Here's how PCA works in simple terms:</h4>
+        <ul class="doc-list">
+          <li><strong>Data Simplification:</strong> Imagine you have a dataset with many features (e.g., height, weight, age, income). PCA helps to reduce this to a smaller set of new features that still capture the essential information.</li>
+          <li><strong>Finding Principal Components:</strong> PCA identifies new features called "principal components." These are combinations of the original features that explain the most variance (differences) in the data. The first principal component captures the most variance, the second captures the next most, and so on.</li>
+          <li><strong>Transformation:</strong> The original data is transformed into a new set of uncorrelated features (principal components). These new features are easier to work with because they are not redundant and capture the most important patterns in the data.</li>
+          <li><strong>Dimensionality Reduction:</strong> By selecting a few principal components, you can reduce the number of features while retaining most of the important information. This makes the data simpler and faster to process without losing significant insights.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Why Use PCA?</h4>
+        <ul class="doc-list">
+          <li><strong>Simplification:</strong> Makes complex data easier to understand and visualize.</li>
+          <li><strong>Efficiency:</strong> Reduces computational resources needed for analysis and modeling.</li>
+          <li><strong>Noise Reduction:</strong> Helps to remove less important information and focus on the most critical aspects of the data.</li>
+          <li><strong>Uncorrelated Features:</strong> Ensures that the new features are not redundant, which can improve the performance of machine learning models.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Benefits:</h4>
+        <ul class="doc-list">
+          <li>Reduces noise</li>
+          <li>Helps visualize high-dimensional data</li>
+          <li>Speeds up training</li>
+        </ul>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col-left">
+        <div class="footer-logo-row">
+          <img src="assets/mbu-logo.png" alt="MBU Logo" class="footer-logo">
+          <span class="footer-brand-title">Mohan Babu University</span>
+        </div>
+        <p class="footer-motto">DREAM. BELIEVE. ACHIEVE.</p>
+        <p class="footer-sub">Department of Computer Science & Engineering — B.Tech Data Science</p>
+      </div>
+      
+      <div class="footer-col-right">
+        <p class="footer-copy">© 2026–2027 Mohan Babu University. All rights reserved.</p>
+        <p class="footer-credit">Developed for Academic Coursework: Mounika • Subject Code: 22DS102006</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

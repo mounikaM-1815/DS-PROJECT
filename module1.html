@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 1: Introduction | Data Science Lab | Mohan Babu University (MBU)</title>
+  <meta name="description" content="Module 1 – Introduction: Complete curriculum syllabus notes for Data Science Laboratory at Mohan Babu University.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/mbu-logo.png">
+  <style>
+    /* Clean document styling when rendered inside modal viewer */
+    body.in-iframe {
+      background: #f8fafc;
+    }
+    body.in-iframe .site-header,
+    body.in-iframe .site-footer,
+    body.in-iframe .doc-top-bar {
+      display: none !important;
+    }
+    body.in-iframe .module-doc-page {
+      padding: 1.25rem 1rem !important;
+    }
+    body.in-iframe .module-doc-card {
+      box-shadow: none !important;
+      border: 1px solid var(--border-subtle) !important;
+    }
+  </style>
+  <script>
+    if (window.self !== window.top) {
+      document.documentElement.classList.add('in-iframe');
+      window.addEventListener('DOMContentLoaded', () => {
+        document.body.classList.add('in-iframe');
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ==========================================
+       1. HEADER
+       ========================================== -->
+  <header class="site-header" id="mainHeader">
+    <div class="header-container">
+      <div class="header-brand">
+        <a href="index.html" class="brand-link" title="Mohan Babu University">
+          <img src="assets/mbu-logo.png" alt="Mohan Babu University Logo" class="header-logo" id="headerMbuLogo">
+        </a>
+      </div>
+
+      <!-- CENTER: Header Title -->
+      <div class=header-center id=headerCenter>
+        <span class=header-center-title>DATA SCIENCE</span>
+      </div>
+
+
+      <nav class="site-nav" id="siteNav" aria-label="Main Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-item">
+            <a href="index.html#heroSection" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#modulesSection" class="nav-link active">Modules</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#experimentsSection" class="nav-link">Experiments</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#toolsSection" class="nav-link">Tools</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#resourcesSection" class="nav-link">Resources</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button type="button" class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       MODULE DOCUMENT CONTENT
+       ========================================== -->
+  <main class="module-doc-page">
+    
+    <!-- Top Action Bar -->
+    <div class="doc-top-bar">
+      <a href="modules.html" class="btn-doc-back">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Modules</span>
+      </a>
+
+      <button type="button" class="btn-doc-print" onclick="window.print()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        <span>Print / Save as PDF</span>
+      </button>
+    </div>
+
+    <!-- Main Academic Document Card -->
+    <article class="module-doc-card">
+      
+      <!-- Document Banner -->
+      <div class="doc-banner-header">
+        <span class="doc-badge-pill">CURRICULUM SYLLABUS • MODULE 1</span>
+        <h1 class="doc-main-heading">MODULE 1</h1>
+        <h2 class="doc-sub-heading">INTRODUCTION</h2>
+      </div>
+
+      <!-- Section 1: Definition of data science -->
+      <section>
+        <h3 class="doc-section-title">1. Definition of data science</h3>
+        <p class="doc-paragraph">
+          <strong>Data Science (DS):</strong> Study and practice of collecting, storing, processing, and analyzing data to extract meaningful insights and support decision-making. It includes scientific methods, computational thinking, and systematic analysis of data. DS combines computer science, statistics, mathematics, and domain expertise.
+        </p>
+        <p class="doc-paragraph">
+          The 3Vs of data that justify its rise:
+        </p>
+        <ul class="doc-list">
+          <li><strong>Volume:</strong> Massive amounts of data (e.g., zettabytes)</li>
+          <li><strong>Velocity:</strong> Speed at which data is generated</li>
+          <li><strong>Variety:</strong> Structured and unstructured data formats (text, image, video, etc.)</li>
+        </ul>
+        <p class="doc-paragraph">
+          Data science is used to derive meaningful insights to solve real-world problems through systematic, repeatable, and verifiable processes.
+        </p>
+        <p class="doc-paragraph">
+          Figure 1.1 shows that, by 2020, global data usage would increase 40 zettabytes—a 50-fold increase since 2010. This proves increasing importance of DS in managing and analyzing this massive amount of information.
+        </p>
+
+        <div class="doc-figure-box">
+          <div style="font-weight: 700; color: var(--mbu-primary); font-size: 1.1rem; margin-bottom: 0.35rem;">[Data Growth: 2010 (0.8 ZB) &rarr; 2020 (40 ZB)]</div>
+          <p class="doc-figure-caption">Figure 1.1: Increase of Data Volume in 15 Years<br><small style="color: var(--text-muted);">(Source: IDCs Digital Universe Study, December 2012)</small></p>
+        </div>
+
+        <h4 class="doc-subsection-title">Where Do We See Data Science?</h4>
+        <p class="doc-paragraph">
+          Data science finds widespread application across a multitude of domains owing to its capability to extract meaningful insights from vast and complex datasets. Below are some key areas where data science plays a transformative role:
+        </p>
+        <ul class="doc-list">
+          <li><strong>Finance:</strong> In the financial sector, data science facilitates fraud detection, credit risk assessment, customer segmentation, and the formulation of investment strategies. By analyzing transactional data and historical customer records, predictive models can be developed to support decisions such as loan approvals and portfolio management.</li>
+          <li><strong>Public Policy:</strong> Governments leverage data science to examine citizen behavior, traffic flow, usage of public services, and social trends, thereby enhancing governance and infrastructure development. Open data platforms, such as data.gov, provide access to datasets that support evidence-based policymaking across diverse areas including sanitation, transportation, and urban planning.</li>
+          <li><strong>Politics:</strong> Political campaigns increasingly rely on data science for voter profiling, targeted campaigning, and sentiment analysis via social media. By identifying undecided voters and customizing campaign messages, political strategists can optimize outreach and engagement efforts.</li>
+          <li><strong>Healthcare:</strong> In the healthcare industry, data science revolutionizes disease diagnosis, patient data management, and personalized treatment plans. Wearable health devices, such as fitness trackers, continuously collect physiological data, which can be analyzed to alert users and physicians about potential health risks and support preventive care.</li>
+          <li><strong>Urban Planning:</strong> Smart city projects benefit significantly from data science through the integration of sensor networks and analytical tools to optimize traffic control, energy consumption, and public safety. Examples include systems like Chicago’s Plow Tracker and Boston’s SnowCOP, which utilize real-time data to enhance municipal service delivery.</li>
+          <li><strong>Education:</strong> Educational institutions use data science to support personalized learning by monitoring student performance and engagement. These insights enable educators to tailor teaching strategies and deliver timely academic interventions.</li>
+          <li><strong>Libraries and Information Science:</strong> Libraries apply data science to automate systematic literature reviews, enhance metadata management, and streamline access to academic resources. These capabilities assist researchers in identifying relevant materials more efficiently.</li>
+          <li><strong>Business Sector:</strong> In business, data science strengthens marketing, sales, and customer support by analyzing consumer behavior, forecasting product demand, and delivering personalized recommendations. Tech giants like Amazon and Netflix utilize sophisticated data models to optimize user experience and drive customer retention.</li>
+          <li><strong>Industrial Sectors:</strong> Manufacturing and industrial operations use data science for predictive maintenance, supply chain optimization, and quality assurance. With the rise of IoT devices, real-time data collection from machinery enables smarter production and process control.</li>
+        </ul>
+        <p class="doc-paragraph">
+          Across these diverse fields, data science stands out as a powerful enabler for uncovering patterns, making accurate predictions, and facilitating data-driven decisions.
+        </p>
+      </section>
+
+      <!-- Section 2: Skills for data science -->
+      <section>
+        <h3 class="doc-section-title">2. Skills for data science</h3>
+        <p class="doc-paragraph">
+          The success of DS involves adopting a mindset that merges curiosity, analytical thinking, and technical expertise. Three key skills used in DS are willingness to experiment, mathematical reasoning, and data literacy. These skills reflect not only what employers seek but also what enables professionals to succeed in this evolving, interdisciplinary domain. The hybrid nature of a data scientist, need the following essential skills:
+        </p>
+        
+        <h4 class="doc-subsection-title">a) Willingness to Experiment</h4>
+        <ul class="doc-list">
+          <li>Curious, creative problem-solvers who define hypotheses and explore data.</li>
+          <li>Employers often assess curiosity through open-ended questions.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">b) Proficiency in Mathematical Reasoning</h4>
+        <ul class="doc-list">
+          <li>Solid understanding of statistics and logical reasoning.</li>
+          <li>Interpretation of numeric data is critical for analysis.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">c) Data Literacy</h4>
+        <ul class="doc-list">
+          <li>The ability to read, interpret, and work with data.</li>
+          <li>Involves understanding data relevance, visualizing insights, and making data-driven decisions.</li>
+          <li>Considered a fundamental 21st-century skill, like reading and writing.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">d) Roles and Job Types in Data Science</h4>
+        <ul class="doc-list">
+          <li><strong>Data Analyst:</strong> Entry-level role focused on visualizations, reporting, Excel, Google Analytics, etc.</li>
+          <li><strong>Data Engineer:</strong> Designs infrastructure for handling large volumes of data.</li>
+          <li><strong>Product-Focused Data Scientist:</strong> Develops data-driven services/products (e.g., recommendation engines).</li>
+          <li><strong>Generalist in Data-Driven Companies:</strong> Wears multiple hats including ML, visualization, reporting.</li>
+        </ul>
+
+        <p class="doc-paragraph">
+          In another view, Dave Holtz blogs about specific skill sets desired by various positions to which a data scientist may apply:
+        </p>
+        <ul class="doc-list">
+          <li><strong>A) Data Analyst as Entry-Level Data Scientist:</strong> In many companies, entry-level data scientists perform tasks similar to data analysts—using tools like Excel, MySQL, Google Analytics, and Tableau for data retrieval, reporting, and visualization. These roles focus on descriptive analysis and serve as a practical starting point for beginners.</li>
+          <li><strong>B) Data Wrangler / Engineer Roles:</strong> Some organizations hire data scientists to manage large, unstructured datasets. These roles, often labeled as data engineers, involve building infrastructure and data pipelines. They require strong programming skills and are ideal for self-motivated individuals, though they often lack formal mentorship.</li>
+          <li><strong>C) Data-Product Focused Roles:</strong> In data-centric companies, data scientists develop products powered by data—such as recommendation engines or predictive models. These roles emphasize machine learning and advanced analytics, typically attracting candidates with academic backgrounds in math, statistics, or physics.</li>
+          <li><strong>D) Generalist Roles in Data-Driven Companies:</strong> Many businesses use data to support decision-making. Data scientists here work on established teams and require broad skills—analysis, visualization, coding—along with specialization in areas like ML or dashboard design. Familiarity with big data tools and messy datasets is often essential.</li>
+        </ul>
+        <p class="doc-paragraph">
+          The above-discussed skills are summarized in Figure 1.2.
+        </p>
+        <div class="doc-figure-box">
+          <p class="doc-figure-caption">Figure 1.2: Types of Data Science Roles</p>
+        </div>
+      </section>
+
+      <!-- Section 3: Tools for data science -->
+      <section>
+        <h3 class="doc-section-title">3. Tools for data science</h3>
+        <p class="doc-paragraph">
+          Becoming a successful data scientist requires hands-on experience with tools that are widely used in the industry for solving data-driven problems. They offer powerful capabilities for implementing, visualizing, and testing data solutions quickly. Python and R, on the other hand, offer user-friendly environments with extensive libraries that facilitate easy setup and enable beginners to produce meaningful results.
+        </p>
+
+        <h4 class="doc-subsection-title">A) Python</h4>
+        <ul class="doc-list">
+          <li>High-level scripting language</li>
+          <li>Interpreted line by line (no need for compiling like Java/C++)</li>
+          <li>Simple syntax; easy to learn and write</li>
+          <li>Widely supported with open-source libraries and packages</li>
+          <li>Suitable for both beginners and advanced users</li>
+        </ul>
+        <p class="doc-paragraph"><strong>Common Use Cases:</strong></p>
+        <ul class="doc-list">
+          <li>Data manipulation: Pandas</li>
+          <li>Numerical computing: NumPy, SciPy</li>
+          <li>Visualization: Matplotlib, Seaborn</li>
+          <li>Machine learning: scikit-learn, TensorFlow, PyTorch</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">B) R</h4>
+        <ul class="doc-list">
+          <li>Statistical programming language</li>
+          <li>Designed specifically for statistical analysis and data visualization</li>
+          <li>Simple syntax similar to natural mathematical expressions</li>
+          <li>Strong community support for packages in CRAN (Comprehensive R Archive Network)</li>
+        </ul>
+        <p class="doc-paragraph"><strong>Common Use Cases:</strong></p>
+        <ul class="doc-list">
+          <li>Statistical modeling</li>
+          <li>Hypothesis testing</li>
+          <li>Data visualization (with ggplot2)</li>
+          <li>Report generation using RMarkdown</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">C) SQL (Structured Query Language)</h4>
+        <ul class="doc-list">
+          <li>Domain-specific language for managing relational databases</li>
+          <li>Used for querying and manipulating structured data</li>
+          <li>Efficient for handling large datasets stored in relational databases</li>
+          <li>Can be used within Python or R for integration with large-scale databases</li>
+        </ul>
+        <p class="doc-paragraph"><strong>Common Use Cases:</strong></p>
+        <ul class="doc-list">
+          <li>Extracting specific data subsets</li>
+          <li>Filtering, joining, and aggregating data tables</li>
+          <li>Working with real-time or remote datasets</li>
+        </ul>
+        <p class="doc-paragraph">
+          SQL is particularly useful when data is too large to load into memory as a flat file (like CSV).
+        </p>
+
+        <h4 class="doc-subsection-title">D) UNIX (Shell/Command Line)</h4>
+        <ul class="doc-list">
+          <li>Operating system environment and set of command-line tools</li>
+          <li>Supports automation and batch data processing</li>
+          <li>Powerful for file handling, text processing, and scripting</li>
+          <li>Reduces the need for coding in certain routine data tasks</li>
+        </ul>
+        <p class="doc-paragraph"><strong>Common Use Cases:</strong></p>
+        <ul class="doc-list">
+          <li>Filtering and processing logs</li>
+          <li>Running scripts and pipelines</li>
+          <li>Managing large datasets without GUI</li>
+        </ul>
+        <p class="doc-paragraph">
+          UNIX is often used in combination with Python or R in professional environments, especially on servers or cloud-based systems.
+        </p>
+
+        <h4 class="doc-subsection-title">Need of These Tools</h4>
+        <p class="doc-paragraph">These tools are popular not because they were built specifically for data science, but because:</p>
+        <ul class="doc-list">
+          <li>They support rapid development and iteration</li>
+          <li>They are open-source and backed by strong community ecosystems</li>
+          <li>They interoperate well—e.g., using SQL with Python, or R with UNIX</li>
+          <li>They handle a wide variety of data formats and volumes</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Other Mentions</h4>
+        <p class="doc-paragraph">While the file mainly emphasizes Python, R, SQL, and UNIX, in practice, other tools that data scientists often encounter include:</p>
+        <ul class="doc-list">
+          <li><strong>Jupyter Notebooks:</strong> For interactive Python code + narrative</li>
+          <li><strong>Tableau / Power BI:</strong> For dashboarding and business intelligence (BI)</li>
+          <li><strong>Hadoop / Spark:</strong> For distributed data processing (Big Data)</li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Data Types -->
+      <section>
+        <h3 class="doc-section-title">4. Data Types</h3>
+        <p class="doc-paragraph">
+          One of the most basic concepts in data The most practical classification of data would be to classify it as either structured or unstructured. This difference is of high importance since methods of storage, querying, processing, and analysis are frequently differentiated according to this division. The structured data is very much organized and it is mostly available in tabular form with labeled rows and columns and it can be handled comfortably with the help of databases. On a different note, unstructured data is not pre-structured and could be in the form of the free text, audio, video or images. Most of the world data is unstructured, therefore handling it tends to be more complex and requires special processing procedures.
+        </p>
+
+        <h4 class="doc-subsection-title">Structured Data</h4>
+        <p class="doc-paragraph">
+          Structured data: this can also be called neatly organized data most often in a tabular format with fields. In this structure, each data point is linked to a label or any particular attribute in which case, it is easy to search, analyze and visualize. Consider, as an example, values of height and weight of people; in this case, a dataset is called structured, since every numeric value has a label, which explains its purpose. Structured data doesn’t always have to be numerical; it can include other types such as text (e.g., "housing type"), Boolean (e.g., "is employed"), or categorical variables (e.g., "gender" or "marital status"). The exact format of values does not determine structured data; it is the definite structure of naming and labelling.
+        </p>
+        <p class="doc-paragraph">
+          To illustrate this, a table (1.1) might contain records with a mix of data types—such as an individual’s age, employment status, and place of residence.
+        </p>
+
+        <div class="doc-table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Customer ID</th>
+                <th>Age</th>
+                <th>Employment Status</th>
+                <th>Place of Residence</th>
+                <th>Income (USD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CUST-1001</td>
+                <td>28</td>
+                <td>Employed</td>
+                <td>New York</td>
+                <td>$72,000</td>
+              </tr>
+              <tr>
+                <td>CUST-1002</td>
+                <td>34</td>
+                <td>Self-Employed</td>
+                <td>San Francisco</td>
+                <td>$95,000</td>
+              </tr>
+              <tr>
+                <td>CUST-1003</td>
+                <td>22</td>
+                <td>Student</td>
+                <td>Boston</td>
+                <td>$18,000</td>
+              </tr>
+              <tr>
+                <td>CUST-1004</td>
+                <td>45</td>
+                <td>Employed</td>
+                <td>Chicago</td>
+                <td>$88,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="doc-paragraph" style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+          <em>Table 1.1: Customer Data Sample</em>
+        </p>
+
+        <h4 class="doc-subsection-title">Unstructured Data</h4>
+        <p class="doc-paragraph">
+          On the contrary, unstructured data is disorganized and not labeled. It is not tied to a certain model or format, therefore, it is more difficult to manage and interpret it. The unstructured form of data would present a good example of a narrative paragraph in a medical or social study. Such an example can be the following combination of words: “It was discovered that a woman measured between 65 and 67 inches and measured 125130 IQ points.” Although this has valuable information, it is not written in a way that makes it easily parsed by software. It does not contain column names or immediate labels that interrelate any piece of data to a unique entity or property. Consequently, interpreting and processing this type of data may be a task that needs human revising or the usage of specialized natural language processing software.
+        </p>
+        <p class="doc-paragraph">
+          The major challenge of unstructured data is represented by its ambiguity. It can either be context-related or a semantic interpretation meaning that it is even harder to automate. In contrast to structured data, one cannot be sure of the meaning of the term 22 in labelled column, when it comes to unstructured data, one has to follow more paths to come out of similar meanings. Nevertheless, unstructured data is an untapped pool of knowledge, especially when used in the social sphere, customer notes, or multimedia entries, but with the correct methodologies to process and organize it, data is still information that can provide excellent insight.
+        </p>
+      </section>
+
+      <!-- Section 5: Data collections -->
+      <section>
+        <h3 class="doc-section-title">5. Data collections</h3>
+        <p class="doc-paragraph">
+          When looking for datasets similar to those discussed in earlier sections or chapters, there are several reliable online sources available. These resources provide access to various data formats for analysis, research, and application development.
+        </p>
+
+        <h4 class="doc-subsection-title">5.1. Open Data</h4>
+        <p class="doc-paragraph">
+          Open data refers to datasets that are made freely accessible to the public without legal or licensing restrictions. The goal is to allow unrestricted usage, modification, and distribution.
+        </p>
+        <p class="doc-paragraph">
+          Governments (both local and national), NGOs, and academic institutions are major contributors to open data initiatives. For instance, datasets are published by the U.S. Government and cities like Chicago for public use.
+        </p>
+        <p class="doc-paragraph">
+          In 2013, the White House launched Project Open Data to promote the open data policy by offering resources such as tools, case studies, and guidelines. A policy memo (M-13-3) was also introduced, emphasizing the need to treat data as a valuable asset and release it in accessible formats whenever possible.
+        </p>
+        <p class="doc-paragraph"><strong>Key Principles of Open Data:</strong></p>
+        <ul class="doc-list">
+          <li><strong>Public:</strong> Agencies are encouraged to share data openly, unless restricted by privacy, security, or legal concerns.</li>
+          <li><strong>Accessible:</strong> Data must be provided in user-friendly, modifiable formats that support search and download. These formats should ideally be machine-readable and non-proprietary.</li>
+          <li><strong>Described:</strong> Open data must include sufficient metadata and documentation to help users understand the data’s structure, limitations, and collection methods.</li>
+          <li><strong>Reusable:</strong> Data should be shared under an open license, with no limitations on reuse.</li>
+          <li><strong>Complete:</strong> Wherever possible, data should be released in its raw, original form, along with any derived versions.</li>
+          <li><strong>Timely:</strong> Data should be made available promptly to retain its relevance and usefulness.</li>
+          <li><strong>Managed After Release:</strong> A designated contact should be available to support data users and respond to compliance issues.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">5.2. Social Media Data</h4>
+        <p class="doc-paragraph">
+          Social media platforms are valuable sources for collecting user-generated content for research and marketing. These platforms offer APIs (Application Programming Interfaces) that enable developers and researchers to programmatically retrieve information such as user profiles, posts, and engagement metrics.
+        </p>
+        <p class="doc-paragraph">
+          An example is the Facebook Graph API, which allows data extraction in structured formats like XML. These APIs enable developers to create innovative applications, conduct behavioral studies, or monitor responses to events like natural disasters. Some platforms, like Yelp, actively release datasets to encourage exploration and academic research. These datasets have supported projects in areas like photo classification, natural language processing (NLP), sentiment analysis, and network analysis. Researchers can participate in initiatives like the Yelp Dataset Challenge to solve real-world data problems.
+        </p>
+
+        <h4 class="doc-subsection-title">5.3. Multimodal Data</h4>
+        <p class="doc-paragraph">
+          In today’s increasingly connected world, many devices—from smart bulbs to vehicles—generate diverse types of data as part of the Internet of Things (IoT) ecosystem. This data often goes beyond traditional formats (like numbers or text) and includes rich content such as images, audio, gestures, and spatial data.
+        </p>
+        <p class="doc-paragraph">
+          Data from such sources is known as multimodal or multimedia data, and it often requires specialized techniques to analyze. For example, in medical research, brain imaging data can come from multiple sensors like EEG, MEG, and fMRI. These measurements, captured in sequences or time-series, are analyzed using techniques like Statistical Parametric Mapping (SPM)—a method developed by Karl Friston—to identify patterns of brain activity.
+        </p>
+        <p class="doc-paragraph">
+          For those interested in working with such complex datasets, Appendix E (not included here) offers guidance on additional sources and ongoing challenges related to data analysis and real-world problem solving.
+        </p>
+
+        <h4 class="doc-subsection-title">5.4. Data Storage and Presentation</h4>
+        <p class="doc-paragraph">Data can be stored in various formats depending on its structure and intended use. The following are common formats for storing and presenting data:</p>
+        
+        <h5 class="doc-subsection-title">A) CSV (Comma-Separated Values)</h5>
+        <ul class="doc-list">
+          <li>Widely adopted for sharing spreadsheets and database exports.</li>
+          <li>Stores data in plain text with fields separated by commas.</li>
+          <li><strong>Advantages:</strong> Universally readable by spreadsheet tools like Excel and Google Sheets; easy to share and understand.</li>
+          <li><strong>Challenges:</strong> If the data itself contains commas, parsing becomes difficult unless proper escape characters are used.</li>
+          <li><strong>Example:</strong> A file named Depression.csv from UF Biostatistics contains records of treatments and outcomes for individuals with depression.</li>
+        </ul>
+
+        <h5 class="doc-subsection-title">B) TSV (Tab-Separated Values)</h5>
+        <ul class="doc-list">
+          <li>Often used to store raw data between systems or tools.</li>
+          <li><strong>Format:</strong> Similar to CSV, but fields are separated by tabs instead of commas.</li>
+          <li><strong>Advantages:</strong> Reduces ambiguity since tabs are less likely to occur in the data itself.</li>
+          <li><strong>Challenges:</strong> Less commonly used than CSV; requires attention when tabs exist within field content.</li>
+          <li><strong>Example:</strong> Employee registration data stored with fields like Name, Age, and Address separated by tab spaces.</li>
+        </ul>
+
+        <h5 class="doc-subsection-title">C) XML (eXtensible Markup Language)</h5>
+        <ul class="doc-list">
+          <li>Designed to be both human-readable and machine-readable.</li>
+          <li><strong>Format:</strong> Structured text using custom tags (e.g., &lt;book&gt;, &lt;price&gt;).</li>
+          <li><strong>Advantages:</strong> Platform-independent and suitable for data exchange between incompatible systems.</li>
+          <li><strong>Real-world Relevance:</strong> Many IT systems use XML to standardize communication between databases and applications. XML is also familiar to those who have worked with HTML.</li>
+        </ul>
+
+        <h5 class="doc-subsection-title">D) RSS (Really Simple Syndication)</h5>
+        <ul class="doc-list">
+          <li>RSS is a web-based format used to distribute content between platforms and was introduced with version 1.0 of XML. It allows websites to deliver updated information, like news or blog posts, in a standardized XML file known as an RSS feed. While most modern web browsers can read RSS feeds directly, users often rely on RSS readers or aggregators, which are tools designed to collect and organize feeds from multiple sources.</li>
+          <li>RSS uses standard XML syntax but extends it by specifying particular tags (some mandatory, others optional) and the type of content each tag should contain. It is tailored for delivering selective, structured content efficiently.</li>
+        </ul>
+        <p class="doc-paragraph"><strong>Example Use Case:</strong><br>
+          Imagine running a website that publishes frequent updates such as news headlines, stock prices, or weather alerts. Users interested in staying informed would need to check the site repeatedly, which can be inefficient—either they miss updates or waste time checking unnecessarily. Using an RSS feed, users can subscribe through an aggregator, which automatically checks for updates and delivers them as soon as they’re available—often through notifications.
+        </p>
+        <p class="doc-paragraph"><strong>Why RSS is Useful:</strong></p>
+        <ul class="doc-list">
+          <li>It is lightweight and quick to load.</li>
+          <li>Easily integrates with devices like smartphones, smartwatches, and PDAs.</li>
+          <li>Ideal for frequently updated platforms such as:
+            <ul style="margin-top: 0.25rem;">
+              <li>News websites (providing headlines, dates, and brief summaries)</li>
+              <li>Business pages (announcements and new product updates)</li>
+              <li>Calendars (event reminders and important dates)</li>
+              <li>Websites with frequent content changes (tracking new or modified pages)</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h5 class="doc-subsection-title">E) RSS (Really Simple Syndication)</h5>
+        <ul class="doc-list">
+          <li>RSS is a web-based format used to distribute content between platforms and was introduced with version 1.0 of XML. It allows websites to deliver updated information, like news or blog posts, in a standardized XML file known as an RSS feed. While most modern web browsers can read RSS feeds directly, users often rely on RSS readers or aggregators, which are tools designed to collect and organize feeds from multiple sources.</li>
+          <li>RSS uses standard XML syntax but extends it by specifying particular tags (some mandatory, others optional) and the type of content each tag should contain. It is tailored for delivering selective, structured content efficiently.</li>
+        </ul>
+        <p class="doc-paragraph"><strong>Example Use Case:</strong><br>
+          Imagine running a website that publishes frequent updates such as news headlines, stock prices, or weather alerts. Users interested in staying informed would need to check the site repeatedly, which can be inefficient—either they miss updates or waste time checking unnecessarily. Using an RSS feed, users can subscribe through an aggregator, which automatically checks for updates and delivers them as soon as they’re available—often through notifications.
+        </p>
+        <p class="doc-paragraph"><strong>Why RSS is Useful:</strong></p>
+        <ul class="doc-list">
+          <li>It is lightweight and quick to load.</li>
+          <li>Easily integrates with devices like smartphones, smartwatches, and PDAs.</li>
+          <li>Ideal for frequently updated platforms such as:
+            <ul style="margin-top: 0.25rem;">
+              <li>News websites (providing headlines, dates, and brief summaries)</li>
+              <li>Business pages (announcements and new product updates)</li>
+              <li>Calendars (event reminders and important dates)</li>
+              <li>Websites with frequent content changes (tracking new or modified pages)</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 6: Data Preprocessing -->
+      <section>
+        <h3 class="doc-section-title">6. Data Preprocessing</h3>
+        <p class="doc-paragraph">
+          In the real world, data is rarely perfect. It often needs to be cleaned, reformatted, or adjusted before it can be analyzed effectively. This entire process is referred to as data preprocessing, and it is a critical first step in any data analysis or machine learning workflow.
+        </p>
+        
+        <h4 class="doc-subsection-title">Common Problems in Raw Data</h4>
+        <p class="doc-paragraph">Data is considered "dirty" when it contains any of the following issues:</p>
+        <ul class="doc-list">
+          <li><strong>Incomplete Data:</strong> Missing attribute values or records that only provide partial information.</li>
+          <li><strong>Noisy Data:</strong> Data with errors or outliers that distort the actual trend.</li>
+          <li><strong>Inconsistent Data:</strong> Mismatched formats, naming discrepancies, or improperly formatted entries.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Major Preprocessing Tasks</h4>
+        
+        <h5 class="doc-subsection-title">A) Data Cleaning</h5>
+        <p class="doc-paragraph">Data cleaning focuses on identifying and correcting issues in raw data. It may involve:</p>
+        <ul class="doc-list">
+          <li>Fixing incorrect or inconsistent values</li>
+          <li>Removing duplicates</li>
+          <li>Handling missing values</li>
+          <li>Standardizing text entries (e.g., names or categories)</li>
+        </ul>
+
+        <h5 class="doc-subsection-title">B) Data Munging (Wrangling)</h5>
+        <p class="doc-paragraph">
+          Data munging involves reshaping or converting data into a usable format. This may be necessary when data is stored in a form that’s difficult to analyze—like a paragraph or an unstructured text. There is no single method for wrangling; it often requires creative or manual solutions to make data "analysis-friendly."
+        </p>
+
+        <h5 class="doc-subsection-title">C) Handling Missing Values</h5>
+        <p class="doc-paragraph">Missing data can occur due to user input errors, device malfunctions, or insufficient data collection at the time. Strategies to handle missing values include:</p>
+        <ul class="doc-list">
+          <li>Dropping records</li>
+          <li>Filling with a default value or average</li>
+          <li>Using statistical methods like inference or imputation</li>
+        </ul>
+
+        <h5 class="doc-subsection-title">D) Smoothing Noisy Data</h5>
+        <p class="doc-paragraph">Noisy data—caused by errors in data entry, sensor faults, or loss of precision—can be reduced by:</p>
+        <ul class="doc-list">
+          <li>Detecting and removing outliers</li>
+          <li>Standardizing data formats</li>
+          <li>Applying smoothing techniques (e.g., averaging)</li>
+        </ul>
+
+        <h5 class="doc-subsection-title">E) Data Integration</h5>
+        <p class="doc-paragraph">When data comes from multiple sources, integration is necessary. This involves:</p>
+        <ul class="doc-list">
+          <li>Merging databases or files into a unified dataset</li>
+          <li>Resolving schema and attribute conflicts</li>
+          <li>Identifying and eliminating redundant data</li>
+        </ul>
+        <p class="doc-paragraph"><em>Example: Combining revenue data from different systems using different units (e.g., INR vs. USD)</em></p>
+
+        <h5 class="doc-subsection-title">F) Data Reduction</h5>
+        <p class="doc-paragraph">Data reduction helps simplify datasets without losing essential information. Two main techniques:</p>
+        <ul class="doc-list">
+          <li><strong>Aggregation:</strong> Condensing detailed records into summarized forms (e.g., monthly totals from daily sales)</li>
+          <li><strong>Dimensionality Reduction:</strong> Removing irrelevant or redundant features using methods like PCA, clustering, or feature merging</li>
+        </ul>
+
+        <h5 class="doc-subsection-title">G) Data Discretization</h5>
+        <p class="doc-paragraph">
+          Discretization involves converting continuous data (like temperature or stock prices) into categories or ranges. This simplifies analysis, especially for numerical attributes.
+        </p>
+        <ul class="doc-list">
+          <li><strong>Types of attributes:</strong>
+            <ul style="margin-top: 0.25rem;">
+              <li>Nominal: No inherent order (e.g., color)</li>
+              <li>Ordinal: Ordered categories (e.g., education level)</li>
+              <li>Continuous: Numeric values (e.g., age, temperature)</li>
+            </ul>
+          </li>
+          <li><strong>Example:</strong> Grouping temperature into "cold", "moderate", and "hot"</li>
+        </ul>
+      </section>
+
+      <!-- Section 7: Data analysis and data analytics -->
+      <section>
+        <h3 class="doc-section-title">7. Data analysis and data analytics</h3>
+        <p class="doc-paragraph">
+          Although often used interchangeably, the terms data analysis and data analytics are not exactly the same. This distinction, while subtle, is significant—especially for professionals working with data. Misinterpreting the terms may hinder effective use of data for insights and decision-making.
+        </p>
+        <p class="doc-paragraph">
+          Dave Kasik, a Senior Technical Fellow at Boeing, offers a helpful perspective. In his view, data analysis refers to direct, hands-on work involving the exploration and assessment of data. On the other hand, data analytics encompasses a broader scope, with data analysis being just one of its components. Kasik describes analytics as the science behind the analytical process, focusing on how analysts cognitively approach and solve data problems.
+        </p>
+        <p class="doc-paragraph">
+          A practical way to differentiate them is through a time-based lens:
+        </p>
+        <ul class="doc-list">
+          <li><strong>Data analysis</strong> generally deals with understanding what has already happened. It provides a retrospective view, commonly used in fields like marketing to evaluate past performance.</li>
+          <li><strong>Data analytics</strong> looks forward—it leverages models and statistical tools to forecast outcomes, offering insights that guide future actions and strategies.</li>
+        </ul>
+        <p class="doc-paragraph">
+          Analytics heavily relies on mathematical and statistical techniques. It includes not just interpreting data, but also using descriptive and predictive models to extract valuable insights. These insights are then used to support business decisions or recommend courses of action. Rather than focusing solely on individual analysis tasks, analytics considers the entire framework and methodology behind data-driven problem-solving.
+        </p>
+        <p class="doc-paragraph">
+          Although there's no universally accepted classification of data science techniques, a practical approach is to group them based on their purpose and stage in the data lifecycle. Accordingly, the following six categories can be used to classify common analytical techniques:
+        </p>
+        <ul class="doc-list">
+          <li>Descriptive Analysis</li>
+          <li>Diagnostic Analytics</li>
+          <li>Predictive Analytics</li>
+          <li>Prescriptive Analytics</li>
+          <li>Exploratory Analysis</li>
+          <li>Mechanistic Analysis</li>
+        </ul>
+        <p class="doc-paragraph">
+          Each of these plays a distinct role in how data is interpreted and applied in real-world scenarios.
+        </p>
+      </section>
+
+      <!-- Section 8: Descriptive analysis -->
+      <section>
+        <h3 class="doc-section-title">8. Descriptive analysis</h3>
+        <p class="doc-paragraph">
+          Descriptive analysis focuses on summarizing current data to understand “what is happening now.” It provides a quantitative overview of the main characteristics of a dataset and is typically the initial step in data examination.
+        </p>
+        <h4 class="doc-subsection-title">Key Features</h4>
+        <ul class="doc-list">
+          <li><strong>First Step:</strong> Often the first analysis done on large datasets like census information.</li>
+          <li><strong>Volume-Ready:</strong> Well-suited for large-scale data.</li>
+          <li><strong>Two-Phase Process:</strong> Data description precedes interpretation.</li>
+        </ul>
+        <p class="doc-paragraph">
+          Descriptive statistics are essential for organizing raw data into a structured form that reveals patterns. These summaries help identify insights, but accurate interpretation demands appropriate statistical methods.
+        </p>
+        <h4 class="doc-subsection-title">Why Use Descriptive Analysis?</h4>
+        <ul class="doc-list">
+          <li>Helps group customers by preferences or behavior.</li>
+          <li>Enables population-wide summaries (e.g., census).</li>
+          <li>Transforms raw data into meaningful insights.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">8.1. Variables</h4>
+        <p class="doc-paragraph">Variables are labels assigned to the data being studied. For example, a column labeled "Age" in a spreadsheet represents a numeric variable. Variables are categorized as:</p>
+        <ul class="doc-list">
+          <li><strong>Nominal:</strong> Represent categories without order (e.g., colors).</li>
+          <li><strong>Ordinal:</strong> Categories with inherent order (e.g., rankings).</li>
+          <li><strong>Interval:</strong> Numeric values with meaningful differences, but no true zero (e.g., temperature in Celsius).</li>
+          <li><strong>Ratio:</strong> Numeric values with a true zero, allowing all arithmetic operations (e.g., weight, height).</li>
+        </ul>
+        <p class="doc-paragraph">Variables are also classified based on their role:</p>
+        <ul class="doc-list">
+          <li><strong>Independent/Predictor:</strong> The cause or influencing factor.</li>
+          <li><strong>Dependent/Outcome:</strong> The effect or the result we are predicting.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">8.2. Frequency Distribution</h4>
+        <p class="doc-paragraph">A frequency distribution shows how often each value appears. It can be visualized using:</p>
+        <ul class="doc-list">
+          <li><strong>Histogram:</strong> Bars show frequency of numerical values.</li>
+          <li><strong>Pie Chart:</strong> Useful for visualizing categorical data proportions.</li>
+        </ul>
+        <p class="doc-paragraph"><em>Example: A histogram of productivity scores can quickly show the most frequent ranges of performance in a workforce.</em></p>
+
+        <h4 class="doc-subsection-title">8.3. Normal Distribution</h4>
+        <p class="doc-paragraph">An ideal dataset follows a bell-shaped curve:</p>
+        <ul class="doc-list">
+          <li><strong>Symmetrical Center:</strong> Most values near the mean.</li>
+          <li><strong>Skewness:</strong> Indicates asymmetry (positive or negative).</li>
+          <li><strong>Kurtosis:</strong> Measures the "peakedness" or flatness of the distribution.</li>
+        </ul>
+        <p class="doc-paragraph">Visual tools like histograms help assess normality.</p>
+
+        <h4 class="doc-subsection-title">8.4. Measures of Centrality</h4>
+        <p class="doc-paragraph">These metrics summarize the center of a dataset:</p>
+        <ul class="doc-list">
+          <li><strong>Mean:</strong> Arithmetic average. Sensitive to outliers.</li>
+          <li><strong>Median:</strong> Middle value when data is sorted. Better for skewed data.</li>
+          <li><strong>Mode:</strong> Most frequently occurring value. Best for categorical data.</li>
+        </ul>
+        <p class="doc-paragraph">Each measure provides a different lens on the dataset and choosing the right one depends on the data type and distribution.</p>
+
+        <h4 class="doc-subsection-title">8.5. Dispersion of Distribution</h4>
+        <p class="doc-paragraph">Dispersion tells us how spread out the data is:</p>
+        <ul class="doc-list">
+          <li><strong>Range:</strong> Difference between the largest and smallest values.</li>
+          <li><strong>Interquartile Range (IQR):</strong> Range of the middle 50%, useful for reducing outlier influence.</li>
+          <li><strong>Variance:</strong> It is a statistical measure that indicates how much the values in a dataset differ from the average (mean). It reflects the degree to which data points are spread out. The more the values deviate from the mean, the higher the variance; conversely, closely grouped values result in a lower variance. There are two types of variance:</li>
+        </ul>
+
+        <h5 class="doc-subsection-title">A) Population Variance (&sigma;&sup2;)</h5>
+        <p class="doc-paragraph">It measures the dispersion of the entire population. The formula is:</p>
+        <div class="doc-formula-box">
+          <p style="font-family: monospace; font-size: 1.15rem; font-weight: 700;">
+            &sigma;&sup2; = &sum;(X - &mu;)&sup2; / N
+          </p>
+          <p style="margin-top: 0.4rem; font-size: 0.9rem;">
+            Where &mu; is the population mean and N is the total population size.
+          </p>
+        </div>
+
+        <h5 class="doc-subsection-title">B) Sample Variance (s&sup2;)</h5>
+        <p class="doc-paragraph">It measures the spread within a sample subset of the population and adjusts the denominator to avoid bias. The formula is:</p>
+        <div class="doc-formula-box">
+          <p style="font-family: monospace; font-size: 1.15rem; font-weight: 700;">
+            s&sup2; = &sum;(x - x̄)&sup2; / (n - 1)
+          </p>
+          <p style="margin-top: 0.4rem; font-size: 0.9rem;">
+            Where x̄ is the sample mean and n is the sample size.
+          </p>
+        </div>
+
+        <h4 class="doc-subsection-title">8.6. Standard Deviation</h4>
+        <p class="doc-paragraph">
+          Although variance measures spread, it presents the result in squared units (e.g., years&sup2;), which is not intuitive. To convert it back into the original unit of measurement, we take the square root of the variance, resulting in the standard deviation.
+        </p>
+        <p class="doc-paragraph">The formula for sample standard deviation is:</p>
+        <div class="doc-formula-box">
+          <p style="font-family: monospace; font-size: 1.15rem; font-weight: 700;">
+            s = &radic;(s&sup2;) = &radic;[ &sum;(x - x̄)&sup2; / (n - 1) ]
+          </p>
+        </div>
+        <p class="doc-paragraph">
+          Standard deviation gives a clearer idea of the average distance of each data point from the mean, expressed in the same unit as the original data (e.g., years, dollars, etc.).
+        </p>
+      </section>
+
+      <!-- Section 9: Diagnostic analytics -->
+      <section>
+        <h3 class="doc-section-title">9. Diagnostic analytics</h3>
+        <p class="doc-paragraph"><strong>Definition:</strong> Diagnostic analytics focuses on understanding why an event occurred. It investigates the causes behind trends or anomalies identified in descriptive analytics.</p>
+        <h4 class="doc-subsection-title">Key Characteristics:</h4>
+        <ul class="doc-list">
+          <li>Also known as causal analysis.</li>
+          <li>Explores relationships between causes and outcomes.</li>
+          <li>Useful for reviewing past performance and identifying contributing factors.</li>
+        </ul>
+        <h4 class="doc-subsection-title">Example Use Case:</h4>
+        <p class="doc-paragraph">In a social media campaign, after using descriptive analytics to track metrics (likes, comments, shares), diagnostic analytics helps understand why certain posts performed better than others.</p>
+        <h4 class="doc-subsection-title">Common Technique – Correlation:</h4>
+        <ul class="doc-list">
+          <li>Measures how strongly two variables are related.</li>
+          <li>Value ranges from -1 (strong negative) to +1 (strong positive).</li>
+        </ul>
+      </section>
+
+      <!-- Section 10: Predictive analytics -->
+      <section>
+        <h3 class="doc-section-title">10. Predictive analytics</h3>
+        <p class="doc-paragraph"><strong>Definition:</strong> Predictive analytics estimates what might happen in the future by analyzing patterns in current and historical data.</p>
+        <h4 class="doc-subsection-title">Key Concepts:</h4>
+        <ul class="doc-list">
+          <li>Based on probabilities, not certainties.</li>
+          <li>Generates foresight from hindsight and insights.</li>
+          <li>Often uses regression to confirm data relationships.</li>
+        </ul>
+        <h4 class="doc-subsection-title">Four-Step Process:</h4>
+        <ul class="doc-list">
+          <li><strong>Data Collection</strong> – Gather historical and current data.</li>
+          <li><strong>Data Cleaning</strong> – Ensure data quality for meaningful analysis.</li>
+          <li><strong>Pattern Recognition</strong> – Use visualizations and statistical models.</li>
+          <li><strong>Prediction</strong> – Apply models to forecast outcomes.</li>
+        </ul>
+        <h4 class="doc-subsection-title">Applications:</h4>
+        <ul class="doc-list">
+          <li>Marketing (forecasting sales)</li>
+          <li>Healthcare (predicting patient risks)</li>
+          <li>Finance (credit scoring, fraud detection)</li>
+        </ul>
+        <p class="doc-paragraph"><strong>Tools Used:</strong> SAS, IBM SPSS, RapidMiner, etc.</p>
+        <p class="doc-paragraph"><em>Example: Estimating future sales based on historical advertising spend across platforms</em></p>
+      </section>
+
+      <!-- Section 11: Prescriptive analytics -->
+      <section>
+        <h3 class="doc-section-title">11. Prescriptive analytics</h3>
+        <p class="doc-paragraph"><strong>Definition:</strong> Prescriptive analytics identifies the best course of action from available options. It goes beyond predictions to recommend decisions.</p>
+        <h4 class="doc-subsection-title">How It Works:</h4>
+        <ul class="doc-list">
+          <li>Starts with descriptive/predictive insights.</li>
+          <li>Evaluates possible decisions and their impact.</li>
+          <li>Suggests optimal strategies using simulations, game theory, and optimization models.</li>
+        </ul>
+        <h4 class="doc-subsection-title">Use Case in Healthcare:</h4>
+        <p class="doc-paragraph">Analyzing obese patient data along with diabetes and cholesterol levels to determine priority treatment zones.</p>
+        <h4 class="doc-subsection-title">Challenges:</h4>
+        <ul class="doc-list">
+          <li>Computationally intensive.</li>
+          <li>Still underutilized in industries (used by only ~3% of organizations).</li>
+        </ul>
+        <h4 class="doc-subsection-title">Benefits:</h4>
+        <ul class="doc-list">
+          <li>Provides clear decision paths.</li>
+          <li>Improves proactive planning.</li>
+        </ul>
+      </section>
+
+      <!-- Section 12: Exploratory analysis -->
+      <section>
+        <h3 class="doc-section-title">12. Exploratory analysis</h3>
+        <p class="doc-paragraph"><strong>Definition:</strong> Exploratory Data Analysis (EDA) is used when the problem is not clearly defined. It helps uncover hidden patterns and relationships in data.</p>
+        <h4 class="doc-subsection-title">Approach:</h4>
+        <ul class="doc-list">
+          <li>Involves visualizations (scatterplots, bar charts).</li>
+          <li>Encourages open-ended exploration without hypotheses.</li>
+          <li>Acts as a starting point for more formal analysis.</li>
+        </ul>
+        <h4 class="doc-subsection-title">Philosophy:</h4>
+        <p class="doc-paragraph">EDA is more about mindset than tools—it guides how to examine data rather than what techniques to use.</p>
+        <h4 class="doc-subsection-title">Application Example:</h4>
+        <p class="doc-paragraph">Using US Census data to search for unexpected trends across dozens of variables before deciding on specific analytical methods.</p>
+        <h4 class="doc-subsection-title">Limitations:</h4>
+        <ul class="doc-list">
+          <li>Should not be used for drawing conclusions or predictions on its own.</li>
+          <li>Serves to inform further analysis rather than end it.</li>
+        </ul>
+      </section>
+
+      <!-- Section 13: Mechanistic analysis -->
+      <section>
+        <h3 class="doc-section-title">13. Mechanistic analysis.</h3>
+        <p class="doc-paragraph"><strong>Definition:</strong> Mechanistic analysis investigates how specific changes in one or more variables bring about changes in others, often in physical or controlled systems.</p>
+        <h4 class="doc-subsection-title">Use Case Examples:</h4>
+        <ul class="doc-list">
+          <li>Studying the effect of CO₂ levels on global temperature changes.</li>
+          <li>Assessing how increasing employee perks affects productivity.</li>
+        </ul>
+        <h4 class="doc-subsection-title">Core Technique – Regression Analysis:</h4>
+        <p class="doc-paragraph">Establishes mathematical relationships between variables. Helps predict outcomes (e.g., score = f(attitude)) using linear models:</p>
+        <div class="doc-formula-box">
+          <p style="font-family: monospace; font-size: 1.15rem; font-weight: 700;">
+            Y = &beta;₀ + &beta;₁X + &epsilon;
+          </p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+            Where:<br>
+            • <em>Y</em> is the dependent/outcome variable<br>
+            • <em>X</em> is the independent/predictor variable<br>
+            • <em>&beta;₀</em> is the intercept<br>
+            • <em>&beta;₁</em> is the slope parameter<br>
+            • <em>&epsilon;</em> is the random error term
+          </p>
+        </div>
+        <h4 class="doc-subsection-title">When to Use:</h4>
+        <ul class="doc-list">
+          <li>To model cause-effect relationships at an individual object level.</li>
+          <li>Especially suitable for scientific and industrial applications.</li>
+        </ul>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col-left">
+        <div class="footer-logo-row">
+          <img src="assets/mbu-logo.png" alt="MBU Logo" class="footer-logo">
+          <span class="footer-brand-title">Mohan Babu University</span>
+        </div>
+        <p class="footer-motto">DREAM. BELIEVE. ACHIEVE.</p>
+        <p class="footer-sub">Department of Computer Science & Engineering — B.Tech Data Science</p>
+      </div>
+      
+      <div class="footer-col-right">
+        <p class="footer-copy">© 2026–2027 Mohan Babu University. All rights reserved.</p>
+        <p class="footer-credit">Developed for Academic Coursework: Mounika • Subject Code: 22DS102006</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

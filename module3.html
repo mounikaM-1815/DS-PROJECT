@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 3: Data Visualization | Data Science Lab | Mohan Babu University (MBU)</title>
+  <meta name="description" content="Module 3 – Data Visualization: Detailed study notes covering Matplotlib, Pandas, Seaborn, line & bar plots, histograms, scatter plots, facet grids, and modern Python visualization tools.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/mbu-logo.png">
+  <style>
+    /* Clean document styling when rendered inside modal viewer */
+    body.in-iframe {
+      background: #f8fafc;
+    }
+    body.in-iframe .site-header,
+    body.in-iframe .site-footer,
+    body.in-iframe .doc-top-bar {
+      display: none !important;
+    }
+    body.in-iframe .module-doc-page {
+      padding: 1.25rem 1rem !important;
+    }
+    body.in-iframe .module-doc-card {
+      box-shadow: none !important;
+      border: 1px solid var(--border-subtle) !important;
+    }
+  </style>
+  <script>
+    if (window.self !== window.top) {
+      document.documentElement.classList.add('in-iframe');
+      window.addEventListener('DOMContentLoaded', () => {
+        document.body.classList.add('in-iframe');
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ==========================================
+       1. HEADER
+       ========================================== -->
+  <header class="site-header" id="mainHeader">
+    <div class="header-container">
+      <div class="header-brand">
+        <a href="index.html" class="brand-link" title="Mohan Babu University">
+          <img src="assets/mbu-logo.png" alt="Mohan Babu University Logo" class="header-logo" id="headerMbuLogo">
+        </a>
+      </div>
+
+      <!-- CENTER: Header Title -->
+      <div class="header-center" id="headerCenter">
+        <span class="header-center-title">DATA SCIENCE</span>
+      </div>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-item">
+            <a href="index.html#heroSection" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="modules.html" class="nav-link active">Modules</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#experimentsSection" class="nav-link">Experiments</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#toolsSection" class="nav-link">Tools</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#resourcesSection" class="nav-link">Resources</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button type="button" class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       MODULE DOCUMENT CONTENT
+       ========================================== -->
+  <main class="module-doc-page">
+    
+    <!-- Top Action Bar -->
+    <div class="doc-top-bar">
+      <a href="modules.html" class="btn-doc-back">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Modules</span>
+      </a>
+
+      <button type="button" class="btn-doc-print" onclick="window.print()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        <span>Print / Save as PDF</span>
+      </button>
+    </div>
+
+    <!-- Main Academic Document Card -->
+    <article class="module-doc-card">
+      
+      <!-- Document Banner -->
+      <div class="doc-banner-header">
+        <span class="doc-badge-pill">CURRICULUM SYLLABUS • MODULE 3</span>
+        <h1 class="doc-main-heading">MODULE 3</h1>
+        <h2 class="doc-sub-heading">DATA VISUALIZATION</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.45rem;">
+          Detailed Study Notes • Python • Matplotlib • Pandas • Seaborn
+        </p>
+        <div class="doc-tag-cloud">
+          <span class="doc-pill-tag accent">Matplotlib</span>
+          <span class="doc-pill-tag accent">Pandas Plotting</span>
+          <span class="doc-pill-tag accent">Seaborn</span>
+          <span class="doc-pill-tag">FacetGrids</span>
+          <span class="doc-pill-tag">Density & KDE</span>
+          <span class="doc-pill-tag">Plotly & Bokeh</span>
+        </div>
+      </div>
+
+      <!-- Syllabus Overview Box -->
+      <div class="doc-callout-card info">
+        <div class="doc-callout-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          Syllabus Covered
+        </div>
+        <ul class="doc-list" style="margin-top: 0.35rem; margin-bottom: 0;">
+          <li>A brief Matplotlib API primer</li>
+          <li>Plotting with Pandas and Seaborn</li>
+          <li>Line plots and bar plots</li>
+          <li>Histograms and density plots</li>
+          <li>Scatter plots</li>
+          <li>Facet grids and categorical data</li>
+          <li>Other Python visualization tools</li>
+        </ul>
+        <p style="font-size: 0.9rem; color: var(--text-body); margin-top: 0.65rem; margin-bottom: 0;">
+          <em>Beginner-friendly explanations, syntax, examples, interpretation tips, and revision points.</em>
+        </p>
+      </div>
+
+      <!-- How to use these notes & Learning outcomes -->
+      <section>
+        <h3 class="doc-section-title">How to use these notes</h3>
+        <p class="doc-paragraph">
+          These notes follow the topics in the Module 3 syllabus. Read the concepts first, run the code examples in a Python environment, and then revise the comparison tables and practice questions. The examples use small, invented datasets so that each plot is easy to understand.
+        </p>
+
+        <h4 class="doc-subsection-title">Install the libraries</h4>
+        <pre class="doc-code-block"><code>python -m pip install matplotlib pandas seaborn</code></pre>
+        <p class="doc-paragraph">
+          In a notebook, charts usually appear below the code cell. In a Python script, call <code>plt.show()</code> to display a chart. If your computer uses the command <code>python3</code>, run <code>python3 -m pip install matplotlib pandas seaborn</code>.
+        </p>
+
+        <div class="doc-callout-card">
+          <div class="doc-callout-title">Learning outcomes</div>
+          <ul class="doc-list" style="margin-bottom: 0;">
+            <li>Choose a suitable chart for a question or dataset.</li>
+            <li>Create and customize charts with Matplotlib.</li>
+            <li>Plot directly from a Pandas Series or DataFrame.</li>
+            <li>Use Seaborn for statistical and categorical visualizations.</li>
+            <li>Explain axes, labels, legends, bins, density, hue, facets, and chart limitations.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section 1: Foundation -->
+      <section>
+        <h3 class="doc-section-title">1. Data visualization: foundation</h3>
+        <p class="doc-paragraph">
+          <strong>Data visualization</strong> means representing data visually—using charts, plots, and graphs—to make patterns, comparisons, distributions, and relationships easier to understand.
+        </p>
+
+        <h4 class="doc-subsection-title">Why visualize data?</h4>
+        <ul class="doc-list">
+          <li><strong>Understand a dataset quickly:</strong> Inspect data structure before modeling or generating analytical reports.</li>
+          <li><strong>Compare values:</strong> Evaluate differences across categories or time periods.</li>
+          <li><strong>Find patterns:</strong> Identify trends, clusters, unusual observations, and potential outliers.</li>
+          <li><strong>Communicate results:</strong> Convey key takeaways to stakeholders who may not want to inspect raw tabular data.</li>
+          <li><strong>Check data quality:</strong> Spot unexpected gaps, impossible values, missing entries, or skewed distributions.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">Match the question to the chart</h4>
+        <div class="doc-table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Question</th>
+                <th>Useful plot</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>How does something change over time?</td>
+                <td><strong>Line plot</strong></td>
+                <td>Daily temperature</td>
+              </tr>
+              <tr>
+                <td>Which category is larger?</td>
+                <td><strong>Bar plot</strong></td>
+                <td>Sales by product</td>
+              </tr>
+              <tr>
+                <td>How are values distributed?</td>
+                <td><strong>Histogram / density plot</strong></td>
+                <td>Exam marks</td>
+              </tr>
+              <tr>
+                <td>Are two numeric variables related?</td>
+                <td><strong>Scatter plot</strong></td>
+                <td>Study hours vs marks</td>
+              </tr>
+              <tr>
+                <td>How does a pattern differ across groups?</td>
+                <td><strong>Facet grid</strong></td>
+                <td>Sales trend by region</td>
+              </tr>
+              <tr>
+                <td>How do numeric values vary by category?</td>
+                <td><strong>Box / violin / strip plot</strong></td>
+                <td>Salary by department</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 2: Matplotlib Primer -->
+      <section>
+        <h3 class="doc-section-title">2. A brief Matplotlib API primer</h3>
+        <p class="doc-paragraph">
+          Matplotlib is a widely used Python library for creating static, animated, and interactive visualizations. Its <code>pyplot</code> interface provides familiar functions such as <code>plot()</code>, <code>bar()</code>, and <code>hist()</code>.
+        </p>
+
+        <h4 class="doc-subsection-title">2.1 Import and basic structure</h4>
+        <pre class="doc-code-block"><code>import matplotlib.pyplot as plt
+
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 3, 7, 6]
+
+plt.plot(x, y, marker="o", label="Values")
+plt.title("A simple line plot")
+plt.xlabel("X values")
+plt.ylabel("Y values")
+plt.grid(True, alpha=0.3)
+plt.legend()
+plt.tight_layout()
+plt.show()</code></pre>
+
+        <p class="doc-paragraph"><strong>What each function does:</strong></p>
+        <ul class="doc-list">
+          <li><code>plt.plot(x, y)</code>: draws a line connecting the supplied points.</li>
+          <li><code>marker='o'</code>: places a circular marker at each data point.</li>
+          <li><code>plt.title()</code>: adds a title; <code>plt.xlabel()</code> and <code>plt.ylabel()</code> label the axes.</li>
+          <li><code>plt.grid()</code>: adds reference grid lines that help read values.</li>
+          <li><code>plt.legend()</code>: displays labels for plotted series.</li>
+          <li><code>plt.tight_layout()</code>: adjusts spacing to eliminate clipped labels and tight margins.</li>
+          <li><code>plt.show()</code>: renders and displays the finished figure in a script.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">2.2 Figure and Axes: object-oriented API</h4>
+        <p class="doc-paragraph">
+          Matplotlib organizes a chart around a <strong>Figure</strong> (the complete outer canvas) and one or more <strong>Axes</strong> (the actual plotting areas). The object-oriented API is recommended when a figure has multiple subplots or needs precise customization.
+        </p>
+        <pre class="doc-code-block"><code>import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(7, 4))
+ax.plot([1, 2, 3], [3, 5, 4], marker="o")
+ax.set_title("Weekly values")
+ax.set_xlabel("Week")
+ax.set_ylabel("Value")
+ax.grid(True, alpha=0.3)
+fig.tight_layout()
+plt.show()</code></pre>
+        <ul class="doc-list">
+          <li><code>fig</code> represents the complete figure canvas.</li>
+          <li><code>ax</code> represents one individual plotting area.</li>
+          <li><code>plt.subplots()</code> creates the Figure and Axes together.</li>
+          <li>Use <code>ax.set_title()</code>, <code>ax.set_xlabel()</code>, and <code>ax.set_ylabel()</code> for an Axes object.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">2.3 Multiple plots in one figure</h4>
+        <pre class="doc-code-block"><code>fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+
+axes[0].plot([1, 2, 3], [2, 4, 3], marker="o")
+axes[0].set_title("Line plot")
+
+axes[1].bar(["A", "B", "C"], [5, 3, 7])
+axes[1].set_title("Bar plot")
+
+fig.tight_layout()
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          Here, <code>1, 2</code> means one row and two columns of plots. With multiple Axes, customize each one through <code>axes[0]</code>, <code>axes[1]</code>, and so on.
+        </p>
+
+        <h4 class="doc-subsection-title">2.4 Common customization options</h4>
+        <ul class="doc-list">
+          <li><strong>Color:</strong> <code>color='teal'</code> or hex strings like <code>'#b41118'</code>.</li>
+          <li><strong>Line style:</strong> <code>linestyle='--'</code> for a dashed line, <code>':'</code> for dotted.</li>
+          <li><strong>Line width:</strong> <code>linewidth=2</code>.</li>
+          <li><strong>Marker:</strong> <code>marker='s'</code> for squares, <code>marker='o'</code> for circles, <code>'^'</code> for triangles.</li>
+          <li><strong>Transparency:</strong> <code>alpha=0.5</code> (ranges from 0.0 transparent to 1.0 opaque).</li>
+          <li><strong>Size:</strong> <code>figsize=(8, 5)</code> (width and height in inches).</li>
+          <li><strong>Save figure:</strong> <code>fig.savefig('chart.png', dpi=300, bbox_inches='tight')</code>.</li>
+        </ul>
+
+        <div class="doc-callout-card success">
+          <div class="doc-callout-title">Good Practice</div>
+          <p class="doc-paragraph" style="margin-bottom: 0;">
+            Give every chart a meaningful title, label both axes, include units where relevant (e.g., °C, INR, kg), and use a legend only when it helps the reader distinguish multiple series.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 3: Plotting with Pandas -->
+      <section>
+        <h3 class="doc-section-title">3. Plotting with Pandas</h3>
+        <p class="doc-paragraph">
+          Pandas is a Python library for working with tabular data. A <code>DataFrame</code> stores rows and columns; a <code>Series</code> stores one column or a one-dimensional sequence. Pandas plotting methods use Matplotlib behind the scenes, so Matplotlib customization can still be seamlessly applied.
+        </p>
+
+        <h4 class="doc-subsection-title">3.1 Create a DataFrame</h4>
+        <pre class="doc-code-block"><code>import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    "month": ["Jan", "Feb", "Mar", "Apr"],
+    "sales": [120, 150, 135, 180],
+    "cost": [80, 90, 95, 110]
+})</code></pre>
+
+        <h4 class="doc-subsection-title">3.2 Basic Pandas plotting</h4>
+        <pre class="doc-code-block"><code>df.plot(x="month", y="sales", kind="line", marker="o",
+        title="Monthly sales")
+plt.ylabel("Sales (units)")
+plt.tight_layout()
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          The <code>kind</code> argument chooses the chart type. Common values include <code>line</code>, <code>bar</code>, <code>barh</code>, <code>hist</code>, <code>box</code>, <code>area</code>, and <code>scatter</code> (scatter generally requires <code>x</code> and <code>y</code> columns).
+        </p>
+
+        <h4 class="doc-subsection-title">3.3 Plot multiple columns</h4>
+        <pre class="doc-code-block"><code>df.plot(x="month", y=["sales", "cost"], marker="o",
+        title="Sales and cost by month")
+plt.ylabel("Amount")
+plt.tight_layout()
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          Pandas automatically uses different visual styles for the two columns and adds a legend. Always check that the columns share a meaningful scale before comparing them on one axis.
+        </p>
+
+        <h4 class="doc-subsection-title">3.4 Histogram and bar chart using Pandas</h4>
+        <pre class="doc-code-block"><code># Histogram: distribution of a numeric column
+marks = pd.Series([45, 50, 55, 60, 61, 65, 70, 72, 80, 92])
+marks.plot(kind="hist", bins=5, edgecolor="black",
+           title="Distribution of marks")
+plt.xlabel("Marks")
+plt.show()
+
+# Bar chart: compare category values
+df.plot(x="month", y="sales", kind="bar",
+        legend=False, title="Sales by month")
+plt.ylabel("Sales")
+plt.tight_layout()
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">3.5 When Pandas plotting is useful</h4>
+        <ul class="doc-list">
+          <li>Quick exploratory charts directly from a DataFrame.</li>
+          <li>Simple charts with minimal boilerplate code.</li>
+          <li>Fast comparison of columns or groups immediately after data cleaning.</li>
+          <li>Use Seaborn or direct Matplotlib when you need more specialized statistical styling or detailed layout control.</li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Line plots -->
+      <section>
+        <h3 class="doc-section-title">4. Line plots</h3>
+        <p class="doc-paragraph">
+          A line plot connects observations in order, usually to show a trend. It is especially useful for time series such as daily temperature, monthly sales, or yearly population.
+        </p>
+
+        <h4 class="doc-subsection-title">4.1 Example</h4>
+        <pre class="doc-code-block"><code>import matplotlib.pyplot as plt
+
+months = ["Jan", "Feb", "Mar", "Apr", "May"]
+temperature = [24, 26, 29, 32, 34]
+
+plt.plot(months, temperature, marker="o",
+         color="tomato", linewidth=2)
+plt.title("Monthly temperature")
+plt.xlabel("Month")
+plt.ylabel("Temperature (°C)")
+plt.grid(True, alpha=0.25)
+plt.tight_layout()
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">4.2 How to read it</h4>
+        <ul class="doc-list">
+          <li><strong>X-axis:</strong> usually time or an ordered sequence.</li>
+          <li><strong>Y-axis:</strong> the measured numerical quantity.</li>
+          <li><strong>Slope & Direction:</strong> Upward sections indicate increases; downward sections indicate decreases.</li>
+          <li><strong>Steep sections:</strong> Indicate faster rates of change relative to chosen scales.</li>
+          <li><strong>Markers:</strong> Show the actual observations; the connecting line guides the eye.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">4.3 Multiple lines</h4>
+        <pre class="doc-code-block"><code>days = [1, 2, 3, 4, 5]
+city_a = [30, 31, 29, 32, 33]
+city_b = [27, 28, 28, 29, 30]
+
+plt.plot(days, city_a, marker="o", label="City A")
+plt.plot(days, city_b, marker="s", label="City B")
+plt.title("Daily temperature comparison")
+plt.xlabel("Day")
+plt.ylabel("Temperature (°C)")
+plt.legend()
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">4.4 Advantages and limitations</h4>
+        <ul class="doc-list">
+          <li><strong>Advantages:</strong> Clearly reveals trends, direction, turning points, and rates of change over time.</li>
+          <li><strong>Limitations:</strong> Too many lines can severely clutter a chart; connecting unordered categories may falsely imply a sequence that does not exist.</li>
+          <li><strong>Tip:</strong> Sort time values chronologically and handle missing dates intentionally before plotting.</li>
+        </ul>
+      </section>
+
+      <!-- Section 5: Bar plots -->
+      <section>
+        <h3 class="doc-section-title">5. Bar plots</h3>
+        <p class="doc-paragraph">
+          A bar plot compares a numerical value across discrete categories. The length or height of each bar represents the value. Bar charts are suitable for counts, totals, averages, or other summarized measures.
+        </p>
+
+        <h4 class="doc-subsection-title">5.1 Vertical and horizontal bars</h4>
+        <pre class="doc-code-block"><code>categories = ["Python", "Java", "SQL"]
+students = [35, 25, 30]
+
+plt.bar(categories, students, color="steelblue")
+plt.title("Students choosing each topic")
+plt.xlabel("Topic")
+plt.ylabel("Number of students")
+plt.show()
+
+# Horizontal bars are useful for long category names
+plt.barh(categories, students)
+plt.xlabel("Number of students")
+plt.title("Topic preference")
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">5.2 Grouped bars</h4>
+        <pre class="doc-code-block"><code>import numpy as np
+
+labels = ["A", "B", "C"]
+class_1 = [70, 82, 75]
+class_2 = [74, 78, 88]
+
+x = np.arange(len(labels))
+width = 0.35
+
+fig, ax = plt.subplots()
+ax.bar(x - width/2, class_1, width, label="Class 1")
+ax.bar(x + width/2, class_2, width, label="Class 2")
+ax.set_xticks(x, labels)
+ax.set_ylabel("Average marks")
+ax.set_title("Class comparison")
+ax.legend()
+fig.tight_layout()
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">5.3 Bar plot versus histogram</h4>
+        <p class="doc-paragraph">
+          A <strong>bar plot</strong> compares separate discrete categories; the bars can be reordered and gaps are deliberately shown between bars. A <strong>histogram</strong> groups a continuous numeric variable into adjacent intervals (bins), so the order and bin boundaries matter and bars normally touch.
+        </p>
+
+        <h4 class="doc-subsection-title">5.4 Good practices</h4>
+        <ul class="doc-list">
+          <li>Start a bar chart's value axis at zero in most cases, because bar length encodes magnitude.</li>
+          <li>Sort bars when ranking or comparison is the primary goal.</li>
+          <li>Use horizontal bars (<code>plt.barh</code>) for long category labels to avoid overlapping text.</li>
+          <li>Do not use a bar chart for every numeric distribution; use a histogram when the question is about continuous distributions.</li>
+        </ul>
+      </section>
+
+      <!-- Section 6: Histograms and density plots -->
+      <section>
+        <h3 class="doc-section-title">6. Histograms and density plots</h3>
+        
+        <h4 class="doc-subsection-title">6.1 Histogram</h4>
+        <p class="doc-paragraph">
+          A histogram divides numeric values into intervals called <strong>bins</strong> and counts how many observations fall in each bin. It helps reveal shape, spread, skewness, clusters, and possible outliers.
+        </p>
+        <pre class="doc-code-block"><code>marks = [45, 50, 52, 55, 58, 60, 61, 65, 70, 72, 80, 92]
+
+plt.hist(marks, bins=5, edgecolor="black")
+plt.title("Distribution of exam marks")
+plt.xlabel("Marks")
+plt.ylabel("Frequency")
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          <strong>Bin choice matters:</strong> too few bins can hide underlying structure; too many bins can make random noise look like meaningful peaks. Try a few reasonable settings and explain your choice.
+        </p>
+
+        <h4 class="doc-subsection-title">6.2 Frequency, probability and density</h4>
+        <ul class="doc-list">
+          <li><strong>Frequency:</strong> the raw count of observations falling in each bin.</li>
+          <li><strong>Probability-style histogram:</strong> bars are scaled so their heights represent proportions under the chosen binning.</li>
+          <li><strong>Density histogram:</strong> the total area of all bars integrates to 1; density height is not the same as raw count.</li>
+        </ul>
+        <pre class="doc-code-block"><code>plt.hist(marks, bins=5, density=True, alpha=0.6,
+         edgecolor="black")
+plt.title("Density-scaled histogram")
+plt.ylabel("Density")
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">6.3 Density plot / KDE</h4>
+        <p class="doc-paragraph">
+          A <strong>kernel density estimate (KDE)</strong> is a smooth estimate of a variable's continuous distribution. It can make the overall shape easier to see, but it is an estimate—not a set of exact counts. Its appearance depends heavily on the bandwidth (smoothing level).
+        </p>
+        <pre class="doc-code-block"><code>import seaborn as sns
+
+sns.kdeplot(data=marks, fill=True)
+plt.title("KDE of exam marks")
+plt.xlabel("Marks")
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">6.4 Histogram with density curve</h4>
+        <pre class="doc-code-block"><code>sns.histplot(data=marks, bins=5, stat="density",
+             kde=True, edgecolor="white")
+plt.title("Marks: histogram and KDE")
+plt.xlabel("Marks")
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">6.5 Shape vocabulary</h4>
+        <ul class="doc-list">
+          <li><strong>Symmetric:</strong> left and right sides look roughly alike around the center.</li>
+          <li><strong>Right-skewed:</strong> a long tail extends toward larger positive values (mean &gt; median).</li>
+          <li><strong>Left-skewed:</strong> a long tail extends toward smaller negative values (mean &lt; median).</li>
+          <li><strong>Bimodal:</strong> two prominent peaks; this may indicate two underlying subgroups or subpopulations.</li>
+          <li><strong>Outlier:</strong> an observation far from most of the data; investigate it rather than automatically deleting it.</li>
+        </ul>
+
+        <div class="doc-callout-card warning">
+          <div class="doc-callout-title">Important Note on KDE</div>
+          <p class="doc-paragraph" style="margin-bottom: 0;">
+            KDE curves can extend beyond the observed data range (e.g. negative exam marks) and can smooth away small groups. Use a histogram as a complementary view, especially for small datasets.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 7: Scatter plots -->
+      <section>
+        <h3 class="doc-section-title">7. Scatter plots</h3>
+        <p class="doc-paragraph">
+          A scatter plot displays paired numeric values as points. Each point represents one observation, with one variable on the x-axis and another on the y-axis. It is used to inspect association, clusters, outliers, and nonlinear patterns.
+        </p>
+
+        <h4 class="doc-subsection-title">7.1 Basic scatter plot</h4>
+        <pre class="doc-code-block"><code>hours = [1, 2, 2.5, 3, 4, 5, 6]
+marks = [42, 48, 55, 58, 68, 75, 85]
+
+plt.scatter(hours, marks, alpha=0.8)
+plt.title("Study hours and exam marks")
+plt.xlabel("Study hours")
+plt.ylabel("Exam marks")
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">7.2 Interpret the pattern</h4>
+        <ul class="doc-list">
+          <li><strong>Positive association:</strong> larger x values tend to occur with larger y values (upward trend).</li>
+          <li><strong>Negative association:</strong> larger x values tend to occur with smaller y values (downward trend).</li>
+          <li><strong>Little visible association:</strong> points form a random cloud; no clear trend.</li>
+          <li><strong>Nonlinear association:</strong> the relationship follows a curved or U-shaped pattern rather than a straight line.</li>
+          <li><strong>Clusters:</strong> points form distinct groups that may represent different populations or conditions.</li>
+          <li><strong>Outliers:</strong> points far from the main cloud deserve careful investigation.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">7.3 Add a third variable</h4>
+        <pre class="doc-code-block"><code>size = [30, 50, 70, 40, 90, 60, 80]
+group = ["A", "A", "B", "B", "A", "B", "A"]
+colors_by_group = ["tab:blue" if g == "A" else "tab:orange"
+                   for g in group]
+
+plt.scatter(hours, marks, s=size, c=colors_by_group, alpha=0.7)
+plt.xlabel("Study hours")
+plt.ylabel("Exam marks")
+plt.title("Scatter plot with group color and point size")
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          Color can encode a category, and point size can encode another numeric measure. Add a legend or clear explanation when using visual encodings; otherwise readers may not know what the colors or sizes mean.
+        </p>
+
+        <h4 class="doc-subsection-title">7.4 Correlation is not causation</h4>
+        <p class="doc-paragraph">
+          A visible relationship does not prove that one variable causes the other. A third confounding factor may influence both, or the pattern may arise purely by chance. Scatter plots are exploratory tools, not causal proof.
+        </p>
+
+        <h4 class="doc-subsection-title">7.5 Overplotting</h4>
+        <p class="doc-paragraph">
+          When many points overlap, the plot can hide how many observations are present. Reduce marker size, use transparency (<code>alpha</code>), or consider a <strong>hexbin</strong> / 2D density plot for very large datasets.
+        </p>
+      </section>
+
+      <!-- Section 8: Seaborn -->
+      <section>
+        <h3 class="doc-section-title">8. Seaborn: statistical visualization</h3>
+        <p class="doc-paragraph">
+          Seaborn is a statistical visualization library built on Matplotlib. It works naturally with Pandas DataFrames, offers attractive default styles, and makes it easy to map columns to visual properties such as color, marker style, or row/column panels.
+        </p>
+
+        <h4 class="doc-subsection-title">8.1 Setup and long-form data</h4>
+        <pre class="doc-code-block"><code>import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.DataFrame({
+    "month": ["Jan", "Feb", "Mar", "Jan", "Feb", "Mar"],
+    "sales": [10, 14, 13, 8, 11, 12],
+    "region": ["North", "North", "North", "South", "South", "South"]
+})</code></pre>
+        <p class="doc-paragraph">
+          In <strong>long-form data</strong>, each row is one observation and columns identify variables. This layout often works well with Seaborn because the chart can map columns directly to <code>x</code>, <code>y</code>, <code>hue</code>, and other visual roles.
+        </p>
+
+        <h4 class="doc-subsection-title">8.2 Seaborn syntax</h4>
+        <pre class="doc-code-block"><code>sns.lineplot(data=df, x="month", y="sales", hue="region",
+             marker="o")
+plt.title("Sales by month and region")
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          <code>data</code> supplies the DataFrame; <code>x</code> and <code>y</code> name columns; <code>hue</code> splits or colors the data by a category. Seaborn automatically aggregates repeated observations and may display uncertainty intervals depending on settings.
+        </p>
+
+        <h4 class="doc-subsection-title">8.3 Common Seaborn functions</h4>
+        <div class="doc-table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Function</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>sns.lineplot()</code></td>
+                <td>Trend or relationship along an ordered x-axis</td>
+              </tr>
+              <tr>
+                <td><code>sns.barplot()</code></td>
+                <td>Estimate a numeric statistic for each category (often mean)</td>
+              </tr>
+              <tr>
+                <td><code>sns.countplot()</code></td>
+                <td>Count observations in each category</td>
+              </tr>
+              <tr>
+                <td><code>sns.histplot()</code></td>
+                <td>Histogram, optionally with KDE</td>
+              </tr>
+              <tr>
+                <td><code>sns.kdeplot()</code></td>
+                <td>Smoothed density estimate</td>
+              </tr>
+              <tr>
+                <td><code>sns.scatterplot()</code></td>
+                <td>Relationship between two numeric variables</td>
+              </tr>
+              <tr>
+                <td><code>sns.boxplot()</code></td>
+                <td>Compare distributions and potential outliers by category</td>
+              </tr>
+              <tr>
+                <td><code>sns.violinplot()</code></td>
+                <td>Show distribution shape by category</td>
+              </tr>
+              <tr>
+                <td><code>sns.stripplot()</code></td>
+                <td>Show individual observations by category</td>
+              </tr>
+              <tr>
+                <td><code>sns.pairplot()</code></td>
+                <td>Explore pairwise relationships among several variables</td>
+              </tr>
+              <tr>
+                <td><code>sns.heatmap()</code></td>
+                <td>Display values in a matrix, often a correlation matrix</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 9: Facet grids -->
+      <section>
+        <h3 class="doc-section-title">9. Facet grids</h3>
+        <p class="doc-paragraph">
+          A <strong>facet grid</strong> splits a dataset into multiple small charts, one for each category or combination of categories. This makes it easier to compare groups while keeping the same chart design.
+        </p>
+
+        <h4 class="doc-subsection-title">9.1 FacetGrid example</h4>
+        <pre class="doc-code-block"><code>tips = sns.load_dataset("tips")
+
+g = sns.FacetGrid(tips, col="time", row="sex",
+                  height=3, aspect=1.1)
+g.map_dataframe(sns.scatterplot, x="total_bill",
+                y="tip", alpha=0.7)
+g.set_axis_labels("Total bill", "Tip")
+g.set_titles(row_template="{row_name}",
+             col_template="{col_name}")
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          The built-in Seaborn <code>tips</code> dataset is used in this example. If downloading built-in datasets is unavailable in your environment, replace it with your own DataFrame containing the columns used in the code.
+        </p>
+
+        <h4 class="doc-subsection-title">9.2 relplot: a convenient figure-level function</h4>
+        <pre class="doc-code-block"><code>sns.relplot(data=tips, x="total_bill", y="tip",
+            hue="smoker", col="time", kind="scatter",
+            height=3)
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          <code>relplot()</code> can create relational plots and split them across facets. <code>col</code> creates columns of panels, while <code>row</code> creates rows. <code>hue</code> distinguishes groups by color.
+        </p>
+
+        <h4 class="doc-subsection-title">9.3 Benefits and cautions</h4>
+        <ul class="doc-list">
+          <li><strong>Benefits:</strong> Side-by-side comparisons, visible group differences, less overplotting than cramming every group into a single plot.</li>
+          <li><strong>Keep axes comparable:</strong> Ensure axis limits are aligned when the goal is comparing magnitudes across facets.</li>
+          <li><strong>Avoid too many categories:</strong> Too many levels generate tiny, unreadable subplots.</li>
+          <li><strong>Check sample sizes:</strong> A pattern in a group with very few observations may be statistically unstable.</li>
+        </ul>
+      </section>
+
+      <!-- Section 10: Categorical data visualization -->
+      <section>
+        <h3 class="doc-section-title">10. Categorical data visualization</h3>
+        <p class="doc-paragraph">
+          Categorical variables contain labels or groups, such as department, product type, region, or pass/fail status. Categorical plots compare categories or show the distribution of numeric values within each category.
+        </p>
+
+        <h4 class="doc-subsection-title">10.1 Count plot</h4>
+        <pre class="doc-code-block"><code>students = pd.DataFrame({
+    "course": ["Python", "Java", "Python", "SQL",
+               "Java", "Python", "SQL", "Python"]
+})
+
+sns.countplot(data=students, x="course")
+plt.title("Number of students by course")
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          A count plot counts rows in each category. It is useful when the raw data contains one row per observation and you want category frequencies.
+        </p>
+
+        <h4 class="doc-subsection-title">10.2 Bar plot for a summary statistic</h4>
+        <pre class="doc-code-block"><code>scores = pd.DataFrame({
+    "class": ["A", "A", "A", "B", "B", "B"],
+    "marks": [70, 75, 80, 65, 78, 82]
+})
+
+sns.barplot(data=scores, x="class", y="marks", errorbar=None)
+plt.title("Average marks by class")
+plt.ylabel("Mean marks")
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          Unlike <code>countplot()</code>, <code>barplot()</code> summarizes a numeric variable for each category. By default, it commonly estimates a mean and can show uncertainty intervals.
+        </p>
+
+        <h4 class="doc-subsection-title">10.3 Box plot</h4>
+        <pre class="doc-code-block"><code>sns.boxplot(data=scores, x="class", y="marks")
+plt.title("Marks distribution by class")
+plt.show()</code></pre>
+        <ul class="doc-list">
+          <li>The line inside the box is the <strong>median</strong>.</li>
+          <li>The box spans the first to third quartiles (the <strong>interquartile range, IQR</strong>).</li>
+          <li>Whiskers extend according to the plotting convention; in Seaborn's usual box plot, they typically reach the most extreme points within 1.5 × IQR of the quartiles.</li>
+          <li>Points beyond the whiskers are flagged as <strong>potential outliers</strong>, not automatically errors.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">10.4 Violin and strip plots</h4>
+        <pre class="doc-code-block"><code>sns.violinplot(data=scores, x="class", y="marks", inner="quartile")
+plt.title("Distribution shape by class")
+plt.show()
+
+sns.stripplot(data=scores, x="class", y="marks", jitter=True)
+plt.title("Individual marks by class")
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          A <strong>violin plot</strong> shows a smoothed distribution shape for each category. A <strong>strip plot</strong> displays individual observations. With small datasets, a strip plot can be more transparent; with larger datasets, combine or overlay plots thoughtfully.
+        </p>
+
+        <h4 class="doc-subsection-title">10.5 Choosing the right categorical plot</h4>
+        <ul class="doc-list">
+          <li><strong>Category frequency:</strong> <code>countplot()</code></li>
+          <li><strong>Compare a numeric summary across categories:</strong> <code>barplot()</code></li>
+          <li><strong>Compare median, spread, and potential outliers:</strong> <code>boxplot()</code></li>
+          <li><strong>Compare distribution shapes:</strong> <code>violinplot()</code></li>
+          <li><strong>Show every individual observation:</strong> <code>stripplot()</code> or <code>swarmplot()</code></li>
+        </ul>
+      </section>
+
+      <!-- Section 11: Other Python visualization tools -->
+      <section>
+        <h3 class="doc-section-title">11. Other Python visualization tools</h3>
+        <p class="doc-paragraph">
+          Matplotlib, Pandas, and Seaborn are not the only options. The best tool depends on whether you need interactive exploration, browser-based dashboards, maps, or a specialized statistical display.
+        </p>
+
+        <h4 class="doc-subsection-title">11.1 Plotly</h4>
+        <p class="doc-paragraph">
+          Plotly creates interactive charts with hover details, zooming, and legends that users can toggle. It is useful for interactive reports and web applications.
+        </p>
+        <pre class="doc-code-block"><code># Install: python -m pip install plotly
+import plotly.express as px
+import pandas as pd
+
+df = pd.DataFrame({
+    "month": ["Jan", "Feb", "Mar"],
+    "sales": [120, 150, 135]
+})
+
+fig = px.line(df, x="month", y="sales",
+              markers=True, title="Monthly sales")
+fig.show()</code></pre>
+
+        <h4 class="doc-subsection-title">11.2 Bokeh</h4>
+        <p class="doc-paragraph">
+          Bokeh supports interactive browser-based visualizations and linked charts. It can be useful when an application needs interactive tools and a Python-centered workflow.
+        </p>
+        <pre class="doc-code-block"><code># Install: python -m pip install bokeh
+from bokeh.plotting import figure, show
+
+p = figure(title="Simple Bokeh line", x_axis_label="x",
+           y_axis_label="y")
+p.line([1, 2, 3], [2, 5, 3], line_width=2)
+show(p)</code></pre>
+
+        <h4 class="doc-subsection-title">11.3 Altair</h4>
+        <p class="doc-paragraph">
+          Altair is a declarative visualization library. You describe how data fields map to x, y, color, and marks rather than specifying every drawing step. It is concise for many statistical charts.
+        </p>
+        <pre class="doc-code-block"><code># Install: python -m pip install altair
+import altair as alt
+import pandas as pd
+
+df = pd.DataFrame({
+    "month": ["Jan", "Feb", "Mar"],
+    "sales": [120, 150, 135]
+})
+
+chart = alt.Chart(df).mark_line(point=True).encode(
+    x="month:N", y="sales:Q"
+).properties(title="Monthly sales")
+chart</code></pre>
+
+        <h4 class="doc-subsection-title">11.4 Other tools to know</h4>
+        <ul class="doc-list">
+          <li><strong>HoloViews:</strong> high-level plotting built around data and visualization objects; can work with multiple plotting backends.</li>
+          <li><strong>Datashader:</strong> helps render very large datasets by aggregating data into pixels, reducing overplotting.</li>
+          <li><strong>GeoPandas / Folium:</strong> useful for geospatial data and interactive maps.</li>
+          <li><strong>Dash / Streamlit:</strong> application frameworks for building dashboards around charts and controls.</li>
+          <li><strong>Pygal:</strong> Python charting library focused on SVG output; check project maintenance and compatibility before choosing it for a new project.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">11.5 Quick comparison</h4>
+        <div class="doc-table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>Main strength</th>
+                <th>Best fit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Matplotlib</strong></td>
+                <td>Fine-grained control</td>
+                <td>Publication-quality static plots, custom layouts</td>
+              </tr>
+              <tr>
+                <td><strong>Pandas plotting</strong></td>
+                <td>Very quick from tables</td>
+                <td>Exploratory charts</td>
+              </tr>
+              <tr>
+                <td><strong>Seaborn</strong></td>
+                <td>Statistical plots and concise syntax</td>
+                <td>Distributions, relationships, categories</td>
+              </tr>
+              <tr>
+                <td><strong>Plotly</strong></td>
+                <td>Interactive charts</td>
+                <td>Interactive analysis and web reports</td>
+              </tr>
+              <tr>
+                <td><strong>Bokeh</strong></td>
+                <td>Browser-based interaction</td>
+                <td>Interactive applications</td>
+              </tr>
+              <tr>
+                <td><strong>Altair</strong></td>
+                <td>Declarative grammar</td>
+                <td>Concise data-driven charts</td>
+              </tr>
+              <tr>
+                <td><strong>GeoPandas / Folium</strong></td>
+                <td>Geospatial visualization</td>
+                <td>Maps and spatial data</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 12: A complete mini example -->
+      <section>
+        <h3 class="doc-section-title">12. A complete mini example</h3>
+        <p class="doc-paragraph">
+          This example puts several topics together: a DataFrame, a line plot, a histogram, a scatter plot, and a categorical comparison. Run each section separately if you want to study one chart at a time.
+        </p>
+        <pre class="doc-code-block"><code>import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.DataFrame({
+    "student": ["A", "B", "C", "D", "E", "F"],
+    "hours": [1, 2, 2.5, 3, 4, 5],
+    "marks": [42, 48, 55, 58, 68, 75],
+    "group": ["X", "X", "Y", "Y", "X", "Y"]
+})
+
+# 1. Scatter plot: study hours versus marks
+sns.scatterplot(data=df, x="hours", y="marks", hue="group")
+plt.title("Study hours and marks")
+plt.tight_layout()
+plt.show()
+
+# 2. Histogram: distribution of marks
+sns.histplot(data=df, x="marks", bins=5, kde=True)
+plt.title("Distribution of marks")
+plt.tight_layout()
+plt.show()
+
+# 3. Categorical summary: marks by group
+sns.boxplot(data=df, x="group", y="marks")
+plt.title("Marks by group")
+plt.tight_layout()
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          Notice that the same dataset can support different questions. The scatter plot asks about the relationship between two numeric variables; the histogram asks how marks are distributed; the box plot compares marks across groups.
+        </p>
+      </section>
+
+      <!-- Section 13: Common mistakes and debugging -->
+      <section>
+        <h3 class="doc-section-title">13. Common mistakes and debugging</h3>
+        <ul class="doc-list">
+          <li><strong>Missing import:</strong> Use <code>import matplotlib.pyplot as plt</code> and import Pandas/Seaborn when needed.</li>
+          <li><strong>Wrong column name:</strong> Check spelling and capitalization with <code>print(df.columns)</code>.</li>
+          <li><strong>Chart not visible in a script:</strong> Remember to add <code>plt.show()</code>.</li>
+          <li><strong>Labels cut off:</strong> Use <code>plt.tight_layout()</code> or <code>fig.tight_layout()</code>.</li>
+          <li><strong>Unexpected order:</strong> Explicitly sort dates or define category order before plotting.</li>
+          <li><strong>Wrong plot type:</strong> Use bars for categories and histograms for numeric distributions.</li>
+          <li><strong>Too many overlapping points:</strong> Reduce marker size, add transparency (<code>alpha</code>), or aggregate the data.</li>
+          <li><strong>Misleading scale:</strong> Check axis limits and units; avoid visually exaggerating differences by omitting baseline zeros on bar charts.</li>
+          <li><strong>Seaborn version mismatch:</strong> Some parameters differ between versions (e.g., <code>errorbar=None</code> vs older <code>ci=None</code>); inspect the error message and installed version before changing the entire program.</li>
+        </ul>
+      </section>
+
+      <!-- Section 14: Quick revision sheet -->
+      <section>
+        <h3 class="doc-section-title">14. Quick revision sheet</h3>
+        <div class="doc-table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Concept</th>
+                <th>Remember</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Figure</strong></td>
+                <td>The whole canvas containing the plot(s).</td>
+              </tr>
+              <tr>
+                <td><strong>Axes</strong></td>
+                <td>The area where data is plotted; has x/y axes.</td>
+              </tr>
+              <tr>
+                <td><strong>Line plot</strong></td>
+                <td>Trend or change along an ordered sequence, often time.</td>
+              </tr>
+              <tr>
+                <td><strong>Bar plot</strong></td>
+                <td>Comparison across discrete categories.</td>
+              </tr>
+              <tr>
+                <td><strong>Histogram</strong></td>
+                <td>Frequency or density across numeric bins.</td>
+              </tr>
+              <tr>
+                <td><strong>KDE / density plot</strong></td>
+                <td>Smoothed estimate of a distribution.</td>
+              </tr>
+              <tr>
+                <td><strong>Scatter plot</strong></td>
+                <td>Relationship between two numeric variables.</td>
+              </tr>
+              <tr>
+                <td><strong>Facet grid</strong></td>
+                <td>Small multiples split by categories.</td>
+              </tr>
+              <tr>
+                <td><strong>hue</strong></td>
+                <td>Maps a variable to color to distinguish groups.</td>
+              </tr>
+              <tr>
+                <td><strong>countplot</strong></td>
+                <td>Counts observations in categories.</td>
+              </tr>
+              <tr>
+                <td><strong>barplot</strong></td>
+                <td>Summarizes a numeric variable by category.</td>
+              </tr>
+              <tr>
+                <td><strong>boxplot</strong></td>
+                <td>Median, quartiles, spread, and potential outliers.</td>
+              </tr>
+              <tr>
+                <td><strong>plt.show()</strong></td>
+                <td>Displays a plot in a script.</td>
+              </tr>
+              <tr>
+                <td><strong>fig.savefig()</strong></td>
+                <td>Saves a figure to a file.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 15: Practice questions -->
+      <section>
+        <h3 class="doc-section-title">15. Practice questions</h3>
+        
+        <div class="doc-qa-list">
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q1.</span> What is data visualization? Give three benefits.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Visual representation of data using charts, plots, and graphs. Benefits include: revealing hidden patterns, comparing groups or trends, and communicating complex insights clearly to non-technical stakeholders.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q2.</span> Explain the difference between a Figure and an Axes in Matplotlib.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> A Figure is the entire top-level canvas window. An Axes is the actual sub-region on that canvas where data points, labels, and ticks are plotted. One Figure can contain one or multiple Axes.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q3.</span> Write Python code to create a line plot with a title and labeled axes.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> <code>plt.plot(x, y); plt.title("My Plot"); plt.xlabel("X"); plt.ylabel("Y"); plt.show()</code></div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q4.</span> When would you choose a bar plot instead of a histogram?</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Choose a bar plot when comparing discrete categorical groups (e.g., product types, departments). Choose a histogram when inspecting the distribution of a single continuous numerical variable.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q5.</span> What are bins in a histogram? How can the number of bins change the appearance?</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Bins are equal intervals that divide the continuous range. Too few bins over-smooth the data and conceal key structures; too many bins introduce excessive noise and jagged peaks.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q6.</span> What is the difference between frequency and density in a histogram?</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Frequency represents raw observation counts per bin. Density scales bar heights so that the total area under all bars equals 1, allowing comparison between datasets of different sample sizes.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q7.</span> What does a KDE plot show, and why is its shape an estimate?</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> A KDE shows a smoothed probability density curve of the data. It is an estimate because it applies kernel smoothing with a selected bandwidth rather than displaying exact discrete counts.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q8.</span> How can you interpret positive, negative, and nonlinear patterns in a scatter plot?</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Positive: points slope upward as x increases; Negative: points slope downward as x increases; Nonlinear: points form a distinct curved trajectory rather than a straight line.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q9.</span> What does the Seaborn parameter hue do?</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> <code>hue</code> maps a categorical or numeric variable to color, splitting plotted markers or lines into distinct visual groups with an automatic legend.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q10.</span> Explain FacetGrid and give one situation where it is useful.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> FacetGrid splits a dataset into small multiple subplots across rows and columns of categories. It is useful for comparing relationships (e.g., bill vs tip) across subsets (e.g., lunch vs dinner, smoker vs non-smoker) without overcrowding.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q11.</span> Differentiate countplot() and barplot().</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> <code>countplot()</code> counts raw row frequencies for each category. <code>barplot()</code> aggregates and calculates a statistical summary (such as the mean) of a second numeric column for each category.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q12.</span> Compare Matplotlib, Pandas plotting, Seaborn, and Plotly.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Matplotlib provides low-level publication control; Pandas plotting offers quick exploratory charts directly from DataFrames; Seaborn automates statistical aesthetics and grouping; Plotly creates interactive, web-ready charts with zooming and hover tooltips.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q13.</span> Name two ways to reduce overplotting in a scatter plot.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> 1) Decrease marker size and add transparency using <code>alpha</code>; 2) Use a 2D density plot or hexbin plot.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q14.</span> Why does correlation not necessarily imply causation?</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Two variables can correlate due to a third confounding variable, reverse causation, or pure coincidence. True causation requires controlled experimentation or rigorous causal inference frameworks.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q15.</span> List four common chart design practices that improve readability.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> 1) Provide clear, descriptive titles; 2) Label both axes with variable names and measurement units; 3) Start bar chart axes at zero; 4) Use legends and colors purposefully without visual clutter.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 16: Suggested practical exercises -->
+      <section>
+        <h3 class="doc-section-title">16. Suggested practical exercises</h3>
+        <ol class="doc-list">
+          <li>Create a line plot of monthly expenses and label the y-axis in rupees (₹).</li>
+          <li>Create a bar chart comparing marks in five subjects; display the subjects from highest to lowest.</li>
+          <li>Generate 100 random marks and compare histograms with 5, 10, and 20 bins.</li>
+          <li>Create a scatter plot of study hours and marks; color points by class group.</li>
+          <li>Use a box plot to compare marks across three classes.</li>
+          <li>Use <code>FacetGrid</code> or <code>relplot()</code> to compare a relationship across two categories.</li>
+          <li>Save one chart as a high-resolution PNG file using 300 DPI and tight bounding (<code>dpi=300, bbox_inches='tight'</code>).</li>
+        </ol>
+
+        <div class="doc-callout-card info">
+          <div class="doc-callout-title">Module 3 Summary & Exam Advice</div>
+          <p class="doc-paragraph" style="margin-bottom: 0;">
+            End of Module 3 notes. For exams and laboratory vivas, practice writing short definitions, explaining the exact purpose of each plot, comparing similar chart types (such as Bar Chart vs Histogram), and reproducing concise code snippets from memory.
+          </p>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col-left">
+        <div class="footer-logo-row">
+          <img src="assets/mbu-logo.png" alt="MBU Logo" class="footer-logo">
+          <span class="footer-brand-title">Mohan Babu University</span>
+        </div>
+        <p class="footer-motto">DREAM. BELIEVE. ACHIEVE.</p>
+        <p class="footer-sub">Department of Computer Science & Engineering — B.Tech Data Science</p>
+      </div>
+      
+      <div class="footer-col-right">
+        <p class="footer-copy">© 2026–2027 Mohan Babu University. All rights reserved.</p>
+        <p class="footer-credit">Developed for Academic Coursework: Mounika • Subject Code: 22DS102006</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

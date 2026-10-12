@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 5: Time Series Analysis & Predictive Modeling | Data Science Lab | Mohan Babu University (MBU)</title>
+  <meta name="description" content="Module 5 – Time Series Analysis & Predictive Modeling: Detailed study notes covering time series decomposition, moving averages, autocorrelation, predictive workflows, model evaluation, and sentiment analysis.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/mbu-logo.png">
+  <style>
+    /* Clean document styling when rendered inside modal viewer */
+    body.in-iframe {
+      background: #f8fafc;
+    }
+    body.in-iframe .site-header,
+    body.in-iframe .site-footer,
+    body.in-iframe .doc-top-bar {
+      display: none !important;
+    }
+    body.in-iframe .module-doc-page {
+      padding: 1.25rem 1rem !important;
+    }
+    body.in-iframe .module-doc-card {
+      box-shadow: none !important;
+      border: 1px solid var(--border-subtle) !important;
+    }
+  </style>
+  <script>
+    if (window.self !== window.top) {
+      document.documentElement.classList.add('in-iframe');
+      window.addEventListener('DOMContentLoaded', () => {
+        document.body.classList.add('in-iframe');
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ==========================================
+       1. HEADER
+       ========================================== -->
+  <header class="site-header" id="mainHeader">
+    <div class="header-container">
+      <div class="header-brand">
+        <a href="index.html" class="brand-link" title="Mohan Babu University">
+          <img src="assets/mbu-logo.png" alt="Mohan Babu University Logo" class="header-logo" id="headerMbuLogo">
+        </a>
+      </div>
+
+      <!-- CENTER: Header Title -->
+      <div class="header-center" id="headerCenter">
+        <span class="header-center-title">DATA SCIENCE</span>
+      </div>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li class="nav-item">
+            <a href="index.html#heroSection" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="modules.html" class="nav-link active">Modules</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#experimentsSection" class="nav-link">Experiments</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#toolsSection" class="nav-link">Tools</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.html#resourcesSection" class="nav-link">Resources</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button type="button" class="nav-toggle-btn" id="navToggleBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       MODULE DOCUMENT CONTENT
+       ========================================== -->
+  <main class="module-doc-page">
+    
+    <!-- Top Action Bar -->
+    <div class="doc-top-bar">
+      <a href="modules.html" class="btn-doc-back">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Back to Modules</span>
+      </a>
+
+      <button type="button" class="btn-doc-print" onclick="window.print()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        <span>Print / Save as PDF</span>
+      </button>
+    </div>
+
+    <!-- Main Academic Document Card -->
+    <article class="module-doc-card">
+      
+      <!-- Document Banner -->
+      <div class="doc-banner-header">
+        <span class="doc-badge-pill">CURRICULUM SYLLABUS • MODULE 5</span>
+        <h1 class="doc-main-heading">MODULE 5</h1>
+        <h2 class="doc-sub-heading">TIME SERIES ANALYSIS AND PREDICTIVE MODELING</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.45rem;">
+          Detailed Study Notes • Python • pandas • Forecasting • Model Evaluation • Sentiment Analysis
+        </p>
+        <div class="doc-tag-cloud">
+          <span class="doc-pill-tag accent">Time Series</span>
+          <span class="doc-pill-tag accent">Moving Averages</span>
+          <span class="doc-pill-tag accent">Autocorrelation & ACF</span>
+          <span class="doc-pill-tag">Data Leakage Prevention</span>
+          <span class="doc-pill-tag">Predictive Modeling</span>
+          <span class="doc-pill-tag">Model Evaluation</span>
+          <span class="doc-pill-tag">Sentiment Analysis (NLP)</span>
+        </div>
+      </div>
+
+      <!-- Syllabus Overview Box -->
+      <div class="doc-callout-card info">
+        <div class="doc-callout-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          Syllabus Covered
+        </div>
+        <ul class="doc-list" style="margin-top: 0.35rem; margin-bottom: 0;">
+          <li>Time series: importing, cleaning, plotting, moving averages, missing values, serial correlation, and autocorrelation</li>
+          <li>Predictive modeling: overview, evaluation, building a model solution, and sentiment analysis</li>
+        </ul>
+        <p style="font-size: 0.9rem; color: var(--text-body); margin-top: 0.65rem; margin-bottom: 0;">
+          <em>Beginner-friendly definitions, formulas, worked examples, runnable Python code, revision notes, and exam questions.</em>
+        </p>
+      </div>
+
+      <!-- How to use these notes & Setup -->
+      <section>
+        <h3 class="doc-section-title">How to use these notes</h3>
+        <p class="doc-paragraph">
+          This module has two connected parts. <strong>Time series analysis</strong> studies data collected sequentially over time. <strong>Predictive modeling</strong> uses past data to estimate an unknown or future outcome. Read the explanations, run the short code examples, and practice explaining what each result means.
+        </p>
+
+        <h4 class="doc-subsection-title">Install libraries</h4>
+        <pre class="doc-code-block"><code>python3 -m pip install pandas numpy matplotlib scikit-learn statsmodels
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt</code></pre>
+        <p class="doc-paragraph">
+          Run code in Jupyter Notebook or a Python file. In a regular Python script, use <code>plt.show()</code> to display charts.
+        </p>
+
+        <div class="doc-callout-card">
+          <div class="doc-callout-title">Learning outcomes</div>
+          <ul class="doc-list" style="margin-bottom: 0;">
+            <li>Load time-stamped data, clean it, and set a proper datetime index.</li>
+            <li>Plot time series and calculate moving averages.</li>
+            <li>Understand missing values, serial correlation, and autocorrelation.</li>
+            <li>Build a basic predictive-modeling workflow without data leakage.</li>
+            <li>Evaluate models with suitable metrics and explain sentiment analysis.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Section 1: Time series analysis: introduction -->
+      <section>
+        <h3 class="doc-section-title">1. Time series analysis: introduction</h3>
+        <p class="doc-paragraph">
+          A <strong>time series</strong> is a sequence of observations recorded in chronological time order, such as daily temperature, monthly sales, hourly electricity use, or yearly population.
+        </p>
+
+        <h4 class="doc-subsection-title">1.1 Important components</h4>
+        <ul class="doc-list">
+          <li><strong>Trend:</strong> A long-term upward or downward persistent movement over extended time.</li>
+          <li><strong>Seasonality:</strong> A periodic pattern that repeats at a known, fixed calendar interval (e.g., higher retail sales every December, summer electricity peaks).</li>
+          <li><strong>Cyclic movement:</strong> Longer-term economic or environmental rises and falls without a fixed, exact repeating period.</li>
+          <li><strong>Noise:</strong> Irregular random variation not explained by trend, cycle, or seasonality.</li>
+          <li><strong>Level:</strong> The baseline average value around which the observations fluctuate.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">1.2 Why time order matters</h4>
+        <p class="doc-paragraph">
+          In ordinary tabular data, rows can often be shuffled without changing the problem. In time series, order matters: yesterday's value helps predict today's value, and a random train/test split can accidentally use future information to predict the past (data leakage).
+        </p>
+        <div class="doc-callout-card success">
+          <div class="doc-callout-title">Example</div>
+          <p class="doc-paragraph" style="margin-bottom: 0;">
+            Daily sales may spike during weekends and festivals. A model that ignores date order may miss temporal cycles or produce overly optimistic, invalid evaluation metrics.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 2: Importing and cleaning time series data -->
+      <section>
+        <h3 class="doc-section-title">2. Importing and cleaning time series data</h3>
+
+        <h4 class="doc-subsection-title">2.1 Read a CSV and parse dates</h4>
+        <pre class="doc-code-block"><code>import pandas as pd
+
+df = pd.read_csv("sales.csv", parse_dates=["date"])
+df = df.sort_values("date")
+df = df.set_index("date")
+
+print(df.head())
+print(df.info())</code></pre>
+        <p class="doc-paragraph">
+          The <code>parse_dates</code> argument converts date strings into proper <code>pd.Timestamp</code> objects. Sorting ensures observations are in chronological order. Setting the date column as the index makes time-based slicing and resampling intuitive and fast.
+        </p>
+
+        <h4 class="doc-subsection-title">2.2 Inspect and clean</h4>
+        <pre class="doc-code-block"><code>print(df.head())
+print(df.tail())
+print(df.isna().sum())
+print(df.duplicated().sum())
+
+# Remove duplicate rows only when they are true duplicates
+df = df[~df.index.duplicated(keep="last")]
+
+# Convert a measurement to numeric; invalid strings become NaN
+df["sales"] = pd.to_numeric(df["sales"], errors="coerce")</code></pre>
+        <p class="doc-paragraph">
+          <em>Do not remove duplicate timestamps blindly:</em> multiple transactions or sensors may legitimately record at the same second. Decide whether to aggregate them (sum/mean), retain them, or resolve them based on domain context.
+        </p>
+
+        <h4 class="doc-subsection-title">2.3 Set frequency and resample</h4>
+        <pre class="doc-code-block"><code># Daily data: use a daily frequency where appropriate
+daily = df["sales"].resample("D").mean()
+
+# Monthly totals, if sales are additive transaction amounts
+monthly_total = df["sales"].resample("MS").sum()</code></pre>
+        <p class="doc-paragraph">
+          Resampling groups observations into a new uniform time frequency. Use <code>mean()</code> for rate/intensity measures, <code>sum()</code> for additive quantities, or other aggregations that match the variable semantics.
+        </p>
+
+        <h4 class="doc-subsection-title">2.4 Time-based selection</h4>
+        <pre class="doc-code-block"><code># All observations from January 2026
+jan = df.loc["2026-01"]
+
+# A precise date range
+period = df.loc["2026-01-01":"2026-01-31"]</code></pre>
+        <p class="doc-paragraph">
+          These convenience slicers assume a valid DatetimeIndex. Always verify time zones and timestamp conventions when merging multi-source datasets.
+        </p>
+      </section>
+
+      <!-- Section 3: Plotting time series -->
+      <section>
+        <h3 class="doc-section-title">3. Plotting time series</h3>
+        <p class="doc-paragraph">
+          A time-series line plot puts time on the x-axis and the measured value on the y-axis. It helps reveal trends, seasonality, abrupt shifts, and missing time intervals.
+        </p>
+        <pre class="doc-code-block"><code>df["sales"].plot(figsize=(9, 4), marker="o", linewidth=1)
+plt.title("Sales over time")
+plt.xlabel("Date")
+plt.ylabel("Sales")
+plt.grid(True, alpha=0.25)
+plt.tight_layout()
+plt.show()</code></pre>
+
+        <h4 class="doc-subsection-title">3.1 What to look for</h4>
+        <ul class="doc-list">
+          <li><strong>Overall direction:</strong> Upward (growth), downward (decay), or roughly stationary.</li>
+          <li><strong>Repeating patterns:</strong> Daily, weekly, monthly, quarterly, or annual seasonality.</li>
+          <li><strong>Sudden jumps or drops:</strong> Structural breaks, system policy changes, or measurement malfunctions.</li>
+          <li><strong>Gaps:</strong> Missing timestamps or data outage periods.</li>
+          <li><strong>Changing variability:</strong> Periods with expanding or compressing fluctuations (heteroscedasticity).</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">3.2 Plot multiple series</h4>
+        <pre class="doc-code-block"><code>df[["sales", "cost"]].plot(figsize=(9, 4))
+plt.title("Sales and cost over time")
+plt.ylabel("Amount")
+plt.tight_layout()
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          If series use different units or scales, use separate subplots or normalized indexes rather than cramming them onto a single ambiguous axis.
+        </p>
+      </section>
+
+      <!-- Section 4: Moving averages -->
+      <section>
+        <h3 class="doc-section-title">4. Moving averages</h3>
+        <p class="doc-paragraph">
+          A moving average smooths short-term fluctuations by averaging values in a sliding window. It helps reveal the underlying trend but can lag or soften sudden changes.
+        </p>
+
+        <h4 class="doc-subsection-title">4.1 Simple moving average (SMA)</h4>
+        <p class="doc-paragraph">
+          For a window of <em>k</em> observations, the simple moving average is the arithmetic mean of the most recent <em>k</em> values. For a 3-point window:
+        </p>
+        <div class="doc-formula-box">
+          <p style="font-family: monospace; font-size: 1.1rem; font-weight: 700;">
+            MA<sub>t</sub> = (x<sub>t</sub> + x<sub>t-1</sub> + x<sub>t-2</sub>) / 3
+          </p>
+        </div>
+        <pre class="doc-code-block"><code>df["MA_7"] = df["sales"].rolling(window=7).mean()
+
+df[["sales", "MA_7"]].plot(figsize=(9, 4))
+plt.title("Sales with 7-observation moving average")
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          The first six values of a 7-point rolling mean are <code>NaN</code> by default because a complete seven-observation window is not yet available. Setting <code>min_periods=1</code> calculates earlier averages using fewer values, though this alters window weighting.
+        </p>
+
+        <h4 class="doc-subsection-title">4.2 Centered versus trailing averages</h4>
+        <ul class="doc-list">
+          <li><strong>Trailing moving average:</strong> Uses only the current and past observations (<code>t, t-1, ...</code>). <em>Essential for real-time forecasting</em> because it never accesses future values.</li>
+          <li><strong>Centered moving average:</strong> Centers the window around time point <em>t</em> (using both past and future values). Useful for historical descriptive trend decomposition, but <em>cannot be used as a real-time predictor</em>.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">4.3 Choosing a window</h4>
+        <p class="doc-paragraph">
+          A larger window smooths more aggressively but reacts more slowly to genuine turning points. Choose a window based on sampling frequency and natural periodicity—for example, 7 observations for weekly seasonality in daily data, or 12 observations for monthly annual data.
+        </p>
+      </section>
+
+      <!-- Section 5: Missing values in time series -->
+      <section>
+        <h3 class="doc-section-title">5. Missing values in time series</h3>
+        <p class="doc-paragraph">
+          Missing values can occur due to sensor disconnection, network latency, or server downtime. Missing timestamps and missing measurements are two distinct issues: a timestamp may be completely absent from the index, or the date row may exist with a <code>NaN</code> measurement.
+        </p>
+
+        <h4 class="doc-subsection-title">5.1 Detect missing values</h4>
+        <pre class="doc-code-block"><code>print(df.isna().sum())
+print(df["sales"].isna())</code></pre>
+
+        <h4 class="doc-subsection-title">5.2 Common handling methods</h4>
+        <ul class="doc-list">
+          <li><strong>Drop (<code>dropna()</code>):</strong> Remove rows only if missingness is rare and will not bias temporal continuity.</li>
+          <li><strong>Forward fill (<code>ffill()</code>):</strong> Carry the last known observation forward. Suitable for slowly evolving state variables.</li>
+          <li><strong>Backward fill (<code>bfill()</code>):</strong> Use the next observed value. <em>Caution: leaks future information if used in forecasting models.</em></li>
+          <li><strong>Interpolation (<code>interpolate(method="time")</code>):</strong> Linear or spline interpolation based on exact time distances. Effective for smooth continuous signals, but can mask genuine step changes.</li>
+          <li><strong>Domain-based imputation:</strong> Use domain business logic (e.g., zero sales on designated university holidays).</li>
+        </ul>
+        <pre class="doc-code-block"><code>df["sales_ffill"] = df["sales"].ffill()
+df["sales_interp"] = df["sales"].interpolate(method="time")</code></pre>
+
+        <h4 class="doc-subsection-title">5.3 Avoid leakage</h4>
+        <div class="doc-callout-card warning">
+          <div class="doc-callout-title">Critical Data Leakage Warning</div>
+          <p class="doc-paragraph" style="margin-bottom: 0;">
+            When training and evaluating a forecasting model, never fill a training-period gap using values from the future test period. Always fit imputation rules on the training set and apply them strictly forward in time.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section 6: Serial correlation and autocorrelation -->
+      <section>
+        <h3 class="doc-section-title">6. Serial correlation and autocorrelation</h3>
+        <p class="doc-paragraph">
+          <strong>Serial correlation</strong> means observations in a sequence are mathematically related to observations at other time points. <strong>Autocorrelation</strong> measures the linear correlation between a time series and a time-lagged copy of itself.
+        </p>
+
+        <h4 class="doc-subsection-title">6.1 Lag example</h4>
+        <p class="doc-paragraph">
+          Lag 1 compares each value with the immediately previous observation; lag 7 compares a daily observation with the observation from seven days prior. A strong lag-7 autocorrelation signals pronounced weekly periodicity.
+        </p>
+        <pre class="doc-code-block"><code># Correlation between sales and the previous observation
+lag1_corr = df["sales"].corr(df["sales"].shift(1))
+print("Lag-1 correlation:", lag1_corr)</code></pre>
+
+        <h4 class="doc-subsection-title">6.2 Autocorrelation function (ACF)</h4>
+        <pre class="doc-code-block"><code>from statsmodels.graphics.tsaplots import plot_acf
+
+plot_acf(df["sales"].dropna(), lags=30)
+plt.title("Autocorrelation of sales")
+plt.show()</code></pre>
+        <p class="doc-paragraph">
+          An ACF plot shows autocorrelation coefficients across multiple lags. Bars extending beyond the shaded confidence intervals indicate statistically significant autocorrelation beyond white noise.
+        </p>
+
+        <h4 class="doc-subsection-title">6.3 Why autocorrelation matters</h4>
+        <ul class="doc-list">
+          <li><strong>Forecasting predictive power:</strong> Past values carry actionable predictive signals for future horizons.</li>
+          <li><strong>Model assumption violations:</strong> Standard linear regression assumes independent errors; autocorrelated residuals artificially inflate t-statistics and invalidate confidence intervals.</li>
+          <li><strong>Diagnosing dynamics:</strong> Trends produce slowly decaying ACF bars; seasonality creates cyclical periodic spikes.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">6.4 Serial correlation versus ordinary correlation</h4>
+        <p class="doc-paragraph">
+          Ordinary Pearson correlation evaluates two separate variables (X and Y) measured across identical cases. Autocorrelation evaluates <em>the same variable across different temporal lags</em>.
+        </p>
+      </section>
+
+      <!-- Section 7: Predictive modeling: overview -->
+      <section>
+        <h3 class="doc-section-title">7. Predictive modeling: overview</h3>
+        <p class="doc-paragraph">
+          Predictive modeling uses historical or observed data to estimate an unknown target outcome for new cases or future time intervals. The model learns mathematical patterns during training and generalizes them to unseen test data.
+        </p>
+
+        <h4 class="doc-subsection-title">7.1 Main task types</h4>
+        <ul class="doc-list">
+          <li><strong>Regression:</strong> Predicts a continuous numeric quantity (e.g., house price, temperature, sales revenue).</li>
+          <li><strong>Classification:</strong> Predicts a discrete category or probability (e.g., loan default vs non-default, spam vs ham).</li>
+          <li><strong>Forecasting:</strong> Predicts future values of a time-ordered sequence with temporal constraints and no lookahead.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">7.2 Typical workflow</h4>
+        <ol class="doc-list">
+          <li>Define the problem statement and the target variable (y).</li>
+          <li>Collect, audit, and understand what each dataset row represents.</li>
+          <li>Clean data, handle missing values, and engineer predictive features.</li>
+          <li>Split data into training, validation, and test partitions.</li>
+          <li>Train a simple heuristic baseline alongside candidate machine learning models.</li>
+          <li>Evaluate rigorously on held-out test data.</li>
+          <li>Inspect error distributions, refine hyperparameters, and document operational limits.</li>
+          <li>Deploy solution and monitor model drift over time.</li>
+        </ol>
+
+        <h4 class="doc-subsection-title">7.3 Features and target</h4>
+        <p class="doc-paragraph">
+          Features (<em>X</em>) are input variables used to predict the outcome. The target (<em>y</em>) is the label or quantity to predict. For time-series forecasting, features can include lagged observations, day of week, month, and rolling window metrics computed strictly prior to prediction time.
+        </p>
+      </section>
+
+      <!-- Section 8: Building a predictive-model solution -->
+      <section>
+        <h3 class="doc-section-title">8. Building a predictive-model solution</h3>
+
+        <h4 class="doc-subsection-title">8.1 Example: predict a numeric value</h4>
+        <pre class="doc-code-block"><code>import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
+
+# Assume X contains numeric feature columns and y is the target
+X = df[["feature1", "feature2"]]
+y = df["target"]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+pred = model.predict(X_test)
+
+print("MAE:", mean_absolute_error(y_test, pred))
+print("RMSE:", mean_squared_error(y_test, pred) ** 0.5)
+print("R2:", r2_score(y_test, pred))</code></pre>
+        <p class="doc-paragraph">
+          This generic example is for independent, identically distributed (i.i.d.) rows. <em>For time series, never randomly shuffle the dataset.</em> Always split chronologically so training data strictly precedes test data.
+        </p>
+
+        <h4 class="doc-subsection-title">8.2 Time-based train/test split</h4>
+        <pre class="doc-code-block"><code>df = df.sort_index()
+split = int(len(df) * 0.8)
+
+train = df.iloc[:split]
+test = df.iloc[split:]
+
+# Example naive forecast baseline: predict using last observed training value
+last_value = train["sales"].iloc[-1]
+pred = np.repeat(last_value, len(test))
+
+mae = np.mean(np.abs(test["sales"].to_numpy() - pred))
+print("Naive forecast MAE:", mae)</code></pre>
+        <p class="doc-paragraph">
+          A naive baseline is invaluable: if a complex machine learning model cannot outperform a naive historical baseline on held-out test data, it is not production-ready.
+        </p>
+
+        <h4 class="doc-subsection-title">8.3 Avoid data leakage</h4>
+        <ul class="doc-list">
+          <li>Never use future target values to build features for past dates.</li>
+          <li>Calculate rolling features with past values only using <code>shift(1)</code>:
+            <pre class="doc-code-block"><code># One-step-ahead rolling feature strictly without leakage
+df["past_7_mean"] = df["sales"].shift(1).rolling(7).mean()</code></pre>
+          </li>
+          <li>Fit feature scalers (MinMaxScaler, StandardScaler) and imputers on training data only.</li>
+          <li>Do not choose model hyperparameters by repeatedly evaluating against the final test set.</li>
+        </ul>
+      </section>
+
+      <!-- Section 9: Evaluating predictive models -->
+      <section>
+        <h3 class="doc-section-title">9. Evaluating predictive models</h3>
+        <p class="doc-paragraph">
+          Evaluation quantifies how accurately a model predicts unseen test data. The metric must directly reflect the target variable type and business consequences of errors.
+        </p>
+
+        <h4 class="doc-subsection-title">9.1 Regression metrics</h4>
+        <ul class="doc-list">
+          <li><strong>MAE (Mean Absolute Error):</strong> Average absolute difference between actual and predicted values: <code>(1/n) &Sigma; |y &minus; y&#770;|</code>. Intuitive in target units.</li>
+          <li><strong>MSE (Mean Squared Error):</strong> Average squared difference: <code>(1/n) &Sigma; (y &minus; y&#770;)&sup2;</code>. Heavily penalizes large outlier errors.</li>
+          <li><strong>RMSE (Root Mean Squared Error):</strong> Square root of MSE; expresses error magnitude back in the target's original measurement units.</li>
+          <li><strong>R&sup2; (Coefficient of Determination):</strong> Proportion of variance explained relative to a horizontal baseline mean prediction. Can be negative on test sets if predictions perform worse than the mean.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">9.2 Classification metrics</h4>
+        <ul class="doc-list">
+          <li><strong>Accuracy:</strong> Fraction of total predictions that are correct: <code>(TP + TN) / Total</code>.</li>
+          <li><strong>Precision:</strong> Fraction of predicted positives that are truly positive: <code>TP / (TP + FP)</code>. High priority when false alarms are costly.</li>
+          <li><strong>Recall (Sensitivity):</strong> Fraction of actual positives correctly identified: <code>TP / (TP + FN)</code>. Crucial when missing positive cases is dangerous (e.g. medical diagnosis).</li>
+          <li><strong>F1-score:</strong> Harmonic mean of precision and recall: <code>2 &times; (Precision &times; Recall) / (Precision + Recall)</code>.</li>
+          <li><strong>Confusion Matrix:</strong> 2x2 grid detailing TP, TN, FP, and FN counts.</li>
+        </ul>
+        <div class="doc-callout-card warning">
+          <div class="doc-callout-title">Class Imbalance Alert</div>
+          <p class="doc-paragraph" style="margin-bottom: 0;">
+            Accuracy is deceptive under heavy class imbalance. If 95% of emails are legitimate, a naive model that always predicts &ldquo;not spam&rdquo; achieves 95% accuracy while completely failing to flag spam.
+          </p>
+        </div>
+
+        <h4 class="doc-subsection-title">9.3 Classification evaluation code</h4>
+        <pre class="doc-code-block"><code>from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+
+print("Accuracy:", accuracy_score(y_test, class_pred))
+print("Confusion Matrix:\n", confusion_matrix(y_test, class_pred))
+print("Classification Report:\n", classification_report(y_test, class_pred))</code></pre>
+
+        <h4 class="doc-subsection-title">9.4 Cross-validation in Time Series</h4>
+        <p class="doc-paragraph">
+          Standard k-fold cross-validation shuffles data across folds, causing future data to leak into past predictions. Instead, use <code>TimeSeriesSplit</code> (expanding or rolling window cross-validation):
+        </p>
+        <pre class="doc-code-block"><code>from sklearn.model_selection import TimeSeriesSplit
+
+tscv = TimeSeriesSplit(n_splits=5)
+for train_idx, test_idx in tscv.split(X):
+    X_train, X_test = X.iloc[train_idx], X.iloc[test_idx]
+    y_train, y_test = y.iloc[train_idx], y.iloc[test_idx]
+    # Train candidate model on X_train and evaluate on forward test fold</code></pre>
+      </section>
+
+      <!-- Section 10: Sentiment analysis -->
+      <section>
+        <h3 class="doc-section-title">10. Sentiment analysis</h3>
+        <p class="doc-paragraph">
+          <strong>Sentiment analysis</strong> is a Natural Language Processing (NLP) task that detects subjective opinion, emotion, or attitude expressed in text. Common target classes are positive, negative, and neutral.
+        </p>
+
+        <h4 class="doc-subsection-title">10.1 Applications</h4>
+        <ul class="doc-list">
+          <li>Automated analysis of product reviews, app ratings, and customer feedback surveys.</li>
+          <li>Real-time brand and public opinion monitoring across social media.</li>
+          <li>Customer support ticket routing by urgency and frustration tone.</li>
+          <li>Financial market intelligence from corporate earnings calls and news feeds.</li>
+        </ul>
+
+        <h4 class="doc-subsection-title">10.2 Basic workflow</h4>
+        <ol class="doc-list">
+          <li>Collect text corpus and specify ground-truth sentiment labels.</li>
+          <li>Preprocess text: clean HTML/URLs, normalize casing, tokenize, remove noise.</li>
+          <li>Transform text into numerical representations (TF-IDF matrices or embedding vectors).</li>
+          <li>Train classification model (e.g., Logistic Regression, Naive Bayes, or Transformers).</li>
+          <li>Evaluate with Precision, Recall, F1-score, and Confusion Matrix.</li>
+          <li>Perform qualitative error analysis on edge cases (sarcasm, negation, slang).</li>
+        </ol>
+
+        <h4 class="doc-subsection-title">10.3 Simple sentiment classifier with scikit-learn</h4>
+        <pre class="doc-code-block"><code># Install: python3 -m pip install scikit-learn
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import make_pipeline
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report
+
+# CSV should contain columns: text, sentiment
+reviews = pd.read_csv("reviews.csv")
+reviews = reviews.dropna(subset=["text", "sentiment"])
+
+X_train, X_test, y_train, y_test = train_test_split(
+    reviews["text"], reviews["sentiment"],
+    test_size=0.2, random_state=42, stratify=reviews["sentiment"]
+)
+
+model = make_pipeline(
+    TfidfVectorizer(ngram_range=(1, 2), min_df=1),
+    LogisticRegression(max_iter=1000)
+)
+
+model.fit(X_train, y_train)
+pred = model.predict(X_test)
+
+print(classification_report(y_test, pred))</code></pre>
+        <p class="doc-paragraph">
+          <strong>TF-IDF (Term Frequency-Inverse Document Frequency)</strong> penalizes ubiquitous words (like &ldquo;the&rdquo;, &ldquo;is&rdquo;) while magnifying distinctive vocabulary. The logistic regression classifier learns weights correlating n-grams with sentiment classes.
+        </p>
+
+        <h4 class="doc-subsection-title">10.4 Sentiment challenges</h4>
+        <ul class="doc-list">
+          <li><strong>Negation:</strong> &ldquo;Not good&rdquo; expresses the opposite of &ldquo;good&rdquo;; bigrams (<code>ngram_range=(1, 2)</code>) help capture simple negation.</li>
+          <li><strong>Sarcasm & Irony:</strong> Statements like &ldquo;Great, another flight delay&rdquo; contain positive words but convey negative sentiment.</li>
+          <li><strong>Context dependency:</strong> The word &ldquo;unpredictable&rdquo; is negative for cloud uptime but positive for a mystery novel plot.</li>
+          <li><strong>Class imbalance:</strong> Majority positive reviews can bias classifiers against detecting negative complaints.</li>
+          <li><strong>Multilingual & Regional Slang:</strong> Code-switching (e.g. Telugu-English phrases, texting shorthand) requires specialized training data.</li>
+          <li><strong>Privacy and Fairness:</strong> Adhere to ethical data guidelines and prevent algorithmic bias against dialect variations.</li>
+        </ul>
+      </section>
+
+      <!-- Section 11: Common mistakes -->
+      <section>
+        <h3 class="doc-section-title">11. Common mistakes</h3>
+        <ul class="doc-list">
+          <li><strong>Failing to parse datetime index:</strong> Dates stored as raw strings lead to alphabetic sorting instead of chronological time order.</li>
+          <li><strong>Using random train/test splits for forecasting:</strong> Causes massive future-to-past data leakage.</li>
+          <li><strong>Indiscriminate missing value deletion:</strong> Blindly dropping timestamps destroys time series periodicity and introduces bias.</li>
+          <li><strong>Using centered moving averages for real-time predictions:</strong> Centered windows use future observations that will not be available in production.</li>
+          <li><strong>Confusing autocorrelation with causality:</strong> Correlation across time lags does not establish a causal mechanism.</li>
+          <li><strong>Reporting accuracy alone on imbalanced datasets:</strong> Always check precision, recall, and F1-score.</li>
+          <li><strong>Fitting scalers or encoders on the complete dataset:</strong> Preprocessing parameters must be fitted solely on the training fold.</li>
+          <li><strong>Assuming sentiment models recognize sarcasm:</strong> Bag-of-words and linear models lack deep semantic context and often misclassify sarcastic text.</li>
+        </ul>
+      </section>
+
+      <!-- Section 12: Quick revision sheet -->
+      <section>
+        <h3 class="doc-section-title">12. Quick revision sheet</h3>
+        <div class="doc-table-wrapper">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Term</th>
+                <th>Meaning</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Time series</strong></td>
+                <td>Observations sequentially recorded in chronological order.</td>
+              </tr>
+              <tr>
+                <td><strong>Trend</strong></td>
+                <td>Long-term general direction of a series (growth or decay).</td>
+              </tr>
+              <tr>
+                <td><strong>Seasonality</strong></td>
+                <td>Recurring pattern repeating at a fixed, regular calendar interval.</td>
+              </tr>
+              <tr>
+                <td><strong>Moving average</strong></td>
+                <td>Average over a sliding window used to filter noise and reveal underlying trend.</td>
+              </tr>
+              <tr>
+                <td><strong>Missing value</strong></td>
+                <td>Unobserved data measurement or an absent timestamp in the sequence.</td>
+              </tr>
+              <tr>
+                <td><strong>Autocorrelation</strong></td>
+                <td>Correlation between a time series and its own lagged values.</td>
+              </tr>
+              <tr>
+                <td><strong>Regression</strong></td>
+                <td>Prediction of a continuous numeric target.</td>
+              </tr>
+              <tr>
+                <td><strong>Classification</strong></td>
+                <td>Prediction of a discrete label, class, or categorical group.</td>
+              </tr>
+              <tr>
+                <td><strong>MAE / RMSE</strong></td>
+                <td>Regression error metrics; lower values signify closer predictions.</td>
+              </tr>
+              <tr>
+                <td><strong>Precision / Recall / F1</strong></td>
+                <td>Classification quality metrics balanced against false alarms and missed cases.</td>
+              </tr>
+              <tr>
+                <td><strong>Data leakage</strong></td>
+                <td>Inadvertently using test or future information during model training.</td>
+              </tr>
+              <tr>
+                <td><strong>Sentiment analysis</strong></td>
+                <td>Computational NLP classification of subjective opinions and emotional tone.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 13: Exam practice questions -->
+      <section>
+        <h3 class="doc-section-title">13. Exam practice questions</h3>
+        
+        <div class="doc-qa-list">
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q1.</span> Define time series analysis and explain trend and seasonality.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Time series analysis is the study of data points collected in sequential time order. Trend is the persistent long-term upward or downward movement; seasonality is a predictable pattern repeating at fixed calendar intervals.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q2.</span> How do you import a CSV file and set a date column as the index?</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> <code>df = pd.read_csv("data.csv", parse_dates=["date"]); df = df.sort_values("date").set_index("date")</code></div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q3.</span> Why must time-series data be sorted chronologically?</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Because observations have temporal dependencies. Chronological order ensures moving averages, lag correlations, and train/test splits reflect realistic historical progression without future data leakage.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-num doc-qa-question"><span class="doc-qa-num">Q4.</span> What is a moving average? Differentiate trailing and centered moving averages.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> A moving average calculates mean values across a sliding window. A trailing average uses only current and past points (viable for live forecasting); a centered average centers the window using past and future points (historical analysis only).</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q5.</span> List four methods for handling missing values and one risk of each.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> 1) Dropping (loses data continuity); 2) Forward fill (propagates stale outdated values); 3) Backward fill (leaks future information); 4) Linear interpolation (smooths away real sudden shocks).</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q6.</span> Define serial correlation and autocorrelation.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Serial correlation is the general dependence between sequential observations. Autocorrelation specifically computes Pearson correlation between a series and its lagged version across time.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q7.</span> What does an ACF plot show?</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> It plots correlation values on the y-axis against successive lag counts on the x-axis, complete with statistical confidence threshold bands.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q8.</span> Define predictive modeling. Differentiate regression and classification.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Predictive modeling builds mathematical algorithms trained on historical data to predict unknown outcomes. Regression predicts continuous numerical quantities; classification predicts discrete categorical labels.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q9.</span> Describe the steps involved in building a predictive model.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> 1) Problem & target definition; 2) Data collection; 3) Data cleaning & feature engineering; 4) Train/test partitioning; 5) Model training; 6) Held-out evaluation; 7) Diagnostic error tuning; 8) Deployment & monitoring.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q10.</span> Why should forecasting data be split chronologically?</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> To prevent data leakage. Future observations cannot be allowed into training data, ensuring the model simulates real-world forward deployment conditions.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q11.</span> Explain MAE, RMSE, and R².</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> MAE: mean absolute error in target units; RMSE: root mean squared error, penalizing large outliers; R²: percentage of variance explained compared to a naive horizontal mean baseline.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q12.</span> Differentiate accuracy, precision, recall, and F1-score.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Accuracy is overall fraction correct; Precision is fraction of predicted positives that are true; Recall is fraction of actual positives captured; F1-score is the harmonic mean of Precision and Recall.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q13.</span> What is data leakage? Give a time-series example.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> The introduction of information from outside the training dataset into model building. Example: computing a 7-day rolling mean using future days without a <code>shift(1)</code> offset.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q14.</span> Define sentiment analysis and list its applications.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> An NLP classification method identifying the emotional polarity (positive, negative, neutral) of text. Applications: product review analysis, customer feedback analytics, brand monitoring, ticket triage.</div>
+          </div>
+
+          <div class="doc-qa-item">
+            <div class="doc-qa-question"><span class="doc-qa-num">Q15.</span> Explain the TF-IDF plus logistic regression workflow for sentiment classification.</div>
+            <div class="doc-qa-answer"><strong>Answer:</strong> Raw review text is tokenized into n-grams and transformed into term frequency-inverse document frequency vectors; Logistic Regression fits weights to these features to predict the sentiment class.</div>
+          </div>
+        </div>
+
+        <div class="doc-callout-card info" style="margin-top: 1.75rem;">
+          <div class="doc-callout-title">Module 5 Summary & Exam Advice</div>
+          <p class="doc-paragraph" style="margin-bottom: 0;">
+            End of Module 5 notes. For examination preparation, practise defining time series components, explaining each metric in plain language, implementing rolling features, and understanding why time ordering and leakage prevention are fundamental to robust machine learning.
+          </p>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col-left">
+        <div class="footer-logo-row">
+          <img src="assets/mbu-logo.png" alt="MBU Logo" class="footer-logo">
+          <span class="footer-brand-title">Mohan Babu University</span>
+        </div>
+        <p class="footer-motto">DREAM. BELIEVE. ACHIEVE.</p>
+        <p class="footer-sub">Department of Computer Science & Engineering — B.Tech Data Science</p>
+      </div>
+      
+      <div class="footer-col-right">
+        <p class="footer-copy">© 2026–2027 Mohan Babu University. All rights reserved.</p>
+        <p class="footer-credit">Developed for Academic Coursework: Mounika • Subject Code: 22DS102006</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

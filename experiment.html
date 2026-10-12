@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiment | Data Science Lab | Mohan Babu University (MBU)</title>
+  <script>
+    // Redirect experiment.html?id=X to experimentX.html
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    if (id && parseInt(id, 10) >= 1 && parseInt(id, 10) <= 10) {
+      window.location.replace(`experiment${parseInt(id, 10)}.html`);
+    } else {
+      window.location.replace('experiments.html');
+    }
+  </script>
+</head>
+<body>
+</body>
+</html>
