@@ -289,9 +289,9 @@ function initSearch() {
       type: 'experiment',
       number: 7,
       label: 'EXPERIMENT 7',
-      title: 'Classification Algorithms',
+      title: 'Data Aggregation',
       url: 'experiment7.html',
-      keywords: ['classification algorithms', 'classification', 'classifier', 'decision tree', 'experiment 7', '7 experiment', 'experiment7', 'exp 7', 'exp7', 'e7']
+      keywords: ['data aggregation', 'aggregation', 'groupby', 'aggregate', 'agg', 'iris', 'summary statistics', 'experiment 7', '7 experiment', 'experiment7', 'exp 7', 'exp7', 'e7']
     },
     {
       type: 'experiment',

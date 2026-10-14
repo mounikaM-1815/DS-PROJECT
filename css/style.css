@@ -13,30 +13,39 @@
   --mbu-gold: #f59e0b;
   --mbu-gold-dark: #d97706;
 
-  /* Surfaces & Backgrounds */
-  --bg-main: #f8fafc;
-  --bg-card: #ffffff;
-  --bg-card-subtle: #f1f5f9;
-  --bg-muted: #f3f4f6;
+  /* Data Science Theme Accents */
+  --blue-accent: #2563eb;
+  --blue-accent-fade: rgba(37, 99, 235, 0.08);
+  --blue-glow: rgba(37, 99, 235, 0.16);
+  --cyan-accent: #0284c7;
 
-  /* Typography Colors */
-  --text-main: #0f172a;
+  /* Surfaces & Backgrounds - Very Light Blue-Grey Theme */
+  --bg-main: #f0f4f9;
+  --bg-main-light: #f6f9fc;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f8fafc;
+  --bg-muted: #eaf0f7;
+
+  /* Typography Colors - Deep Navy Headings & Readable Slate Body */
+  --text-main: #0a1c36;
+  --text-navy: #0a1c36;
+  --text-navy-deep: #06152b;
   --text-body: #334155;
-  --text-muted: #64748b;
-  --text-light: #94a3b8;
+  --text-muted: #53657d;
+  --text-light: #889bb3;
   --text-white: #ffffff;
 
   /* Borders & Dividers */
-  --border-subtle: #e2e8f0;
+  --border-subtle: #dbe4ef;
   --border-medium: #cbd5e1;
   --border-focus: #b41118;
 
-  /* Box Shadows */
-  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
-  --shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.07), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 10px 25px -3px rgba(15, 23, 42, 0.09), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
-  --shadow-hover: 0 14px 30px -4px rgba(180, 17, 24, 0.12), 0 6px 14px -2px rgba(15, 23, 42, 0.06);
+  /* Soft Box Shadows with Navy Tint */
+  --shadow-xs: 0 1px 3px 0 rgba(10, 28, 54, 0.04);
+  --shadow-sm: 0 2px 6px -1px rgba(10, 28, 54, 0.06), 0 1px 3px -1px rgba(10, 28, 54, 0.03);
+  --shadow-md: 0 4px 18px -2px rgba(10, 28, 54, 0.07), 0 2px 6px -1px rgba(10, 28, 54, 0.04);
+  --shadow-lg: 0 10px 28px -3px rgba(10, 28, 54, 0.08), 0 4px 12px -2px rgba(10, 28, 54, 0.04);
+  --shadow-hover: 0 14px 34px -4px rgba(180, 17, 24, 0.12), 0 6px 16px -2px rgba(10, 28, 54, 0.06);
 
   /* Radii */
   --radius-sm: 6px;
@@ -57,7 +66,9 @@
 /* ==========================================================================
    CSS RESET & BASE
    ========================================================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -71,15 +82,17 @@ html {
 body {
   font-family: var(--font-sans);
   background-color: var(--bg-main);
+  background-image: linear-gradient(165deg, #edf2f7 0%, #f4f7fb 42%, #e9eff6 100%);
   color: var(--text-body);
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   position: relative;
+  min-height: 100vh;
 }
 
-/* Subtle academic grid pattern background */
+/* Layer 1: Ambient Blue & Red Data Science Glows + Subtle Coordinate Grid Lines */
 body::before {
   content: "";
   position: fixed;
@@ -87,13 +100,38 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
-    radial-gradient(rgba(180, 17, 24, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(248, 250, 252, 0.92), rgba(248, 250, 252, 0.98));
-  background-size: 32px 32px, 100% 100%;
-  background-position: 0 0, 0 0;
+  background-image:
+    /* Top-left subtle blue data science ambient glow */
+    radial-gradient(circle 750px at 8% 10%, rgba(37, 99, 235, 0.055) 0%, transparent 70%),
+    /* Top-right subtle MBU-red accent glow */
+    radial-gradient(circle 800px at 92% 16%, rgba(180, 17, 24, 0.045) 0%, transparent 70%),
+    /* Mid-page subtle cyan telemetry glow */
+    radial-gradient(circle 700px at 45% 65%, rgba(14, 165, 233, 0.038) 0%, transparent 75%),
+    /* Bottom subtle deep blue glow */
+    radial-gradient(circle 850px at 80% 90%, rgba(30, 58, 138, 0.035) 0%, transparent 70%),
+    /* Statistical Coordinate Grid Lines (40px x 40px) */
+    linear-gradient(to right, rgba(148, 163, 184, 0.065) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.065) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+  background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* Layer 2: Faint Statistical Graphs, Network Nodes, Scatter Points, and Wave Curves */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3C!-- Network Edges --%3E%3Cpath d='M50 70 L140 40 L240 85 L330 45 M140 40 L190 170 L90 220 M190 170 L280 230 L350 180 M90 220 L60 310 M190 170 L210 320' fill='none' stroke='%23475569' stroke-width='0.75' stroke-opacity='0.08'/%3E%3C!-- Network Nodes --%3E%3Ccircle cx='50' cy='70' r='2.5' fill='%232563eb' fill-opacity='0.16'/%3E%3Ccircle cx='140' cy='40' r='3.2' fill='%23b41118' fill-opacity='0.15'/%3E%3Ccircle cx='240' cy='85' r='2.5' fill='%232563eb' fill-opacity='0.14'/%3E%3Ccircle cx='330' cy='45' r='3' fill='%23475569' fill-opacity='0.15'/%3E%3Ccircle cx='190' cy='170' r='3.5' fill='%23b41118' fill-opacity='0.18'/%3E%3Ccircle cx='90' cy='220' r='2.5' fill='%230284c7' fill-opacity='0.16'/%3E%3Ccircle cx='280' cy='230' r='3' fill='%232563eb' fill-opacity='0.15'/%3E%3Ccircle cx='350' cy='180' r='2' fill='%23475569' fill-opacity='0.12'/%3E%3Ccircle cx='60' cy='310' r='2.5' fill='%230284c7' fill-opacity='0.15'/%3E%3Ccircle cx='210' cy='320' r='3' fill='%23b41118' fill-opacity='0.16'/%3E%3C!-- Gaussian / Bell Curve Distribution Wave --%3E%3Cpath d='M20 360 C80 360 110 290 150 290 C190 290 220 360 280 360' fill='none' stroke='%23b41118' stroke-width='1.1' stroke-opacity='0.075' stroke-dasharray='3,3'/%3E%3C!-- Sine Wave Flow --%3E%3Cpath d='M270 120 Q310 90 350 120 T430 120' fill='none' stroke='%230284c7' stroke-width='0.9' stroke-opacity='0.06'/%3E%3C!-- Scatter Plot Clusters --%3E%3Ccircle cx='260' cy='55' r='1.4' fill='%232563eb' fill-opacity='0.14'/%3E%3Ccircle cx='272' cy='46' r='1.4' fill='%232563eb' fill-opacity='0.14'/%3E%3Ccircle cx='285' cy='62' r='1.4' fill='%232563eb' fill-opacity='0.14'/%3E%3Ccircle cx='295' cy='50' r='1.4' fill='%232563eb' fill-opacity='0.14'/%3E%3Ccircle cx='302' cy='66' r='1.4' fill='%232563eb' fill-opacity='0.14'/%3E%3C!-- Histogram Bars Silhouette --%3E%3Crect x='22' y='145' width='10' height='20' fill='%2364748b' fill-opacity='0.035' stroke='%2364748b' stroke-width='0.6' stroke-opacity='0.07'/%3E%3Crect x='34' y='132' width='10' height='33' fill='%2364748b' fill-opacity='0.035' stroke='%2364748b' stroke-width='0.6' stroke-opacity='0.07'/%3E%3Crect x='46' y='118' width='10' height='47' fill='%2364748b' fill-opacity='0.04' stroke='%2364748b' stroke-width='0.6' stroke-opacity='0.07'/%3E%3Crect x='58' y='138' width='10' height='27' fill='%2364748b' fill-opacity='0.035' stroke='%2364748b' stroke-width='0.6' stroke-opacity='0.07'/%3E%3C/svg%3E");
+  background-size: 400px 400px;
+  background-repeat: repeat;
   pointer-events: none;
   z-index: -1;
+  opacity: 0.95;
 }
 
 img {
@@ -338,16 +376,18 @@ button {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   padding: 1.85rem;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 20px -2px rgba(10, 28, 54, 0.06), 0 2px 6px -1px rgba(10, 28, 54, 0.03);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  transition: box-shadow var(--transition-smooth);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
 }
 
 .course-card:hover {
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -4px rgba(10, 28, 54, 0.08), 0 0 24px -2px rgba(37, 99, 235, 0.09);
+  border-color: rgba(37, 99, 235, 0.25);
 }
 
 .course-card-body {
@@ -498,17 +538,17 @@ button {
 .id-card {
   position: relative;
   background: #ffffff;
-  border: 1.5px solid #e2e8f0;
+  border: 1.5px solid var(--border-subtle);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  box-shadow: 0 4px 20px -2px rgba(10, 28, 54, 0.06), 0 2px 6px -1px rgba(10, 28, 54, 0.03);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
 }
 
 .id-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  border-color: #cbd5e1;
+  box-shadow: 0 12px 30px -4px rgba(10, 28, 54, 0.08), 0 0 24px -2px rgba(180, 17, 24, 0.1);
+  border-color: rgba(180, 17, 24, 0.25);
 }
 
 /* ID Card Header with official logo */
@@ -963,14 +1003,33 @@ button {
 }
 
 @keyframes searchFadeIn {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes shakeSearch {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-6px); }
-  40%, 80% { transform: translateX(6px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-6px);
+  }
+
+  40%,
+  80% {
+    transform: translateX(6px);
+  }
 }
 
 .search-shake {
@@ -1068,7 +1127,8 @@ button {
 .video-embed-container {
   position: relative;
   width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  padding-top: 56.25%;
+  /* 16:9 Aspect Ratio */
   background: #0f172a;
   overflow: hidden;
 }
@@ -1222,12 +1282,29 @@ button {
   border-radius: 50%;
 }
 
-.chip-color.py { background: #3776ab; }
-.chip-color.fast { background: #009688; }
-.chip-color.html { background: #e34f26; }
-.chip-color.css { background: #1572b6; }
-.chip-color.js { background: #f7df1e; }
-.chip-color.sql { background: #336791; }
+.chip-color.py {
+  background: #3776ab;
+}
+
+.chip-color.fast {
+  background: #009688;
+}
+
+.chip-color.html {
+  background: #e34f26;
+}
+
+.chip-color.css {
+  background: #1572b6;
+}
+
+.chip-color.js {
+  background: #f7df1e;
+}
+
+.chip-color.sql {
+  background: #336791;
+}
 
 .info-card-footer {
   padding: 1.15rem 1.5rem;
@@ -2310,6 +2387,7 @@ button {
     opacity: 0;
     transform: translateY(-8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -2355,8 +2433,8 @@ button {
   text-decoration: none;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.2s ease;
+    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.2s ease;
   user-select: none;
   position: relative;
   overflow: hidden;
@@ -2391,16 +2469,56 @@ button {
 }
 
 /* 10 Unique Curated Colors */
-.exp-btn-1  { background: linear-gradient(135deg, #b41118 0%, #dc2626 100%); } /* 1. MBU Crimson */
-.exp-btn-2  { background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%); } /* 2. Royal Blue */
-.exp-btn-3  { background: linear-gradient(135deg, #047857 0%, #10b981 100%); } /* 3. Emerald Green */
-.exp-btn-4  { background: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%); } /* 4. Deep Violet */
-.exp-btn-5  { background: linear-gradient(135deg, #b45309 0%, #f59e0b 100%); } /* 5. Amber Gold */
-.exp-btn-6  { background: linear-gradient(135deg, #0e7490 0%, #06b6d4 100%); } /* 6. Ocean Teal */
-.exp-btn-7  { background: linear-gradient(135deg, #be185d 0%, #ec4899 100%); } /* 7. Magenta Pink */
-.exp-btn-8  { background: linear-gradient(135deg, #4338ca 0%, #6366f1 100%); } /* 8. Electric Indigo */
-.exp-btn-9  { background: linear-gradient(135deg, #c2410c 0%, #ea580c 100%); } /* 9. Sunset Orange */
-.exp-btn-10 { background: linear-gradient(135deg, #701a75 0%, #a21caf 100%); } /* 10. Royal Plum */
+.exp-btn-1 {
+  background: linear-gradient(135deg, #b41118 0%, #dc2626 100%);
+}
+
+/* 1. MBU Crimson */
+.exp-btn-2 {
+  background: linear-gradient(135deg, #1d4ed8 0%, #3b82f6 100%);
+}
+
+/* 2. Royal Blue */
+.exp-btn-3 {
+  background: linear-gradient(135deg, #047857 0%, #10b981 100%);
+}
+
+/* 3. Emerald Green */
+.exp-btn-4 {
+  background: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%);
+}
+
+/* 4. Deep Violet */
+.exp-btn-5 {
+  background: linear-gradient(135deg, #b45309 0%, #f59e0b 100%);
+}
+
+/* 5. Amber Gold */
+.exp-btn-6 {
+  background: linear-gradient(135deg, #0e7490 0%, #06b6d4 100%);
+}
+
+/* 6. Ocean Teal */
+.exp-btn-7 {
+  background: linear-gradient(135deg, #be185d 0%, #ec4899 100%);
+}
+
+/* 7. Magenta Pink */
+.exp-btn-8 {
+  background: linear-gradient(135deg, #4338ca 0%, #6366f1 100%);
+}
+
+/* 8. Electric Indigo */
+.exp-btn-9 {
+  background: linear-gradient(135deg, #c2410c 0%, #ea580c 100%);
+}
+
+/* 9. Sunset Orange */
+.exp-btn-10 {
+  background: linear-gradient(135deg, #701a75 0%, #a21caf 100%);
+}
+
+/* 10. Royal Plum */
 
 /* Single Experiment View Detail Card */
 .experiment-detail-card {
@@ -2522,8 +2640,8 @@ button {
   padding: 1.35rem 1.6rem;
   box-shadow: var(--shadow-sm);
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.22s ease;
+    box-shadow 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.22s ease;
   position: relative;
   overflow: hidden;
 }
